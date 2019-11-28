@@ -1,10 +1,10 @@
-package Client.GoGame;
+package Server.GoGame;
 
 /**
  * Hello world!
  *
  */
-public class App 
+public class GoGameServer 
 {
     public static void main( String[] args )
     {
