@@ -1,4 +1,4 @@
-package ClientApplication.GoGame.Entities.ClientMessage;
+package ClientApplication.GoGame.Entities.ClientMessages;
 
 public class SetGameOptions implements ClientMessage{
 

@@ -5,6 +5,10 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 
+import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
+
+
+
 public class Client { // zamykanie i otwieranie połączenia
 	private ObjectOutputStream output = null;
 	private ObjectInputStream input = null;
@@ -28,7 +32,25 @@ public class Client { // zamykanie i otwieranie połączenia
 	         
 	}
 	
+	public void sendMessageToServer (ClientMessage message) throws IOException {
+        	ClientMessage newMessage = message;
+			output.writeObject(newMessage);
+	}
+	
+	public void getMessageFromServer() throws IOException{
+		
+	}
+	
+	
 	public void closeClientConnection() {
+		try {
+			output.close();
+			input.close();
+			socket.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 
