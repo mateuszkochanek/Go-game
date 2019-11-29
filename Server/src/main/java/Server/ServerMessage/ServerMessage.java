@@ -1,5 +1,5 @@
 package Server.ServerMessage;
 
-interface ServerMessage {
+public interface ServerMessage {
     public void doAction();
 }
