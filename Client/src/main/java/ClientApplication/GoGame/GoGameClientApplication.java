@@ -1,6 +1,6 @@
-package Client.GoGame;
+package ClientApplication.GoGame;
 
-import Client.GoGame.Connection.Client;
+import ClientApplication.GoGame.Connection.Client;
 
 /**
  * Hello world!

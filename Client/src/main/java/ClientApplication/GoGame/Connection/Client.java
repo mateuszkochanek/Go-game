@@ -1,4 +1,4 @@
-package Client.GoGame.Connection;
+package ClientApplication.GoGame.Connection;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -19,13 +19,17 @@ public class Client { // zamykanie i otwieranie połączenia
 		
 			try {
 				this.setSocket(new Socket(ipAdress,port));
-				System.out.println("connected");
+				System.out.println("socket created");
 				this.setInput(new ObjectInputStream(socket.getInputStream()));
 		        this.setOutput(new ObjectOutputStream(socket.getOutputStream()));
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 	         
+	}
+	
+	public void closeClientConnection() {
+		
 	}
 
 
