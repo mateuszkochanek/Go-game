@@ -24,7 +24,7 @@ public class Human implements Player, Runnable {
             
             ServerMessage newMessage = (ServerMessage) inputStream.readObject();
             
-            outputStream.writeObject(new GameSettings());
+            outputStream.writeObject(newMessage);
         } catch (Exception e) {
             System.out.println("Error:" + socket);
         } finally {
