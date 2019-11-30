@@ -1,5 +1,7 @@
 package ClientApplication.GoGame.Entities.ClientMessages;
 
-public interface ClientMessage {
+import java.io.Serializable;
+
+public interface ClientMessage extends Serializable {
 
 }

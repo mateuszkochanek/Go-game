@@ -2,7 +2,8 @@ package Server.ServerMessage;
 
 public class OponentMove implements ServerMessage {
 
-	private int x;
+    private static final long serialVersionUID = 1L;
+    private int x;
 	private int y;
 	
 	public OponentMove(int setX, int setY) {

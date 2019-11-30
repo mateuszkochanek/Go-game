@@ -2,7 +2,7 @@ package Server.Player;
 
 import java.io.IOException;
 
-import Server.ClientMessages.ClientMessage;
+import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
 import Server.ServerMessage.ServerMessage;
 
 public class Bot implements Player {
