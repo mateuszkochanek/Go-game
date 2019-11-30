@@ -8,7 +8,7 @@ import java.net.Socket;
 import Server.ClientMessages.ClientMessage;
 import Server.ServerMessage.ServerMessage;
 
-public class Human implements Player, Runnable {
+public class Human implements Player {
     private Socket socket;
     private ObjectInputStream inputStream;
     private ObjectOutputStream outputStream;
@@ -20,8 +20,10 @@ public class Human implements Player, Runnable {
     @Override
     public void run() {
         try {
-            inputStream = new ObjectInputStream(socket.getInputStream());
+            System.out.print("Seting input and output... ");
             outputStream = new ObjectOutputStream(socket.getOutputStream());
+            inputStream = new ObjectInputStream(socket.getInputStream());
+            System.out.println("Done");
         } catch (Exception e) {
             e.getStackTrace();
         } finally {
@@ -31,7 +33,7 @@ public class Human implements Player, Runnable {
                 e.getStackTrace();
             }
         }
-        
+      
     }
     
     public ClientMessage getMessage() throws ClassNotFoundException, IOException {
