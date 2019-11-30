@@ -6,6 +6,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
+import Server.ServerMessage.ServerMessage;
 
 
 
@@ -37,8 +38,8 @@ public class Client { // zamykanie i otwieranie połączenia
 			output.writeObject(newMessage);
 	}
 	
-	public void getMessageFromServer() throws IOException{
-		
+	public ServerMessage getMessageFromServer() throws ClassNotFoundException, IOException{
+		return (ServerMessage) input.readObject();
 	}
 	
 	

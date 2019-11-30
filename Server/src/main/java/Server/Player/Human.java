@@ -5,6 +5,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 
+import Server.ClientMessages.ClientMessage;
 import Server.ServerMessage.ServerMessage;
 
 public class Human implements Player, Runnable {
@@ -33,8 +34,8 @@ public class Human implements Player, Runnable {
         
     }
     
-    public ServerMessage getMessage() throws ClassNotFoundException, IOException {
-        return (ServerMessage) inputStream.readObject();
+    public ClientMessage getMessage() throws ClassNotFoundException, IOException {
+        return (ClientMessage) inputStream.readObject();
     }
     
     public void sendMessage(ServerMessage message) throws IOException {
