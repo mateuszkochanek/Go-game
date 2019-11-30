@@ -1,8 +1,8 @@
 package Server.ServerMessage;
 
 public class GameSettings implements ServerMessage {
-	int size;
-	String mode; //hotSeat, Online, Multiplayer
+	private int size;
+	private String mode; //hotSeat, Online, Multiplayer
 	
 	public GameSettings(int size, String mode) {
 		this.size = size;
