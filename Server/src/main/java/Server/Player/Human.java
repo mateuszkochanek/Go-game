@@ -5,7 +5,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 
-import Server.ClientMessages.ClientMessage;
+import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
 import Server.ServerMessage.ServerMessage;
 
 public class Human implements Player {
@@ -24,6 +24,10 @@ public class Human implements Player {
             outputStream = new ObjectOutputStream(socket.getOutputStream());
             inputStream = new ObjectInputStream(socket.getInputStream());
             System.out.println("Done");
+            
+            while(inputStream != null) {
+                
+            }
         } catch (Exception e) {
             e.getStackTrace();
         } finally {
@@ -42,6 +46,7 @@ public class Human implements Player {
     
     public void sendMessage(ServerMessage message) throws IOException {
         outputStream.writeObject(message);
+        outputStream.flush();
     }
 
 }

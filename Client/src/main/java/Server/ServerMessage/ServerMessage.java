@@ -1,5 +1,7 @@
 package Server.ServerMessage;
 
-public interface ServerMessage {
+import java.io.Serializable;
+
+public interface ServerMessage extends Serializable {
 
 }

@@ -1,7 +1,9 @@
-package Server.ClientMessages;
+package ClientApplication.GoGame.Entities.ClientMessages;
 
 
 public class Move implements ClientMessage {
+    
+    private static final long serialVersionUID = 1L;
 	private int x;
 	private int y;
 	

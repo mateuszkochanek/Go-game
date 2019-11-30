@@ -37,9 +37,10 @@ public class Client { // zamykanie i otwieranie połączenia
 	public void sendMessageToServer (ClientMessage message) throws IOException {
         	ClientMessage newMessage = message;
 			output.writeObject(newMessage);
+			output.flush();
 	}
 	
-	public ServerMessage getMessageFromServer() throws ClassNotFoundException, IOException{
+	public ServerMessage getMessageFromServer() throws ClassNotFoundException, IOException {
 		return (ServerMessage) input.readObject();
 	}
 	

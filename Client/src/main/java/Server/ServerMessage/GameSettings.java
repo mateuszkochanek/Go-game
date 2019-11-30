@@ -1,6 +1,8 @@
 package Server.ServerMessage;
 
 public class GameSettings implements ServerMessage {
+    
+    private static final long serialVersionUID = 1L;
 	private int size;
 	private String mode; //hotSeat, Online, Multiplayer
 	
