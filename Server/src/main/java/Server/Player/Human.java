@@ -6,12 +6,15 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
+import ClientApplication.GoGame.Entities.ClientMessages.SetGameOptions;
+import Server.Game.Game;
 import Server.ServerMessage.ServerMessage;
 
 public class Human implements Player {
     private Socket socket;
     private ObjectInputStream inputStream;
     private ObjectOutputStream outputStream;
+    private Game game = null;
 
     public Human(Socket socket) {
         this.socket = socket;
@@ -20,13 +23,16 @@ public class Human implements Player {
     @Override
     public void run() {
         try {
-            System.out.print("Seting input and output... ");
             outputStream = new ObjectOutputStream(socket.getOutputStream());
             inputStream = new ObjectInputStream(socket.getInputStream());
-            System.out.println("Done");
             
             while(inputStream != null) {
-                
+                ClientMessage clientMessage = (ClientMessage) inputStream.readObject();
+                if (this.game != null) {
+                    this.game.getMessage(clientMessage);
+                } else {
+                    this.game = new Game(this, (SetGameOptions) clientMessage);
+                }
             }
         } catch (Exception e) {
             e.getStackTrace();
@@ -40,10 +46,7 @@ public class Human implements Player {
       
     }
     
-    public ClientMessage getMessage() throws ClassNotFoundException, IOException {
-        return (ClientMessage) inputStream.readObject();
-    }
-    
+    @Override
     public void sendMessage(ServerMessage message) throws IOException {
         outputStream.writeObject(message);
         outputStream.flush();
