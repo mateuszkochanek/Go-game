@@ -24,9 +24,10 @@ public class Client { // zamykanie i otwieranie połączenia
 		
 			try {
 				this.setSocket(new Socket(ipAdress,port));
-				System.out.println("socket created");
+				System.out.print("socket created...   ");
+				this.setOutput(new ObjectOutputStream(socket.getOutputStream()));
 				this.setInput(new ObjectInputStream(socket.getInputStream()));
-		        this.setOutput(new ObjectOutputStream(socket.getOutputStream()));
+		        System.out.println("done");
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
