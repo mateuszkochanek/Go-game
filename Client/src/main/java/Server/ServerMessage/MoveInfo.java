@@ -1,8 +1,8 @@
 package Server.ServerMessage;
 
 public class MoveInfo implements ServerMessage {
-	boolean correctMove;
 
+	boolean correctMove;
 	public MoveInfo(boolean correctMove) {
 		this.correctMove = correctMove;
 	}

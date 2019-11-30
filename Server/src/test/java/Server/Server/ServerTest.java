@@ -4,7 +4,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import Server.ServerMessage.GameSettings;
 import Server.ServerMessage.ServerMessage;
@@ -22,7 +22,7 @@ public class ServerTest {
             ObjectInputStream inputStream = new ObjectInputStream(socket.getInputStream());
             ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
             
-            outputStream.writeObject(new GameSettings());
+            outputStream.writeObject(new GameSettings(0, "hotseat"));
             ServerMessage newMessage = (ServerMessage) inputStream.readObject();
             
             assert(newMessage instanceof GameSettings);

@@ -1,4 +1,5 @@
-package ClientApplication.GoGame.Entities.ClientMessages;
+package Server.ClientMessages;
+
 
 public class Move implements ClientMessage {
 	private int x;

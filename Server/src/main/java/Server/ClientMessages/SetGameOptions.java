@@ -1,4 +1,4 @@
-package ClientApplication.GoGame.Entities.ClientMessages;
+package Server.ClientMessages;
 
 public class SetGameOptions implements ClientMessage{
 
@@ -21,5 +21,6 @@ public class SetGameOptions implements ClientMessage{
 	public void setMode(String mode) {
 		this.mode = mode;
 	}
+	
 	
 }
