@@ -4,87 +4,68 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.net.UnknownHostException;
 
 import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
+import ClientApplication.GoGame.Entities.ClientMessages.Move;
+import ClientApplication.GoGame.Entities.ClientMessages.Pass;
+import ClientApplication.GoGame.Entities.ClientMessages.SetGameOptions;
+import ClientApplication.GoGame.Entities.Game.Game;
+import Server.ServerMessage.GameSettings;
+import Server.ServerMessage.MoveInfo;
+import Server.ServerMessage.OponentMove;
 import Server.ServerMessage.ServerMessage;
 
 
 
 public class Client { // zamykanie i otwieranie połączenia
-	private ObjectOutputStream output = null;
-	private ObjectInputStream input = null;
-	private Socket socket = null;
+	ClientConnection clientConnection;
 	
-	public Client(String ipAdress,int port) {
+	public Client(String ipAdress,int port) throws UnknownHostException, IOException {
 		this.initializeClientConnection(ipAdress,port);
+		clientConnection.setClient(this);
 	}
-	
 	//this method creates connection and output/input object streams
-	private void initializeClientConnection(String ipAdress,int port) {
-		
-			try {
-				this.setSocket(new Socket(ipAdress,port));
-				System.out.print("socket created...   ");
-				this.setOutput(new ObjectOutputStream(socket.getOutputStream()));
-				this.setInput(new ObjectInputStream(socket.getInputStream()));
-		        System.out.println("done");
-			} catch (IOException e) {
-				e.printStackTrace();
+	private void initializeClientConnection(String ipAdress,int port) throws UnknownHostException, IOException {
+		clientConnection = new ClientConnection(ipAdress,port);
+	}
+	
+	public void getServerMessage(ServerMessage serverMessage) {
+		ClientMessage clientMessage = null;
+		if (serverMessage instanceof GameSettings) {
+			if (((GameSettings) serverMessage).getMode() == null) {
+				// będziemy wysylac stworzone game options
+				clientMessage = new SetGameOptions(19, "hotseat");
+				// TODO stworz tu game settings i grę
+				// Game game = new Game(((GameSettings) serverGotMessage).getSize())
+			} else {
+				// TODO stworz grę na podstawie odebranych settingów
+				// Game game = new Game(((GameSettings) serverGotMessage).getSize())
+				clientMessage = new SetGameOptions(0, null);
 			}
-	         
-	}
-	
-	public void sendMessageToServer (ClientMessage message) throws IOException {
-        	ClientMessage newMessage = message;
-			output.writeObject(newMessage);
-			output.flush();
-	}
-	
-	public ServerMessage getMessageFromServer() throws ClassNotFoundException, IOException {
-		return (ServerMessage) input.readObject();
-	}
-	
-	
-	public void closeClientConnection() {
+		} else if (serverMessage instanceof OponentMove) {
+			// TODO zupdateuj grę na podstawie informacji o ruchu przeciwnika
+			// game.update(serverGotMessage)
+			clientMessage = new Move(1, 1);
+		} else if (serverMessage instanceof MoveInfo) {
+			if (((MoveInfo) serverMessage).isCorrectMove()) {
+				// TODO zupdateuj grę na podstawie informacji o swoim ruchu
+				// TODO informacja że zakończyłeś turę? pass jako ta informacja?
+				clientMessage = new Pass();
+			} else {
+				clientMessage = new Move(1, 2);
+			}
+		}
 		try {
-			output.close();
-			input.close();
-			socket.close();
+			sendMessage(clientMessage);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
-
-
-	public ObjectOutputStream getOutput() {
-		return output;
-	}
-
-
-	public void setOutput(ObjectOutputStream output) {
-		this.output = output;
-	}
-
-
-	public ObjectInputStream getInput() {
-		return input;
-	}
-
-
-	public void setInput(ObjectInputStream input) {
-		this.input = input;
-	}
-
-
-	public Socket getSocket() {
-		return socket;
-	}
-
-
-	public void setSocket(Socket socket) {
-		this.socket = socket;
+	
+	private void sendMessage(ClientMessage clientMessage) throws IOException {
+		clientConnection.sendMessageToServer(clientMessage);
 	}
 	
 }
