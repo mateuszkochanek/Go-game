@@ -22,8 +22,9 @@ public class ClientConnection implements Runnable {
 	    private ObjectOutputStream outputStream;
 
 
-	    public ClientConnection(String ipAdress, int port) throws UnknownHostException, IOException {
+	    public ClientConnection(String ipAdress, int port,Client client) throws UnknownHostException, IOException {
 			this.socket = new Socket(ipAdress,port);
+			this.client = client;
 		}
 
 		@Override

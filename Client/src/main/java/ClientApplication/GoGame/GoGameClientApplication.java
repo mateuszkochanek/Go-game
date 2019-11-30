@@ -23,6 +23,7 @@ public class GoGameClientApplication {
 			
 		try {
 			Client client = new Client("localhost", 59898);
+			System.out.println("KONCZE PRACE LOLOLOL");
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

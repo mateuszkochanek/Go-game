@@ -5,6 +5,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.concurrent.Executors;
 
 import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
 import ClientApplication.GoGame.Entities.ClientMessages.Move;
@@ -23,11 +24,11 @@ public class Client { // zamykanie i otwieranie połączenia
 	
 	public Client(String ipAdress,int port) throws UnknownHostException, IOException {
 		this.initializeClientConnection(ipAdress,port);
-		clientConnection.setClient(this);
 	}
 	//this method creates connection and output/input object streams
 	private void initializeClientConnection(String ipAdress,int port) throws UnknownHostException, IOException {
-		clientConnection = new ClientConnection(ipAdress,port);
+		var pool = Executors.newFixedThreadPool(20);
+        pool.execute(clientConnection = new ClientConnection(ipAdress,port,this));
 	}
 	
 	public void getServerMessage(ServerMessage serverMessage) {
