@@ -1,7 +1,11 @@
-package Server.ClientMessages;
+package ClientApplication.GoGame.Entities.ClientMessages;
 
 public class SetGameOptions implements ClientMessage{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	int size;
 	String mode; //hotSeat, Online, Multiplayer
 	
