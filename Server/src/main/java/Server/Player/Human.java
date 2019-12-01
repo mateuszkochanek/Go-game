@@ -8,6 +8,7 @@ import java.net.Socket;
 import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
 import ClientApplication.GoGame.Entities.ClientMessages.SetGameOptions;
 import Server.Game.Game;
+import Server.ServerMessage.MoveInfo;
 import Server.ServerMessage.ServerMessage;
 
 public class Human implements Player {
@@ -32,6 +33,10 @@ public class Human implements Player {
                     this.game.getMessage(clientMessage);
                 } else {
                     this.game = new Game(this, (SetGameOptions) clientMessage);
+                    
+                    //TODO delete
+                    
+                    this.sendMessage(new MoveInfo(true));
                 }
             }
         } catch (Exception e) {
