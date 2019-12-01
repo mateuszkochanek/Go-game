@@ -11,8 +11,8 @@ public class ConcreteCommandFactory implements CommandFactory {
     /*public Command getCommand(ServerMessage message) {
         if (message instanceof GameSettings) {
             return new GameSettingsCommand();
-        } else if (message instanceof MoveInfo) {
-            return new MoveInfoCommand();
+        } else if (message instanceof Move) {
+            return new MoveCommand();
         } else if (message instanceof OponentMove) {
             return new OponentMoveCommand();
         } else if (message instanceof EndGame) {
