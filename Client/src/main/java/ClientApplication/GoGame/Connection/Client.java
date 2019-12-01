@@ -11,7 +11,6 @@ import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
 import ClientApplication.GoGame.Entities.ClientMessages.Move;
 import ClientApplication.GoGame.Entities.ClientMessages.Pass;
 import ClientApplication.GoGame.Entities.ClientMessages.SetGameOptions;
-import ClientApplication.GoGame.Entities.Game.Game;
 import Server.ServerMessage.GameSettings;
 import Server.ServerMessage.MoveInfo;
 import Server.ServerMessage.OponentMove;
@@ -64,7 +63,7 @@ public class Client { // zamykanie i otwieranie połączenia
 		}
 	}
 	
-	private void sendMessage(ClientMessage clientMessage) throws IOException {
+	public void sendMessage(ClientMessage clientMessage) throws IOException {
 		clientConnection.sendMessageToServer(clientMessage);
 	}
 	
