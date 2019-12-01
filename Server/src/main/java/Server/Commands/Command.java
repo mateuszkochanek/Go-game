@@ -12,7 +12,7 @@ public abstract class Command {
 	    this.clientMessage = message;
 	}
 	
-	protected abstract void executeCommand();
+	public abstract void executeCommand();
 
 
 }

@@ -17,8 +17,9 @@ public class Human implements Player {
     private ObjectOutputStream outputStream;
     private Game game = null;
 
-    public Human(Socket socket) {
+    public Human(Socket socket,Game game) {
         this.socket = socket;
+        this.game = game;
     }
 
     @Override
@@ -29,15 +30,7 @@ public class Human implements Player {
             
             while(inputStream != null) {
                 ClientMessage clientMessage = (ClientMessage) inputStream.readObject();
-                if (this.game != null) {
-                    this.game.getMessage(clientMessage);
-                } else {
-                    this.game = new Game(this, (SetGameOptions) clientMessage);
-                    
-                    //TODO delete
-                    
-                    this.sendMessage(new MoveInfo(true));
-                }
+                this.game.getMessage(clientMessage);
             }
         } catch (Exception e) {
             e.getStackTrace();

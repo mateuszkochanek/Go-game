@@ -2,6 +2,7 @@ package ClientApplication.GoGame.Connection;
 
 import java.io.IOException;
 import java.net.UnknownHostException;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import ClientApplication.GoGame.Command.Factory.CommandFactory;
@@ -13,6 +14,7 @@ import Server.ServerMessage.ServerMessage;
 public class Client { // zamykanie i otwieranie połączenia
 	ClientConnection clientConnection;
     CommandFactory commandFactory;
+    ExecutorService threads = Executors.newFixedThreadPool(20);
 	//ExecutorService threads;
 	
 	public Client(String ipAdress,int port) throws UnknownHostException, IOException {
@@ -29,7 +31,6 @@ public class Client { // zamykanie i otwieranie połączenia
 	
 	public void getServerMessage(ServerMessage serverMessage) {
 	    Command command = this.commandFactory.getCommand(this, serverMessage);
-	    var threads = Executors.newFixedThreadPool(20);
 	    threads.execute(command);
 	}
 	

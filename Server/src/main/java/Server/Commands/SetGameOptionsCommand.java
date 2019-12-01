@@ -10,8 +10,8 @@ public class SetGameOptionsCommand extends Command {
     }
 
     @Override
-	protected void executeCommand() {
-		
+    public void executeCommand() {
+    	
 	}
 
 }

@@ -10,7 +10,7 @@ public class PassCommand extends Command {
     }
 
 	@Override
-	protected void executeCommand() {
+	public void executeCommand() {
 		// TODO Surrender i EndGame do implementacji!
 		//Surrender też tutaj?
 		//zamykanie gry, wyswietlenie wyniku, pytanie o ponowną gre
