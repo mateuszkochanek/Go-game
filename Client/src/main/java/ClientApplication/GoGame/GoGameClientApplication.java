@@ -23,7 +23,6 @@ public class GoGameClientApplication {
 			
 		try {
 			Client client = new Client("localhost", 59898);
-			System.out.println("KONCZE PRACE LOLOLOL");
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -31,11 +30,10 @@ public class GoGameClientApplication {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
+		while(true) {//czekac bedzie na powtórzenie gry? 
+			
+		}
 
 		}
-		// TODO warunki dla game settings
-		// dla nulla odbierz dane i stworz ustawienia,grę.wyślij opcje
-		// dla wypelnionego stworz grę
 
 	}

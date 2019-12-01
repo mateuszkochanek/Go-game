@@ -27,8 +27,7 @@ public class Client { // zamykanie i otwieranie połączenia
 	}
 	//this method creates connection and output/input object streams
 	private void initializeClientConnection(String ipAdress,int port) throws UnknownHostException, IOException {
-		var pool = Executors.newFixedThreadPool(20);
-        pool.execute(clientConnection = new ClientConnection(ipAdress,port,this));
+        clientConnection = new ClientConnection(ipAdress,port,this);
 	}
 	
 	public void getServerMessage(ServerMessage serverMessage) {

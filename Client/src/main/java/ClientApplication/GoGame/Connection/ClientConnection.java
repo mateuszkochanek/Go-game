@@ -15,7 +15,7 @@ import Server.ServerMessage.MoveInfo;
 import Server.ServerMessage.OponentMove;
 import Server.ServerMessage.ServerMessage;
 
-public class ClientConnection implements Runnable {
+public class ClientConnection {
 		Client client;
 	 	private Socket socket;
 	    private ObjectInputStream inputStream;
@@ -27,7 +27,6 @@ public class ClientConnection implements Runnable {
 			this.client = client;
 		}
 
-		@Override
 	    public void run() {
 	        try {
 	        	setup();
