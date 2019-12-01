@@ -1,6 +1,13 @@
 package ClientApplication.GoGame.Entities.Commands;
 
+import ClientApplication.GoGame.Connection.Client;
+import Server.ServerMessage.ServerMessage;
+
 public class EndGameCommand extends Command {
+    
+    public EndGameCommand(Client client, ServerMessage message) {
+        super(client, message);
+    }
 
 	@Override
 	protected void executeCommand() {

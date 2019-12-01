@@ -1,22 +1,30 @@
 package ClientApplication.GoGame.Command.Factory;
 
+import ClientApplication.GoGame.Connection.Client;
+import ClientApplication.GoGame.Entities.Commands.Command;
+import ClientApplication.GoGame.Entities.Commands.EndGameCommand;
+import ClientApplication.GoGame.Entities.Commands.MoveCommand;
+import ClientApplication.GoGame.Entities.Commands.OpponentMoveCommand;
+import ClientApplication.GoGame.Entities.Commands.SetGameSettingsCommand;
 import Server.ServerMessage.EndGame;
 import Server.ServerMessage.GameSettings;
 import Server.ServerMessage.MoveInfo;
-import Server.ServerMessage.OponentMove;
+import Server.ServerMessage.OpponentMove;
 import Server.ServerMessage.ServerMessage;
 
 public class ConcreteCommandFactory implements CommandFactory {
-    //TODO import command package and uncomment
-    /*public Command getCommand(ServerMessage message) {
+
+    public Command getCommand(Client client, ServerMessage message) {
         if (message instanceof GameSettings) {
-            return new GameSettingsCommand();
-        } else if (message instanceof Move) {
-            return new MoveCommand();
-        } else if (message instanceof OponentMove) {
-            return new OponentMoveCommand();
+            return new SetGameSettingsCommand(client, message);
+        } else if (message instanceof MoveInfo) {
+            return new MoveCommand(client, message);
+        } else if (message instanceof OpponentMove) {
+            return new OpponentMoveCommand(client, message);
         } else if (message instanceof EndGame) {
-            return new EndGameCommand();
+            return new EndGameCommand(client, message);
         }
-    }*/
+        
+        return null;
+    }
 }

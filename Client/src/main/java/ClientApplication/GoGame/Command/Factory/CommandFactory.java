@@ -1,8 +1,10 @@
 package ClientApplication.GoGame.Command.Factory;
 
+import ClientApplication.GoGame.Connection.Client;
+import ClientApplication.GoGame.Entities.Commands.Command;
 import Server.ServerMessage.ServerMessage;
 
 public interface CommandFactory {
-    //TODO import command package and uncomment
-    //public Command getCommand(ServerMessage message);
+
+    public Command getCommand(Client client, ServerMessage message);
 }

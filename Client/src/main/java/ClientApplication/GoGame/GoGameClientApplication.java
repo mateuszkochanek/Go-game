@@ -10,7 +10,7 @@ import ClientApplication.GoGame.Entities.ClientMessages.Pass;
 import ClientApplication.GoGame.Entities.ClientMessages.SetGameOptions;
 import Server.ServerMessage.GameSettings;
 import Server.ServerMessage.MoveInfo;
-import Server.ServerMessage.OponentMove;
+import Server.ServerMessage.OpponentMove;
 import Server.ServerMessage.ServerMessage;
 
 /**

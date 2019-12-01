@@ -7,6 +7,11 @@ public abstract class Command implements Runnable {
 	Client client;
 	ServerMessage serverMessage;
 	
+	protected Command(Client client, ServerMessage message) {
+	    this.client = client;
+	    this.serverMessage = message;
+	}
+	
 	@Override
 	public void run() {
 		executeCommand();

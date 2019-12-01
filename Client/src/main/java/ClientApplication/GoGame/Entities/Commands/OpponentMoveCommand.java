@@ -2,10 +2,16 @@ package ClientApplication.GoGame.Entities.Commands;
 
 import java.io.IOException;
 
+import ClientApplication.GoGame.Connection.Client;
 import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
 import ClientApplication.GoGame.Entities.ClientMessages.Move;
+import Server.ServerMessage.ServerMessage;
 
-public class OponnentMoveCommand extends Command {
+public class OpponentMoveCommand extends Command {
+    
+    public OpponentMoveCommand(Client client, ServerMessage message) {
+        super(client, message);
+    }
 
 	@Override
 	protected void executeCommand() {

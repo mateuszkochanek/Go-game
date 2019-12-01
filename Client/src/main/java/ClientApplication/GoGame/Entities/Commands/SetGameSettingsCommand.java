@@ -2,13 +2,19 @@ package ClientApplication.GoGame.Entities.Commands;
 
 import java.io.IOException;
 
+import ClientApplication.GoGame.Connection.Client;
 import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
 import ClientApplication.GoGame.Entities.ClientMessages.SetGameOptions;
 import Server.ServerMessage.GameSettings;
+import Server.ServerMessage.ServerMessage;
 
 public class SetGameSettingsCommand extends Command {
+    
+	public SetGameSettingsCommand(Client client, ServerMessage message) {
+        super(client, message);
+    }
 
-	@Override
+    @Override
 	protected void executeCommand() {
 		ClientMessage clientMessage;
 		if (((GameSettings) serverMessage).getMode() == null) {
@@ -27,6 +33,9 @@ public class SetGameSettingsCommand extends Command {
 		} catch (IOException e) {
 			System.out.println("Could not execute Move command due to sending message error.");
 			//e.printStackTrace();
+		} catch (NullPointerException e) {
+		    System.out.println("null pointer");
+		    e.printStackTrace();
 		}
 		
 	}

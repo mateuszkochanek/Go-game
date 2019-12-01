@@ -7,12 +7,6 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 
 import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
-import ClientApplication.GoGame.Entities.ClientMessages.Move;
-import ClientApplication.GoGame.Entities.ClientMessages.Pass;
-import ClientApplication.GoGame.Entities.ClientMessages.SetGameOptions;
-import Server.ServerMessage.GameSettings;
-import Server.ServerMessage.MoveInfo;
-import Server.ServerMessage.OponentMove;
 import Server.ServerMessage.ServerMessage;
 
 public class ClientConnection {
@@ -27,7 +21,7 @@ public class ClientConnection {
 			this.client = client;
 		}
 
-	    public void run() {
+	    public void read() {
 	        try {
 	        	setup();
 	            processCommands();
@@ -44,10 +38,8 @@ public class ClientConnection {
 	    }
 		
 		private void setup() throws IOException {
-			 System.out.print("Seting input and output... ");
 	            outputStream = new ObjectOutputStream(socket.getOutputStream());
 	            inputStream = new ObjectInputStream(socket.getInputStream());
-	            System.out.println("Done");
 		}
 		
 		private void processCommands() throws ClassNotFoundException, IOException {
@@ -57,7 +49,6 @@ public class ClientConnection {
 	                 this.client.getServerMessage(serverMessage);
 	             }
             }
-
         }
 		
 	    public ServerMessage getMessageFromServer() throws ClassNotFoundException, IOException {
