@@ -55,5 +55,3 @@ public class Game {
 		this.size = size;
 	}
     
-    
-}
