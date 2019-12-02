@@ -1,7 +1,6 @@
 package Server.Game;
 
 import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
-import ClientApplication.GoGame.Entities.ClientMessages.SetGameOptions;
 import Server.Commands.Command;
 import Server.Commands.Factory.CommandFactory;
 import Server.Commands.Factory.ConcreteCommandFactory;
@@ -54,4 +53,5 @@ public class Game {
 	public void setSize(int size) {
 		this.size = size;
 	}
+}
     
