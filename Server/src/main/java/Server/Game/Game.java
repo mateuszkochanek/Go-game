@@ -21,4 +21,4 @@ public class Game {
     public void getMessage(ClientMessage message) {
         System.out.println("Got it!" + message);
     }
-}
+} 
