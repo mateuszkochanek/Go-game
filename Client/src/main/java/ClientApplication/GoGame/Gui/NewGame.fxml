@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<GridPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClientApplication.GoGame.Entities.Commands.NewGameCommand">
+   <columnConstraints>
+      <ColumnConstraints />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints />
+   </rowConstraints>
+   <children>
+      <AnchorPane prefHeight="421.0" prefWidth="445.0">
+         <children>
+            <Button fx:id="startButton" layoutX="188.0" layoutY="64.0" mnemonicParsing="false" onAction="#SendGameSettings" text="START" />
+            <BorderPane layoutX="113.0" layoutY="136.0" prefHeight="200.0" prefWidth="200.0">
+               <left>
+                  <VBox prefHeight="53.0" prefWidth="90.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <RadioButton mnemonicParsing="false" text="Multiplayer">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="type" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Singleplayer" toggleGroup="$type" />
+                        <RadioButton mnemonicParsing="false" prefHeight="0.0" prefWidth="63.0" text="Hotseat" toggleGroup="$type" />
+                     </children>
+                  </VBox>
+               </left>
+               <right>
+                  <VBox prefHeight="53.0" prefWidth="63.0" BorderPane.alignment="CENTER">
+                     <children>
+                        <RadioButton mnemonicParsing="false" text="9x9">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="size" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="13x13" toggleGroup="$size" />
+                        <RadioButton mnemonicParsing="false" text="19x19" toggleGroup="$size" />
+                     </children>
+                  </VBox>
+               </right>
+            </BorderPane>
+         </children>
+      </AnchorPane>
+   </children>
+</GridPane>

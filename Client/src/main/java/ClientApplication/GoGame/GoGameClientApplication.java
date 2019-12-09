@@ -12,28 +12,35 @@ import Server.ServerMessage.GameSettings;
 import Server.ServerMessage.MoveInfo;
 import Server.ServerMessage.OpponentMove;
 import Server.ServerMessage.ServerMessage;
+import javafx.application.Application;
+import javafx.scene.Parent;
+import javafx.stage.Stage;
+import javafx.fxml.FXMLLoader;
 
 /**
  * Hello world!
  *
  */
-public class GoGameClientApplication {
+public class GoGameClientApplication extends Application {
 
 	public static void main(String[] args) {
-			
+		launch(args);
+	}
+
+	@Override
+	public void start(Stage primaryStage) throws Exception {
 		try {
 			Client client = new Client("localhost", 59898);
 		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		Parent root = FXMLLoader.load(getClass().getResource("GUI.fxml"));
+		
 		while(true) {//czekac bedzie na powtórzenie gry? 
 			
 		}
-
-		}
-
 	}
+
+}
