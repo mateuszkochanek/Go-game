@@ -225,7 +225,7 @@
   </class>  
   <class id="25" language="java" name="Server.ServerMessage.OpponentPass" project="Server" 
     file="/Server/src/main/java/Server/ServerMessage/OpponentPass.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1707" y="602"/>    
+    <position height="-1" width="-1" x="1711" y="611"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      

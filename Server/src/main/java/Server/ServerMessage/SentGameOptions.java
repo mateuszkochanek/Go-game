@@ -13,14 +13,9 @@ public class SentGameOptions implements ServerMessage {
 	public int getSize() {
 		return size;
 	}
-	public void setSize(int size) {
-		this.size = size;
-	}
+
 	public String getMode() {
 		return mode;
-	}
-	public void setMode(String mode) {
-		this.mode = mode;
 	}
 
 }
