@@ -1,12 +1,12 @@
 package Server.ServerMessage;
 
-public class GameSettings implements ServerMessage {
+public class SentGameOptions implements ServerMessage {
    
     private static final long serialVersionUID = 1L;
 	int size;
 	String mode; //hotSeat, Online, Multiplayer
 	
-	public GameSettings(int size, String mode) {
+	public SentGameOptions(int size, String mode) {
 		this.size = size;
 		this.mode = mode;
 	}
