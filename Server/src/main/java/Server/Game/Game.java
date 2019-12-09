@@ -23,6 +23,8 @@ public class Game {
     private int[][] board; // 0 nothing, 1 first player, 2 second player TODO: ko(?)
     private int size;
     private boolean previousPass;
+    private GameLogic gameLogic;
+    private GameEnd gameEnd;
 
     public Game() {
     	this.commandFactory = new ConcreteCommandFactory();
@@ -50,9 +52,8 @@ public class Game {
 	    this.size = size;
 	    this.board = new int[size][size];
 	    
-	    for (int i = 0; i < this.size; i++)
-	        for (int j = 0; j < this.size; j++)
-	            this.board[i][j] = 0;
+	    this.gameLogic = new GameLogic(this.board);
+        this.gameEnd = new GameEnd(this.board);
 	}
 	
 	public Human getNewHuman() {
@@ -60,7 +61,7 @@ public class Game {
 	    try {
             Socket socket = listener.accept();
             var pool = Executors.newFixedThreadPool(20);
-            pool.execute(human = new Human(socket, this));
+            pool.execute(human = new Human(socket, this, 1));
             
             return human;
         } catch (IOException e) {
@@ -108,6 +109,14 @@ public class Game {
 
     public void setPreviousPass(boolean previousPass) {
         this.previousPass = previousPass;
+    }
+    
+    public GameLogic getGameLogic() {
+        return this.gameLogic;
+    }
+    
+    public GameEnd getGameEnd() {
+        return this.gameEnd;
     }
 }
     

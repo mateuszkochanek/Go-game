@@ -53,7 +53,7 @@
   </class>  
   <class id="6" language="java" name="Server.Commands.Command" project="Server" 
     file="/Server/src/main/java/Server/Commands/Command.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="895" y="436"/>    
+    <position height="-1" width="-1" x="896" y="453"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
