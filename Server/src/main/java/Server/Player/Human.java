@@ -6,9 +6,7 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
-import ClientApplication.GoGame.Entities.ClientMessages.SetGameOptions;
 import Server.Game.Game;
-import Server.ServerMessage.MoveInfo;
 import Server.ServerMessage.ServerMessage;
 
 public class Human implements Player {
@@ -17,8 +15,10 @@ public class Human implements Player {
     private ObjectOutputStream outputStream;
     private Game game = null;
 
-    public Human(Socket socket) {
+    public Human(Socket socket,Game game) {
         this.socket = socket;
+        this.game = game;
+        System.out.println("Create human");
     }
 
     @Override
@@ -29,15 +29,7 @@ public class Human implements Player {
             
             while(inputStream != null) {
                 ClientMessage clientMessage = (ClientMessage) inputStream.readObject();
-                if (this.game != null) {
-                    this.game.getMessage(clientMessage);
-                } else {
-                    this.game = new Game(this, (SetGameOptions) clientMessage);
-                    
-                    //TODO delete
-                    
-                    this.sendMessage(new MoveInfo(true));
-                }
+                this.game.getMessage(clientMessage);
             }
         } catch (Exception e) {
             e.getStackTrace();
@@ -55,6 +47,10 @@ public class Human implements Player {
     public void sendMessage(ServerMessage message) throws IOException {
         outputStream.writeObject(message);
         outputStream.flush();
+    }
+    
+    public Socket getSocket() {
+        return this.socket;
     }
 
 }
