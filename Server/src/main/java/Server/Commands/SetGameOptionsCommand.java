@@ -28,7 +28,7 @@ public class SetGameOptionsCommand extends Command {
     	    
     	    Player player2;
     	    var pool = Executors.newFixedThreadPool(20);
-            pool.execute(player2 = new Human(this.game.getPlayer1().getSocket(), this.game, 2));
+            pool.execute(player2 = new Human(this.game.getPlayer1().getSocket(), this.game));
             
     	    this.game.setPlayer2(player2);
     	    
@@ -36,7 +36,7 @@ public class SetGameOptionsCommand extends Command {
     	    
     	    Player bot;
     	    var pool = Executors.newFixedThreadPool(20);
-            pool.execute(bot = new Bot(this.game, 2));
+            pool.execute(bot = new Bot(this.game));
     	    
             this.game.setPlayer2(bot);
             

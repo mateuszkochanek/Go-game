@@ -9,6 +9,4 @@ public interface Player extends Runnable {
     
     public void sendMessage(ServerMessage message) throws IOException;
     public Socket getSocket();
-    public int getPlayerNumber();
-
 }

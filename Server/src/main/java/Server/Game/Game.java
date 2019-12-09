@@ -61,7 +61,7 @@ public class Game {
 	    try {
             Socket socket = listener.accept();
             var pool = Executors.newFixedThreadPool(20);
-            pool.execute(human = new Human(socket, this, 1));
+            pool.execute(human = new Human(socket, this));
             
             return human;
         } catch (IOException e) {
@@ -69,6 +69,14 @@ public class Game {
         }
 	    
 	    return null;
+	}
+	
+	public void changeActualPlayer() {
+	    if (this.actualPlayer.equals(this.player1)) {
+	        this.actualPlayer = this.player2;
+	    } else {
+	        this.actualPlayer = this.player1;
+	    }
 	}
 	
 	public Player getPlayer1() {

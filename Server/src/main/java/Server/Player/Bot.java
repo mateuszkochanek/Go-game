@@ -8,11 +8,9 @@ import Server.ServerMessage.ServerMessage;
 
 public class Bot implements Player {
     private Game game;
-    private int playerNumber;
 
-    public Bot(Game game, int playerNumber) {
+    public Bot(Game game) {
         this.game = game;
-        this.playerNumber = playerNumber;
     }
 
     @Override
@@ -31,10 +29,4 @@ public class Bot implements Player {
     public Socket getSocket() {
         return null;
     }
-
-    @Override
-    public int getPlayerNumber() {
-        return this.playerNumber;
-    }
-
 }
