@@ -1,6 +1,7 @@
 package ClientApplication.GoGame.Entities.Commands;
 
 import ClientApplication.GoGame.Connection.Client;
+import ClientApplication.GoGame.Gui.NewGameFrame;
 import Server.ServerMessage.ServerMessage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,13 +24,13 @@ public class NewGameCommand extends Command {
 
 	@Override
 	protected void executeCommand() {
-		// musimy stworzyc game settings
+		NewGameFrame frame = new NewGameFrame();
 	}
 
     @FXML
     void SendGameSettings(ActionEvent event) {
     	 if (type.getSelectedToggle() != null && size.getSelectedToggle() != null) {
-
+    		 System.out.println("Type: " + type.getSelectedToggle() + "   Size: " + size.getSelectedToggle());
          }
     }
 
