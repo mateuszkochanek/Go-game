@@ -28,3 +28,4 @@ public class ConcreteCommandFactory implements CommandFactory {
         return null;
     }
 }
+//TODO: createInstance()

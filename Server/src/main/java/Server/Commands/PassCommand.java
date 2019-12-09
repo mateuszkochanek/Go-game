@@ -15,6 +15,17 @@ public class PassCommand extends Command {
 		//Surrender też tutaj?
 		//zamykanie gry, wyswietlenie wyniku, pytanie o ponowną gre
 		
+	    /**
+	     * TODO:
+	     * check game.previousPass
+	     * true
+	     *     new EndGame
+	     * false
+	     *     game.previousPass = true
+	     *     change actual player
+	     *     send info to actual player
+	     */    
+	    
 	}
 
 }

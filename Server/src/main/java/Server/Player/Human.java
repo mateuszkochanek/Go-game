@@ -13,7 +13,7 @@ public class Human implements Player {
     private Socket socket;
     private ObjectInputStream inputStream;
     private ObjectOutputStream outputStream;
-    private Game game = null;
+    private Game game;
 
     public Human(Socket socket,Game game) {
         this.socket = socket;
@@ -52,5 +52,4 @@ public class Human implements Player {
     public Socket getSocket() {
         return this.socket;
     }
-
 }

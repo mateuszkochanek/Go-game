@@ -3,9 +3,15 @@ package Server.Player;
 import java.io.IOException;
 import java.net.Socket;
 
+import Server.Game.Game;
 import Server.ServerMessage.ServerMessage;
 
 public class Bot implements Player {
+    private Game game;
+
+    public Bot(Game game) {
+        this.game = game;
+    }
 
     @Override
     public void sendMessage(ServerMessage message) throws IOException {
@@ -21,8 +27,6 @@ public class Bot implements Player {
 
     @Override
     public Socket getSocket() {
-        // TODO Auto-generated method stub
         return null;
     }
-
 }

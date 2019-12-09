@@ -11,8 +11,12 @@ public class SurrenderCommand extends Command {
 
 	@Override
 	public void executeCommand() {
-		
-		
+		/**
+		 * TODO:
+		 * game.endGame() -> choose death group, counting points
+		 * send info to both players
+		 * play again (?)
+		 */
 	}
 
 }

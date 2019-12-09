@@ -12,8 +12,4 @@ public class MoveInfo implements ServerMessage {
 	public boolean isCorrectMove() {
 		return correctMove;
 	}
-
-	public void setCorrectMove(boolean correctMove) {
-		this.correctMove = correctMove;
-	}
 }

@@ -6,7 +6,7 @@ import java.net.Socket;
 
 import org.junit.Test;
 
-import Server.ServerMessage.GameSettings;
+import Server.ServerMessage.SentGameOptions;
 import Server.ServerMessage.ServerMessage;
 
 public class ServerTest {
@@ -25,7 +25,7 @@ public class ServerTest {
             ObjectOutputStream outputStream = new ObjectOutputStream(socket.getOutputStream());
             
             ServerMessage newMessage = (ServerMessage) inputStream.readObject();
-            assert(newMessage instanceof GameSettings);
+            assert(newMessage instanceof SentGameOptions);
             
         } catch (Exception ex) {}
     }
