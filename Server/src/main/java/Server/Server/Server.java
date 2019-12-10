@@ -10,6 +10,7 @@ import Server.Game.Game;
 import Server.Player.Human;
 import Server.Player.Player;
 import Server.ServerMessage.GameSettings;
+import Server.ServerMessage.NewGame;
 
 public class Server 
 {
@@ -29,7 +30,7 @@ public class Server
             
             TimeUnit.SECONDS.sleep(1);
             
-            player1.sendMessage(new GameSettings(0, null));
+            player1.sendMessage(new NewGame());
             
 	    } catch (InterruptedException e) {
             e.printStackTrace();

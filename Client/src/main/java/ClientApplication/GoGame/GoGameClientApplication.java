@@ -15,10 +15,9 @@ import javafx.fxml.FXMLLoader;
  *
  */
 public class GoGameClientApplication{
-	public static String[] agg;
+
 	public static void main(String[] args) {
-		NewGameFrame frame = new NewGameFrame();
-		/*agg = args;
+
 		try {
 			Client client = new Client("localhost", 59898);
 		} catch (UnknownHostException e) {

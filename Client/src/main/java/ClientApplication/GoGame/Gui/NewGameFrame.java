@@ -11,15 +11,15 @@ import javafx.stage.Stage;
 
 public class NewGameFrame extends Application {
 	Parent root;
-	public NewGameFrame() {
-		launch(GoGameClientApplication.agg);
+	public void startFrame() {
+		launch();
 	}
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		try {
 			
-			root = FXMLLoader.load(getClass().getResource("duu.fxml"));
+			root = FXMLLoader.load(getClass().getResource("NewGame.fxml"));
 			Stage stage = new Stage();
 			stage.setTitle("FXML Welcome");
 	        stage.setScene(new Scene(root, 300, 275));

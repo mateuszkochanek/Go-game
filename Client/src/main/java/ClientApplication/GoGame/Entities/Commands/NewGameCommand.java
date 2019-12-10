@@ -25,6 +25,7 @@ public class NewGameCommand extends Command {
 	@Override
 	protected void executeCommand() {
 		NewGameFrame frame = new NewGameFrame();
+		frame.startFrame();
 	}
 
     @FXML
@@ -32,6 +33,14 @@ public class NewGameCommand extends Command {
     	 if (type.getSelectedToggle() != null && size.getSelectedToggle() != null) {
     		 System.out.println("Type: " + type.getSelectedToggle() + "   Size: " + size.getSelectedToggle());
          }
+    }
+    
+    @FXML
+    void initialize() {
+        assert type != null : "fx:id=\"type\" was not injected: check your FXML file 'NewGame.fxml'.";
+        assert size != null : "fx:id=\"size\" was not injected: check your FXML file 'NewGame.fxml'.";
+        assert startButton != null : "fx:id=\"startButton\" was not injected: check your FXML file 'NewGame.fxml'.";
+
     }
 
 }
