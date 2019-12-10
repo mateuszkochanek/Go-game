@@ -31,6 +31,7 @@ public class MoveCommand extends Command {
 		
 		if (this.game.getGameLogic().checkMove(message.getX(), message.getY(), playerNumber)) {
 		    try {
+		        this.game.getGameLogic().removeDeathStones(message.getX(), message.getY());
                 this.game.getActualPlayer().sendMessage(new MoveInfo(true));
                 this.game.changeActualPlayer();
                 this.game.getActualPlayer().sendMessage(new OpponentMove(message.getX(), message.getY()));
