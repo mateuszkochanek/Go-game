@@ -6,6 +6,7 @@ import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
 import Server.Game.Game;
 import Server.Player.Player;
 import Server.ServerMessage.EndGame;
+import Server.ServerMessage.SurrenderInfo;
 
 public class SurrenderCommand extends Command {
     
@@ -15,23 +16,23 @@ public class SurrenderCommand extends Command {
 
 	@Override
 	public void executeCommand() {
-		/**
-		 * TODO:
-		 * game.endGame() -> choose death group, counting points
-		 * send info to both players
-		 * play again (?)
-		 */
 	    this.game.getGameEnd().removeDeathStones();
         
         int player1Points = this.game.getGameEnd().countPoints(1);
         int player2Points = this.game.getGameEnd().countPoints(2);
         
         try {
-            this.game.getPlayer1().sendMessage(new EndGame(true, player1Points, player2Points));
-            this.game.getPlayer2().sendMessage(new EndGame(true, player1Points, player2Points));
+            if (this.game.getPlayer1().equals(this.player)) {
+                this.game.getPlayer1().sendMessage(new SurrenderInfo(true, player1Points, player2Points));
+                this.game.getPlayer2().sendMessage(new SurrenderInfo(false, player2Points, player1Points));
+            } else {
+                this.game.getPlayer1().sendMessage(new SurrenderInfo(false, player1Points, player2Points));
+                this.game.getPlayer2().sendMessage(new SurrenderInfo(true, player2Points, player1Points));
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
+        //TODO: play again (?)
 	}
 
 }

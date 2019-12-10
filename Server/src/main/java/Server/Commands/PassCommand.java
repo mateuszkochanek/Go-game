@@ -29,14 +29,14 @@ public class PassCommand extends Command {
 	        
 	        try {
                 this.game.getPlayer1().sendMessage(new EndGame(false, player1Points, player2Points));
-                this.game.getPlayer2().sendMessage(new EndGame(false, player1Points, player2Points));
+                this.game.getPlayer2().sendMessage(new EndGame(false, player2Points, player1Points));
             } catch (IOException e) {
                 e.printStackTrace();
             }
 	        
 	        //TODO: new game?
 	    } else {
-	        this.game.setPreviousPass(false);
+	        this.game.setPreviousPass(true);
 	        this.game.changeActualPlayer();
 	        try {
                 this.game.getActualPlayer().sendMessage(new OpponentPass());

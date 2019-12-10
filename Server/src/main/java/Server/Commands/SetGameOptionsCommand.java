@@ -10,7 +10,6 @@ import Server.Player.Bot;
 import Server.Player.Human;
 import Server.Player.Player;
 import Server.ServerMessage.SentGameOptions;
-import Server.ServerMessage.Start;
 
 public class SetGameOptionsCommand extends Command {
     
@@ -31,6 +30,12 @@ public class SetGameOptionsCommand extends Command {
             pool.execute(player2 = new Human(this.game.getPlayer1().getSocket(), this.game));
             
     	    this.game.setPlayer2(player2);
+    	    this.game.setActualPlayer(this.game.getPlayer1());
+    	    try {
+                this.game.getPlayer1().sendMessage(new SentGameOptions(1, message.getSize(), message.getMode()));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
     	    
     	} else if (message.getMode().contentEquals("singleplayer")) {
     	    
@@ -39,6 +44,12 @@ public class SetGameOptionsCommand extends Command {
             pool.execute(bot = new Bot(this.game));
     	    
             this.game.setPlayer2(bot);
+            this.game.setActualPlayer(this.game.getPlayer1());
+            try {
+                this.game.getPlayer1().sendMessage(new SentGameOptions(1, message.getSize(), message.getMode()));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             
     	} else if (message.getMode().contentEquals("multiplayer")) {
     	    
@@ -46,9 +57,9 @@ public class SetGameOptionsCommand extends Command {
     	    this.game.setPlayer2(player2);
     	    
     	    try {
+    	        this.game.getPlayer1().sendMessage(new SentGameOptions(1, message.getSize(), message.getMode()));
     	        this.game.getPlayer2().sendMessage(new SentGameOptions(2, message.getSize(), message.getMode()));
     	        this.game.setActualPlayer(this.game.getPlayer1());
-                this.game.getPlayer1().sendMessage(new Start());
             } catch (IOException e) {
                 e.printStackTrace();
             }
