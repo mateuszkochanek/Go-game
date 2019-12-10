@@ -43,8 +43,8 @@ public class Game {
         }
 	}
 
-	public void getMessage(ClientMessage clientMessage) { //TODO synchronized?
-    	Command command = this.commandFactory.getCommand(this, clientMessage);
+	public void getMessage(ClientMessage clientMessage, Player player) { //TODO synchronized?
+    	Command command = this.commandFactory.getCommand(this, clientMessage, player);
     	command.executeCommand();
     }
 	

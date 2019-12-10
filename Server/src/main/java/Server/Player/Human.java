@@ -29,7 +29,7 @@ public class Human implements Player {
             
             while(inputStream != null) {
                 ClientMessage clientMessage = (ClientMessage) inputStream.readObject();
-                this.game.getMessage(clientMessage);
+                this.game.getMessage(clientMessage, this);
             }
         } catch (Exception e) {
             e.getStackTrace();
