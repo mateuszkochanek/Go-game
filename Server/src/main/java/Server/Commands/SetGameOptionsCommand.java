@@ -14,8 +14,8 @@ import Server.ServerMessage.Start;
 
 public class SetGameOptionsCommand extends Command {
     
-	public SetGameOptionsCommand(Game game, ClientMessage message) {
-        super(game, message);
+	public SetGameOptionsCommand(Game game, ClientMessage message, Player player) {
+        super(game, message, player);
     }
 
     @Override
@@ -46,7 +46,8 @@ public class SetGameOptionsCommand extends Command {
     	    this.game.setPlayer2(player2);
     	    
     	    try {
-    	        this.game.getPlayer2().sendMessage(new SentGameOptions(message.getSize(), message.getMode()));
+    	        this.game.getPlayer2().sendMessage(new SentGameOptions(2, message.getSize(), message.getMode()));
+    	        this.game.setActualPlayer(this.game.getPlayer1());
                 this.game.getPlayer1().sendMessage(new Start());
             } catch (IOException e) {
                 e.printStackTrace();
