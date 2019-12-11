@@ -1,23 +1,21 @@
 package ClientApplication.GoGame.Entities.Commands;
 
+import javafx.concurrent.Task;
+
 import ClientApplication.GoGame.Connection.Client;
+import ClientApplication.GoGame.Gui.GameGui;
 import Server.ServerMessage.ServerMessage;
 
-public abstract class Command implements Runnable {
-	Client client;
+public abstract class Command{
+	GameGui gameGui;
 	ServerMessage serverMessage;
 	
-	protected Command(Client client, ServerMessage message) {
-	    this.client = client;
+	protected Command(GameGui gameGui, ServerMessage message) {
+	    this.gameGui = gameGui;
 	    this.serverMessage = message;
 	}
-	
-	@Override
-	public void run() {
-		executeCommand();
-	}
-	
-	protected abstract void executeCommand();
+
+	public abstract void executeCommand();
 
 
 }

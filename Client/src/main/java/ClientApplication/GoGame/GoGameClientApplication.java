@@ -8,21 +8,26 @@ import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
 import ClientApplication.GoGame.Entities.ClientMessages.Move;
 import ClientApplication.GoGame.Entities.ClientMessages.Pass;
 import ClientApplication.GoGame.Entities.ClientMessages.SetGameOptions;
+import ClientApplication.GoGame.Gui.GameGui;
 import Server.ServerMessage.GameSettings;
 import Server.ServerMessage.MoveInfo;
 import Server.ServerMessage.OpponentMove;
 import Server.ServerMessage.ServerMessage;
+import javafx.application.Application;
+import javafx.stage.Stage;
 
 /**
  * Hello world!
  *
  */
-public class GoGameClientApplication {
-
+public class GoGameClientApplication extends Application {
+	Client client;
 	public static void main(String[] args) {
-			
+			launch(args);
+	}
+	public void init() {
 		try {
-			Client client = new Client("localhost", 59898);
+			client = new Client("localhost", 59898);
 		} catch (UnknownHostException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -30,10 +35,14 @@ public class GoGameClientApplication {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		while(true) {//czekac bedzie na powtórzenie gry? 
-			
-		}
-
-		}
+	}
+	
+	@Override
+	public void start(Stage primaryStage) throws Exception {
+		GameGui gameGui = new GameGui(primaryStage);
+		gameGui.ShowWaitFrame();
+		client.setGameGui(gameGui);
+		client.getClientConnection().startConnection();
+	}
 
 	}
