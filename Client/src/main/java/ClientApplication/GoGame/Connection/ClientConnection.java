@@ -8,59 +8,85 @@ import java.net.UnknownHostException;
 
 import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
 import Server.ServerMessage.ServerMessage;
+import javafx.application.Platform;
+import javafx.concurrent.Task;
 
 public class ClientConnection {
-		Client client;
-	 	private Socket socket;
-	    private ObjectInputStream inputStream;
-	    private ObjectOutputStream outputStream;
+	protected Client client;
+	protected ConnectionThread connectionThread;
 
+	public ClientConnection(String ipAdress, int port, Client client) throws UnknownHostException, IOException {
+		this.client = client;
+		connectionThread = new ConnectionThread(ipAdress, port);
+	}
+	
+	public void startConnection() {
+		connectionThread.start();
+	}
 
-	    public ClientConnection(String ipAdress, int port,Client client) throws UnknownHostException, IOException {
-			this.socket = new Socket(ipAdress,port);
-			this.client = client;
+	public void sendMessageToServer(ClientMessage message) throws IOException {
+		connectionThread.outputStream.writeObject(message);
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+	private class ConnectionThread extends Thread {
+		private Socket socket;
+		private ObjectInputStream inputStream;
+		private ObjectOutputStream outputStream;
+		private int port;
+		private String ipAdress;
+		
+		
+		
+		public ConnectionThread(String ipAdress, int port) {
+			this.ipAdress = ipAdress;
+			this.port = port;
 		}
 
-	    public void read() {
-	        try {
-	        	setup();
-	            processCommands();
-	        } catch (Exception e) {
-	            e.getStackTrace();
-	        } finally {
-	            try { 
-	                socket.close();
-	            } catch (IOException e) {
-	                e.getStackTrace();
-	            }
-	        }
-	      
-	    }
+		@Override
+		public void run() {
+			read();
+		}
+
+		public void read() {
+			try {
+				setup();
+				processCommands();
+			} catch (Exception e) {
+				e.getStackTrace();
+				System.out.println(e.getMessage());
+			} finally {
+				try {
+					socket.close();
+				} catch (IOException e) {
+					e.getStackTrace();
+				}
+			}
+
+		}
 		
 		private void setup() throws IOException {
-	            outputStream = new ObjectOutputStream(socket.getOutputStream());
-	            inputStream = new ObjectInputStream(socket.getInputStream());
+			this.socket = new Socket(ipAdress, port);
+			this.outputStream = new ObjectOutputStream(socket.getOutputStream());
+			this.inputStream = new ObjectInputStream(socket.getInputStream());
 		}
-		
-		private void processCommands() throws ClassNotFoundException, IOException {
-            while (inputStream != null) {
-				ServerMessage serverMessage = this.getMessageFromServer();
-				 if (this.client != null) {
-	                 this.client.getServerMessage(serverMessage);
-	             }
-            }
-        }
-		
-	    public ServerMessage getMessageFromServer() throws ClassNotFoundException, IOException {
-	        return (ServerMessage) inputStream.readObject();
-	    }
-	    
-	    public void sendMessageToServer(ClientMessage message) throws IOException {
-	        outputStream.writeObject(message);
-	        outputStream.flush();
-	    }
 
-		public void setClient(Client client) {
-			this.client = client;
+		private void processCommands() throws ClassNotFoundException, IOException {
+			while (inputStream != null) {
+				ServerMessage serverMessage = (ServerMessage) this.inputStream.readObject();
+				if (client != null) {
+					Platform.runLater(new Runnable() {
+						@Override
+						public void run() {
+							client.getServerMessage(serverMessage);
+						}
+					});
+				}
+			}
 		}
+
+	}
 }
