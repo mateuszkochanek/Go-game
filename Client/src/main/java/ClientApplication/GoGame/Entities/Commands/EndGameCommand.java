@@ -1,20 +1,22 @@
 package ClientApplication.GoGame.Entities.Commands;
 
 import ClientApplication.GoGame.Connection.Client;
+import ClientApplication.GoGame.Gui.GameGui;
 import Server.ServerMessage.ServerMessage;
 
 public class EndGameCommand extends Command {
     
-    public EndGameCommand(Client client, ServerMessage message) {
-        super(client, message);
+    public EndGameCommand(GameGui gameGui, ServerMessage message) {
+        super(gameGui, message);
     }
 
 	@Override
-	protected void executeCommand() {
+	public void executeCommand() {
 		// TODO Surrender i EndGame do implementacji!
 		//Surrender też tutaj?
 		//zamykanie gry, wyswietlenie wyniku, pytanie o ponowną gre
 		
 	}
+
 
 }

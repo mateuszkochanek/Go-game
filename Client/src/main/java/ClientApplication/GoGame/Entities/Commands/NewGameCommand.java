@@ -1,25 +1,21 @@
 package ClientApplication.GoGame.Entities.Commands;
 
-import java.io.IOException;
-
 import ClientApplication.GoGame.Connection.Client;
-import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
-import ClientApplication.GoGame.Entities.ClientMessages.Move;
 import ClientApplication.GoGame.Gui.GameGui;
 import Server.ServerMessage.ServerMessage;
+import javafx.application.Platform;
 
-public class OpponentMoveCommand extends Command {
+public class NewGameCommand extends Command {
     
-    public OpponentMoveCommand(GameGui gameGui, ServerMessage message) {
+    public NewGameCommand(GameGui gameGui, ServerMessage message) {
         super(gameGui, message);
     }
 
 	@Override
 	public void executeCommand() {
-
-		
+			System.out.println("GOD");
+            gameGui.CreateNewGameFrame();
+            System.out.println("GOD paased");
 	}
-
-
 
 }
