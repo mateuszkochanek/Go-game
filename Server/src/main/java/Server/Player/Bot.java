@@ -8,9 +8,11 @@ import Server.ServerMessage.ServerMessage;
 
 public class Bot implements Player {
     private Game game;
+    private int points;
 
     public Bot(Game game) {
         this.game = game;
+        this.points = 0;
     }
 
     @Override
@@ -28,5 +30,15 @@ public class Bot implements Player {
     @Override
     public Socket getSocket() {
         return null;
+    }
+
+    @Override
+    public void addPoints(int points) {
+        this.points += points;
+    }
+
+    @Override
+    public int getPoints() {
+        return this.points;
     }
 }

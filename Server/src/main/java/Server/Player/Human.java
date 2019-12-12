@@ -14,10 +14,12 @@ public class Human implements Player {
     private ObjectInputStream inputStream;
     private ObjectOutputStream outputStream;
     private Game game;
+    private int points;
 
     public Human(Socket socket,Game game) {
         this.socket = socket;
         this.game = game;
+        this.points = 0;
         System.out.println("Create human");
     }
 
@@ -51,5 +53,15 @@ public class Human implements Player {
     
     public Socket getSocket() {
         return this.socket;
+    }
+
+    @Override
+    public void addPoints(int points) {
+        this.points += points;
+    }
+
+    @Override
+    public int getPoints() {
+        return this.points;
     }
 }

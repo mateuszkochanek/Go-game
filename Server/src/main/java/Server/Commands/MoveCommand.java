@@ -29,19 +29,20 @@ public class MoveCommand extends Command {
 		    playerNumber = 2;
 		}
 		
-		if (this.game.getGameLogic().checkMove(message.getX(), message.getY(), playerNumber)) {
+		if (this.game.getGameLogic().move(message.getX(), message.getY(), playerNumber)) {
 		    try {
-		        this.game.getGameLogic().removeDeathStones(message.getX(), message.getY());
-                this.game.getActualPlayer().sendMessage(new MoveInfo(true));
+		        int[][] emptyPlaces = this.game.getGameLogic().removeDeathStones(message.getX(), message.getY());
+		        this.game.getActualPlayer().addPoints(emptyPlaces.length);
+                this.game.getActualPlayer().sendMessage(new MoveInfo(true, emptyPlaces));
                 this.game.changeActualPlayer();
-                this.game.getActualPlayer().sendMessage(new OpponentMove(message.getX(), message.getY()));
+                this.game.getActualPlayer().sendMessage(new OpponentMove(message.getX(), message.getY(), emptyPlaces));
                 this.game.setPreviousPass(false);
             } catch (IOException e) {
                 e.printStackTrace();
             }
 		} else {
 		    try {
-                this.game.getActualPlayer().sendMessage(new MoveInfo(false));
+                this.game.getActualPlayer().sendMessage(new MoveInfo(false, null));
             } catch (IOException e) {
                 e.printStackTrace();
             }
