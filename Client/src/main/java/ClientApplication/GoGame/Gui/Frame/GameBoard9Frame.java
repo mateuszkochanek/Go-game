@@ -3,7 +3,7 @@ package ClientApplication.GoGame.Gui.Frame;
 import java.io.IOException;
 
 import ClientApplication.GoGame.Connection.Client;
-import ClientApplication.GoGame.Gui.Controller.GameBoard9Conotroller;
+import ClientApplication.GoGame.Gui.Controller.GameBoard9Controller;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,7 +16,7 @@ public class GameBoard9Frame {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(getClass().getResource("/FXMLGameBoard9.fxml"));
 			Parent root = loader.load();
-			GameBoard9Conotroller controller = loader.<GameBoard9Conotroller>getController();
+			GameBoard9Controller controller = loader.<GameBoard9Controller>getController();
 			controller.setConnection(client);
 			Stage stage = new Stage();
 			stage.setTitle("GoGame NewGame");
@@ -24,7 +24,7 @@ public class GameBoard9Frame {
 	        this.stage = stage;
 	        stage.show();
 		} catch (IOException e) {
-			System.out.println("GameBoard9 złapał błąd");
+			System.out.println("GameBoard9Frame złapał błąd");
 			e.printStackTrace();
 		}
 	}
