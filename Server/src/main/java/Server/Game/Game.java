@@ -61,7 +61,7 @@ public class Game {
 	    try {
             Socket socket = listener.accept();
             var pool = Executors.newFixedThreadPool(20);
-            pool.execute(human = new Human(socket, this));
+            pool.execute(human = new Human(socket, this, null, null));
             
             return human;
         } catch (IOException e) {

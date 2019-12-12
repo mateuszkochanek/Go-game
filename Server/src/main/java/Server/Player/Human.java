@@ -16,7 +16,9 @@ public class Human implements Player {
     private Game game;
     private int points;
 
-    public Human(Socket socket,Game game) {
+    public Human(Socket socket,Game game, ObjectInputStream ois, ObjectOutputStream ous) {
+        this.inputStream = ois;
+        this.outputStream = ous;
         this.socket = socket;
         this.game = game;
         this.points = 0;
@@ -26,8 +28,10 @@ public class Human implements Player {
     @Override
     public void run() {
         try {
-            outputStream = new ObjectOutputStream(socket.getOutputStream());
-            inputStream = new ObjectInputStream(socket.getInputStream());
+            if (this.inputStream == null) {
+                outputStream = new ObjectOutputStream(socket.getOutputStream());
+                inputStream = new ObjectInputStream(socket.getInputStream());
+            }
             
             while(inputStream != null) {
                 ClientMessage clientMessage = (ClientMessage) inputStream.readObject();
@@ -63,5 +67,15 @@ public class Human implements Player {
     @Override
     public int getPoints() {
         return this.points;
+    }
+
+    @Override
+    public ObjectInputStream getObjectInputStream() {
+        return this.inputStream;
+    }
+
+    @Override
+    public ObjectOutputStream getObjectOutputStream() {
+        return this.outputStream;
     }
 }
