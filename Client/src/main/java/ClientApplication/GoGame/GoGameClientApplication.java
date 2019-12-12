@@ -9,7 +9,6 @@ import ClientApplication.GoGame.Entities.ClientMessages.Move;
 import ClientApplication.GoGame.Entities.ClientMessages.Pass;
 import ClientApplication.GoGame.Entities.ClientMessages.SetGameOptions;
 import ClientApplication.GoGame.Gui.GameGui;
-import Server.ServerMessage.GameSettings;
 import Server.ServerMessage.MoveInfo;
 import Server.ServerMessage.OpponentMove;
 import Server.ServerMessage.ServerMessage;
@@ -39,7 +38,7 @@ public class GoGameClientApplication extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) throws Exception {
-		GameGui gameGui = new GameGui(primaryStage);
+		GameGui gameGui = new GameGui(primaryStage,client);
 		gameGui.ShowWaitFrame();
 		client.setGameGui(gameGui);
 		client.getClientConnection().startConnection();

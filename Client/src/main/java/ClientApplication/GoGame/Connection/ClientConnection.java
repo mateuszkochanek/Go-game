@@ -5,6 +5,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.concurrent.TimeUnit;
 
 import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
 import Server.ServerMessage.ServerMessage;
@@ -60,7 +61,7 @@ public class ClientConnection {
 				System.out.println(e.getMessage());
 			} finally {
 				try {
-					socket.close();
+					socket.close(); // TODO zrobie nie tak zeby klient mogl spokojnie poczekac na serwer.
 				} catch (IOException e) {
 					e.getStackTrace();
 				}
@@ -68,16 +69,35 @@ public class ClientConnection {
 
 		}
 		
-		private void setup() throws IOException {
-			this.socket = new Socket(ipAdress, port);
-			this.outputStream = new ObjectOutputStream(socket.getOutputStream());
-			this.inputStream = new ObjectInputStream(socket.getInputStream());
+		private void setup(){
+			while(true) {
+			    try {
+			    	this.socket = new Socket(ipAdress, port);
+			        break; // We connected! Exit the loop.
+			    } catch(IOException e) {
+			        System.out.println("Nie udalo się połączyc, proboje jeszcze raz.");
+			        try {
+			            TimeUnit.SECONDS.sleep(3);
+			        } catch(InterruptedException ie) {
+			            // Interrupted.
+			        }
+			    }
+			}
+			try {
+				
+				this.outputStream = new ObjectOutputStream(socket.getOutputStream());
+				this.inputStream = new ObjectInputStream(socket.getInputStream());
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}
 
 		private void processCommands() throws ClassNotFoundException, IOException {
 			while (inputStream != null) {
 				ServerMessage serverMessage = (ServerMessage) this.inputStream.readObject();
-				if (client != null) {
+				if (client != null) { //TODO co jeżeli client null?
 					Platform.runLater(new Runnable() {
 						@Override
 						public void run() {

@@ -13,9 +13,7 @@ public class NewGameCommand extends Command {
 
 	@Override
 	public void executeCommand() {
-			System.out.println("GOD");
             gameGui.CreateNewGameFrame();
-            System.out.println("GOD paased");
 	}
 
 }
