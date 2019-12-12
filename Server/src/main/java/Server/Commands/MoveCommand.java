@@ -32,6 +32,7 @@ public class MoveCommand extends Command {
 		if (this.game.getGameLogic().move(message.getX(), message.getY(), playerNumber)) {
 		    try {
 		        int[][] emptyPlaces = this.game.getGameLogic().removeDeathStones(message.getX(), message.getY());
+		        this.game.getActualPlayer().addPoints(emptyPlaces.length);
                 this.game.getActualPlayer().sendMessage(new MoveInfo(true, emptyPlaces));
                 this.game.changeActualPlayer();
                 this.game.getActualPlayer().sendMessage(new OpponentMove(message.getX(), message.getY(), emptyPlaces));

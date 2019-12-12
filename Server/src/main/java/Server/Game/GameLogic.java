@@ -3,21 +3,20 @@ package Server.Game;
 public class GameLogic {
     private int[][] board;
     private int size;
-    private int player1Points;
-    private int player2Points;
     private int koX;
     private int koY;
     
     public GameLogic(int[][] board) {
         this.board = board;
         this.size = board.length;
-        this.player1Points = 0;
-        this.player2Points = 0;
         this.koX = -1;
         this.koY = -1;
     }
     
     public boolean move(int x, int y, int player) {
+        
+        if (this.board[x][y] != 0)
+            return false;
         
         if (this.checkKo(x, y))
             return false;
@@ -33,16 +32,9 @@ public class GameLogic {
         
         if (answer) {
             this.board[x][y] = player;
-            this.koX = x;
-            this.koY = y;
             return true;
         }
         
-        return false;
-    }
-    
-    public boolean checkEndGame(int player) {
-        //TODO
         return false;
     }
     
@@ -132,17 +124,17 @@ public class GameLogic {
     }
     
     private boolean checkRemoveOtherStones(int x, int y, int player) {
-        int opponent = ((this.board[x][y] == 1) ? 2 : 1);
+        int opponent = ((player == 1) ? 2 : 1);
         this.board[x][y] = player;
         boolean answer = false;
         
-        if (x + 1 < this.size && this.checkBreath(x + 1, y, opponent)) {
+        if (x + 1 < this.size && !this.checkBreath(x + 1, y, opponent)) {
             answer = true;
-        } else if (x - 1 >= 0 && this.checkBreath(x - 1, y, opponent)) {
+        } else if (x - 1 >= 0 && !this.checkBreath(x - 1, y, opponent)) {
             answer = true;
-        } else if (y + 1 < this.size && this.checkBreath(x, y + 1, opponent)) {
+        } else if (y + 1 < this.size && !this.checkBreath(x, y + 1, opponent)) {
             answer = true;
-        } else if (y - 1 >= 0 && this.checkBreath(x, y - 1, opponent)) {
+        } else if (y - 1 >= 0 && !this.checkBreath(x, y - 1, opponent)) {
             answer = true;
         }
         
