@@ -45,7 +45,7 @@ public class NewGameFrameController {
     		} else if(selectedSizeButton.getText().equals("19x19")) {
     			size = 19;	
     		} else {
-    			System.out.println("Size się nei ustawił.");
+    			System.out.println("Size się nei ustawił w NewGame Frame > SendGameOptions.");
     			size=0;
     		}
     		ClientMessage clientMessage = new SetGameOptions(size,type);

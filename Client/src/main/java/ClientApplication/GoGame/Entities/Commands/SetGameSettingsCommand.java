@@ -11,7 +11,7 @@ public class SetGameSettingsCommand extends Command {
 
     @Override
     public void executeCommand() {
-
+    	gameGui.CreateGameBoard9Frame();
 	}
 
 

@@ -75,7 +75,7 @@ public class ClientConnection {
 			    	this.socket = new Socket(ipAdress, port);
 			        break; // We connected! Exit the loop.
 			    } catch(IOException e) {
-			        System.out.println("Nie udalo się połączy, proboje jeszcze raz.");
+			        System.out.println("Nie udalo się połączyc, proboje jeszcze raz.");
 			        try {
 			            TimeUnit.SECONDS.sleep(3);
 			        } catch(InterruptedException ie) {
@@ -97,7 +97,7 @@ public class ClientConnection {
 		private void processCommands() throws ClassNotFoundException, IOException {
 			while (inputStream != null) {
 				ServerMessage serverMessage = (ServerMessage) this.inputStream.readObject();
-				if (client != null) {
+				if (client != null) { //TODO co jeżeli client null?
 					Platform.runLater(new Runnable() {
 						@Override
 						public void run() {

@@ -1,6 +1,7 @@
 package ClientApplication.GoGame.Gui;
 
 import ClientApplication.GoGame.Connection.Client;
+import ClientApplication.GoGame.Gui.Frame.GameBoard9Frame;
 import ClientApplication.GoGame.Gui.Frame.NewGameFrame;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -20,11 +21,18 @@ public class GameGui {//ogarnia framy i controllery
 	}
 	
 	public void ShowWaitFrame() {
-		stage.show();
+		this.stage.show();
 	}
 	
 	public void CreateNewGameFrame() {
 		this.stage.close();
 		NewGameFrame newGameFrame = new NewGameFrame(client);
+		this.stage = newGameFrame.getStage();
+	}
+	
+	public void CreateGameBoard9Frame() {
+		this.stage.close();
+		GameBoard9Frame Board9Frame = new GameBoard9Frame(client);
+		this.stage = Board9Frame.getStage();	
 	}
 }
