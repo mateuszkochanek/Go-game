@@ -30,6 +30,8 @@ public class GameLogicTest {
         assertTrue(gameLogic.move(3, 5, 1));
         assertTrue(gameLogic.move(4, 6, 1));
         assertTrue(gameLogic.move(4, 5, 1));
+        
+        assertTrue(this.checkClean(board));
     }
     
     @Test
@@ -91,6 +93,8 @@ public class GameLogicTest {
         assertEquals(board[1][3], 0);
         assertEquals(board[1][4], 0);
         assertEquals(board[2][1], 1);
+        
+        assertTrue(this.checkClean(board));
     }
     
     @Test
@@ -115,6 +119,8 @@ public class GameLogicTest {
         assertTrue(gameLogic.move(1, 17, 2));
         assertTrue(gameLogic.move(2, 16, 2));
         assertFalse(gameLogic.move(2, 17, 2));
+        
+        assertTrue(this.checkClean(board));
     }
     
     @Test
@@ -162,6 +168,16 @@ public class GameLogicTest {
         assertNull(points);
         assertTrue(gameLogic.move(11, 12, 2));
         
+        assertTrue(this.checkClean(board));
+        
+    }
+    
+    private boolean checkClean(int[][] board) {
+        for (int i = 0; i < board.length; i++)
+            for (int j = 0; j < board.length; j++)
+                if (board[i][j] == -1)
+                    return false;
+        return true;
     }
     
 }

@@ -6,6 +6,10 @@ public class GameLogic {
     private int koX;
     private int koY;
     
+    /**
+     * Class constructor
+     * @param board
+     */
     public GameLogic(int[][] board) {
         this.board = board;
         this.size = board.length;
@@ -13,6 +17,14 @@ public class GameLogic {
         this.koY = -1;
     }
     
+    /**
+     * Function checks, if player can move on position (x,y).
+     * If yes, put his stone in position (x,y), and now user have to run removeDeathStones function.
+     * @param x coordinate of new stone
+     * @param y coordinate of new stone
+     * @param player integer player's value
+     * @return true, if player has moved to (x,y), false otherwise
+     */
     public boolean move(int x, int y, int player) {
         
         if (this.board[x][y] != 0)
@@ -38,6 +50,17 @@ public class GameLogic {
         return false;
     }
     
+    /**
+     * Function remove all death stones from the board.
+     * If only one stone was killed, function set ko parameters to death stone position,
+     * reset ko parameters to -1 otherwise.
+     * The return parameter is table with all death stones parameters
+     * Size of this table give information about number of killed stones.
+     * Client should change this positions to empty spaces.
+     * @param x
+     * @param y
+     * @return table with all death stones coordinates
+     */
     public int[][] removeDeathStones(int x, int y) { //x, y - new stone's coordinate
         int deathStoneNumber = ((this.board[x][y] == 1) ? 2 : 1);
         
