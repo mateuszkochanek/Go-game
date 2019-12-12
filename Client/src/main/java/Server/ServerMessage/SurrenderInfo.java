@@ -1,20 +1,20 @@
 package Server.ServerMessage;
 
-public class EndGame implements ServerMessage {
+public class SurrenderInfo implements ServerMessage {
     private static final long serialVersionUID = 1L;
     
-    private boolean surrender;
+    private boolean yourSurrender;
     private int yourPoints;
     private int opponentPoints;
     
-    public EndGame(boolean surrender, int yourPoints, int opponentPoints) {
-        this.surrender = surrender;
+    public SurrenderInfo(boolean yourSurrender, int yourPoints, int opponentPoints) {
+        this.yourSurrender = yourSurrender;
         this.yourPoints = yourPoints;
         this.opponentPoints = opponentPoints;
     }
 
     public boolean isSurrender() {
-        return this.surrender;
+        return this.yourSurrender;
     }
 
     public int getYourPoints() {
