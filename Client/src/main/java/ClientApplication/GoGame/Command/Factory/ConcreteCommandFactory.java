@@ -11,7 +11,6 @@ import ClientApplication.GoGame.Gui.GameGui;
 import Server.ServerMessage.EndGame;
 import Server.ServerMessage.MoveInfo;
 import Server.ServerMessage.NewGame;
-import Server.ServerMessage.OpponentMove;
 import Server.ServerMessage.SentGameOptions;
 import Server.ServerMessage.ServerMessage;
 
@@ -22,8 +21,6 @@ public class ConcreteCommandFactory implements CommandFactory {
             return new SetGameSettingsCommand(gameGui, message);
         } else if (message instanceof MoveInfo) {
             return new MoveCommand(gameGui, message);
-        } else if (message instanceof OpponentMove) {
-            return new OpponentMoveCommand(gameGui, message);
         } else if (message instanceof EndGame) {
             return new EndGameCommand(gameGui, message);
         } else if (message instanceof NewGame) {

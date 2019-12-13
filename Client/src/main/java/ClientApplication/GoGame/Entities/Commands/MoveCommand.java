@@ -18,7 +18,16 @@ public class MoveCommand extends Command {
 
 	@Override
 	public void executeCommand() {
-
+		boolean doMove = ((MoveInfo) serverMessage).isCorrectMove();
+		int x = ((MoveInfo) serverMessage).getX();
+		int y = ((MoveInfo) serverMessage).getY();
+		int[][] empty = ((MoveInfo) serverMessage).getEmptyPlaces();
+		int color = ((MoveInfo) serverMessage).getPlayer();
+		if(doMove) {
+			gameGui.doMove(x,y,empty,color);
+		} else {
+			//TODO what to do when move is not correct?
+		}
 	}
 
 
