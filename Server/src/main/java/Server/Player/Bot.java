@@ -1,6 +1,8 @@
 package Server.Player;
 
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 import Server.Game.Game;
@@ -25,11 +27,6 @@ public class Bot implements Player {
     public void run() {
         // TODO Auto-generated method stub
         
-    }
-
-    @Override
-    public Socket getSocket() {
-        return null;
     }
 
     @Override

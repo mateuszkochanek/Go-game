@@ -16,7 +16,7 @@ import Server.ServerMessage.NewGame;
 
 public class Game {
     private ServerSocket listener;
-    private Player player1;
+    private Human player1;
     private Player player2;
     private Player actualPlayer;
     private CommandFactory commandFactory;
@@ -61,7 +61,7 @@ public class Game {
 	    try {
             Socket socket = listener.accept();
             var pool = Executors.newFixedThreadPool(20);
-            pool.execute(human = new Human(socket, this));
+            pool.execute(human = new Human(socket, this, null, null));
             
             return human;
         } catch (IOException e) {
@@ -79,12 +79,12 @@ public class Game {
 	    }
 	}
 	
-	public Player getPlayer1() {
+	public Human getPlayer1() {
 		return player1;
 	}
-
-	public void setPlayer1(Player player1) {
-		this.player1 = player1;
+	
+	public void setPlayer1(Human player) {
+	    this.player1 = player;
 	}
 
 	public Player getPlayer2() {
