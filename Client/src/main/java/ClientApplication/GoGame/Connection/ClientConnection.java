@@ -58,7 +58,7 @@ public class ClientConnection {
 				processCommands();
 			} catch (Exception e) {
 				e.getStackTrace();
-				System.out.println(e.getMessage());
+				System.out.println("jestem w ClientConnection read: " + e.getMessage()); //TODO handle
 			} finally {
 				try {
 					socket.close(); // TODO zrobie nie tak zeby klient mogl spokojnie poczekac na serwer.
@@ -76,6 +76,7 @@ public class ClientConnection {
 			        break; // We connected! Exit the loop.
 			    } catch(IOException e) {
 			        System.out.println("Nie udalo się połączyc, proboje jeszcze raz.");
+			        e.printStackTrace();
 			        try {
 			            TimeUnit.SECONDS.sleep(3);
 			        } catch(InterruptedException ie) {
@@ -88,7 +89,7 @@ public class ClientConnection {
 				this.outputStream = new ObjectOutputStream(socket.getOutputStream());
 				this.inputStream = new ObjectInputStream(socket.getInputStream());
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
+				System.out.println("Catch block w setup przy tworzeniu outputu i inputu");// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
@@ -96,7 +97,8 @@ public class ClientConnection {
 
 		private void processCommands() throws ClassNotFoundException, IOException {
 			while (inputStream != null) {
-				ServerMessage serverMessage = (ServerMessage) this.inputStream.readObject();
+				ServerMessage serverMessage;
+				serverMessage = (ServerMessage) this.inputStream.readObject();
 				if (client != null) { //TODO co jeżeli client null?
 					Platform.runLater(new Runnable() {
 						@Override

@@ -52,7 +52,6 @@ public class SetGameOptionsCommand extends Command {
             }
             
     	} else if (message.getMode().contentEquals("multiplayer")) {
-    	    
     	    Player player2 = game.getNewHuman();
     	    this.game.setPlayer2(player2);
     	    

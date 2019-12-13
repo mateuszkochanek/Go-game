@@ -10,7 +10,6 @@ import ClientApplication.GoGame.Entities.ClientMessages.Pass;
 import ClientApplication.GoGame.Entities.ClientMessages.SetGameOptions;
 import ClientApplication.GoGame.Gui.GameGui;
 import Server.ServerMessage.MoveInfo;
-import Server.ServerMessage.OpponentMove;
 import Server.ServerMessage.ServerMessage;
 import javafx.application.Application;
 import javafx.stage.Stage;
