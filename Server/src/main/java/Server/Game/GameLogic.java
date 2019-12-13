@@ -168,7 +168,7 @@ public class GameLogic {
         int amount = this.numberOfEmptyPlaces();
         
         if (amount == 0)
-            return null;
+            return new int[0][0];
         
         int actualAmount = 0;
         int[][] table = new int[amount][2];

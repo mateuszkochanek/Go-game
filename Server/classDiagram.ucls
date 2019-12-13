@@ -62,7 +62,7 @@
   </class>  
   <class id="7" language="java" name="Server.Commands.MoveCommand" project="Server" 
     file="/Server/src/main/java/Server/Commands/MoveCommand.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="555" y="564"/>    
+    <position height="-1" width="-1" x="477" y="582"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -71,7 +71,7 @@
   </class>  
   <class id="8" language="java" name="Server.Commands.PassCommand" project="Server" 
     file="/Server/src/main/java/Server/Commands/PassCommand.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1073" y="568"/>    
+    <position height="-1" width="-1" x="1045" y="580"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -80,7 +80,7 @@
   </class>  
   <class id="9" language="java" name="Server.Commands.SetGameOptionsCommand" project="Server" 
     file="/Server/src/main/java/Server/Commands/SetGameOptionsCommand.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="821" y="567"/>    
+    <position height="-1" width="-1" x="767" y="578"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -89,7 +89,7 @@
   </class>  
   <class id="10" language="java" name="Server.Commands.SurrenderCommand" project="Server" 
     file="/Server/src/main/java/Server/Commands/SurrenderCommand.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1310" y="566"/>    
+    <position height="-1" width="-1" x="1325" y="579"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -126,7 +126,7 @@
   </class>  
   <class id="14" language="java" name="Server.Player.Bot" project="Server" 
     file="/Server/src/main/java/Server/Player/Bot.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1663" y="350"/>    
+    <position height="-1" width="-1" x="1626" y="285"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -135,7 +135,7 @@
   </class>  
   <class id="15" language="java" name="Server.Player.Human" project="Server" 
     file="/Server/src/main/java/Server/Player/Human.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1303" y="370"/>    
+    <position height="-1" width="-1" x="1316" y="313"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -144,7 +144,7 @@
   </class>  
   <interface id="16" language="java" name="Server.Player.Player" project="Server" 
     file="/Server/src/main/java/Server/Player/Player.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1525" y="198"/>    
+    <position height="-1" width="-1" x="1555" y="71"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -153,7 +153,7 @@
   </interface>  
   <class id="17" language="java" name="Server.Server.Server" project="Server" 
     file="/Server/src/main/java/Server/Server/Server.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="107" y="103"/>    
+    <position height="-1" width="-1" x="86" y="108"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -162,7 +162,7 @@
   </class>  
   <class id="18" language="java" name="Server.ServerMessage.EndGame" project="Server" 
     file="/Server/src/main/java/Server/ServerMessage/EndGame.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1324" y="763"/>    
+    <position height="-1" width="-1" x="1330" y="774"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -171,7 +171,7 @@
   </class>  
   <class id="19" language="java" name="Server.ServerMessage.SentGameOptions" project="Server" 
     file="/Server/src/main/java/Server/ServerMessage/SentGameOptions.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1487" y="771"/>    
+    <position height="-1" width="-1" x="1499" y="780"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -180,7 +180,7 @@
   </class>  
   <class id="20" language="java" name="Server.ServerMessage.MoveInfo" project="Server" 
     file="/Server/src/main/java/Server/ServerMessage/MoveInfo.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1682" y="740"/>    
+    <position height="-1" width="-1" x="1684" y="727"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -189,7 +189,7 @@
   </class>  
   <interface id="21" language="java" name="Server.ServerMessage.ServerMessage" project="Server" 
     file="/Server/src/main/java/Server/ServerMessage/ServerMessage.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1561" y="520"/>    
+    <position height="-1" width="-1" x="1624" y="510"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -198,7 +198,7 @@
   </interface>  
   <class id="22" language="java" name="Server.ServerMessage.NewGame" project="Server" 
     file="/Server/src/main/java/Server/ServerMessage/NewGame.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1051" y="821"/>    
+    <position height="-1" width="-1" x="1048" y="828"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -207,7 +207,7 @@
   </class>  
   <class id="23" language="java" name="Server.ServerMessage.OpponentPass" project="Server" 
     file="/Server/src/main/java/Server/ServerMessage/OpponentPass.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1173" y="819"/>    
+    <position height="-1" width="-1" x="1183" y="824"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -216,7 +216,7 @@
   </class>  
   <class id="24" language="java" name="Server.Game.GameEnd" project="Server" 
     file="/Server/src/main/java/Server/Game/GameEnd.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="551" y="54"/>    
+    <position height="-1" width="-1" x="567" y="43"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -232,176 +232,164 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <generalization id="26">    
-    <end type="SOURCE" refId="8"/>    
+  <realization id="26">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="1"/>  
+  </realization>  
+  <generalization id="27">    
+    <end type="SOURCE" refId="9"/>    
     <end type="TARGET" refId="6"/>  
   </generalization>  
-  <association id="27">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="28" name="gameEnd">        
-        <position height="0" width="0" x="223" y="-55"/>      
-      </attribute>      
-      <multiplicity id="29" minimum="0" maximum="1">        
-        <position height="0" width="0" x="223" y="-55"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="24" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="30">    
-    <end type="SOURCE" refId="20"/>    
+  <realization id="28">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="1"/>  
+  </realization>  
+  <realization id="29">    
+    <end type="SOURCE" refId="19"/>    
     <end type="TARGET" refId="21"/>  
   </realization>  
-  <association id="31">    
+  <realization id="30">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="21"/>  
+  </realization>  
+  <realization id="31">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="11"/>  
+  </realization>  
+  <realization id="32">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="16"/>  
+  </realization>  
+  <association id="33">    
     <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="32" name="clientMessage">        
+      <attribute id="34" name="clientMessage">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="33" minimum="0" maximum="1">        
+      <multiplicity id="35" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="1" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="34">    
+  <association id="36">    
     <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="35" name="actualPlayer">        
-        <position height="0" width="0" x="0" y="0"/>      
+      <attribute id="37" name="gameEnd">        
+        <position height="0" width="0" x="239" y="-66"/>      
       </attribute>      
-      <multiplicity id="36" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+      <multiplicity id="38" minimum="0" maximum="1">        
+        <position height="0" width="0" x="239" y="-66"/>      
       </multiplicity>    
     </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
+    <end type="TARGET" refId="24" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="37">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="6"/>  
-  </generalization>  
-  <realization id="38">    
-    <end type="SOURCE" refId="18"/>    
-    <end type="TARGET" refId="21"/>  
-  </realization>  
-  <association id="39">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="40" name="game">        
-        <position height="0" width="0" x="6" y="18"/>      
-      </attribute>      
-      <multiplicity id="41" minimum="0" maximum="1">        
-        <position height="0" width="0" x="6" y="18"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="42">    
-    <end type="SOURCE" refId="15" navigable="false">      
-      <attribute id="43" name="game">        
-        <position height="0" width="0" x="6" y="18"/>      
-      </attribute>      
-      <multiplicity id="44" minimum="0" maximum="1">        
-        <position height="0" width="0" x="6" y="18"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="13" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="45">    
-    <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="6"/>  
-  </generalization>  
-  <realization id="46">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="16"/>  
-  </realization>  
-  <association id="47">    
-    <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="48" name="player1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="49" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="16" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="50">    
+  <realization id="39">    
     <end type="SOURCE" refId="15"/>    
     <end type="TARGET" refId="16"/>  
   </realization>  
-  <realization id="51">    
-    <end type="SOURCE" refId="23"/>    
-    <end type="TARGET" refId="21"/>  
+  <generalization id="40">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <realization id="41">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="1"/>  
   </realization>  
-  <realization id="52">    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="21"/>  
+  <realization id="42">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="1"/>  
   </realization>  
-  <realization id="53">    
-    <end type="SOURCE" refId="12"/>    
-    <end type="TARGET" refId="11"/>  
-  </realization>  
-  <association id="54">    
+  <generalization id="43">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <association id="44">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="45" name="game">        
+        <position height="0" width="0" x="6" y="18"/>      
+      </attribute>      
+      <multiplicity id="46" minimum="0" maximum="1">        
+        <position height="0" width="0" x="6" y="18"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="47">    
     <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="55" name="gameLogic">        
+      <attribute id="48" name="gameLogic">        
         <position height="0" width="0" x="-182" y="138"/>      
       </attribute>      
-      <multiplicity id="56" minimum="0" maximum="1">        
+      <multiplicity id="49" minimum="0" maximum="1">        
         <position height="0" width="0" x="-182" y="138"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="25" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="57">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="1"/>  
-  </realization>  
-  <realization id="58">    
-    <end type="SOURCE" refId="4"/>    
-    <end type="TARGET" refId="1"/>  
-  </realization>  
-  <realization id="59">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="1"/>  
-  </realization>  
-  <association id="60">    
+  <association id="50">    
     <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="61" name="commandFactory">        
+      <attribute id="51" name="actualPlayer">        
+        <position height="0" width="0" x="30" y="-127"/>      
+      </attribute>      
+      <multiplicity id="52" minimum="0" maximum="1">        
+        <position height="0" width="0" x="30" y="-127"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="16" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="53">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="6"/>  
+  </generalization>  
+  <association id="54">    
+    <end type="SOURCE" refId="13" navigable="false">      
+      <attribute id="55" name="commandFactory">        
         <position height="0" width="0" x="-15" y="64"/>      
       </attribute>      
-      <multiplicity id="62" minimum="0" maximum="1">        
+      <multiplicity id="56" minimum="0" maximum="1">        
         <position height="0" width="0" x="-15" y="64"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="11" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="63">    
-    <end type="SOURCE" refId="3"/>    
-    <end type="TARGET" refId="1"/>  
-  </realization>  
-  <generalization id="64">    
-    <end type="SOURCE" refId="10"/>    
-    <end type="TARGET" refId="6"/>  
-  </generalization>  
-  <association id="65">    
+  <association id="57">    
     <end type="SOURCE" refId="13" navigable="false">      
-      <attribute id="66" name="player2">        
-        <position height="0" width="0" x="0" y="0"/>      
+      <attribute id="58" name="player2">        
+        <position height="0" width="0" x="30" y="-127"/>      
       </attribute>      
-      <multiplicity id="67" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
+      <multiplicity id="59" minimum="0" maximum="1">        
+        <position height="0" width="0" x="30" y="-127"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <realization id="68">    
+  <realization id="60">    
     <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="21"/>  
+  </realization>  
+  <realization id="61">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="21"/>  
+  </realization>  
+  <association id="62">    
+    <end type="SOURCE" refId="15" navigable="false">      
+      <attribute id="63" name="game">        
+        <position height="0" width="0" x="6" y="18"/>      
+      </attribute>      
+      <multiplicity id="64" minimum="0" maximum="1">        
+        <position height="0" width="0" x="6" y="18"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="13" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="65">    
+    <end type="SOURCE" refId="23"/>    
     <end type="TARGET" refId="21"/>  
   </realization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
