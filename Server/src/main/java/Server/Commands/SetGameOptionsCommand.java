@@ -25,7 +25,7 @@ public class SetGameOptionsCommand extends Command {
     	
     	if (message.getMode().contentEquals("hotseat")) {
     	    
-    	    Player player2;
+    	    Human player2;
     	    var pool = Executors.newFixedThreadPool(20);
             pool.execute(player2 = new Human(this.game.getPlayer1().getSocket(), this.game, 
                     this.game.getPlayer1().getObjectInputStream(), this.game.getPlayer1().getObjectOutputStream()));

@@ -69,12 +69,10 @@ public class Human implements Player {
         return this.points;
     }
 
-    @Override
     public ObjectInputStream getObjectInputStream() {
         return this.inputStream;
     }
 
-    @Override
     public ObjectOutputStream getObjectOutputStream() {
         return this.outputStream;
     }

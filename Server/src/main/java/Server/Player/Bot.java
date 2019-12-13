@@ -30,11 +30,6 @@ public class Bot implements Player {
     }
 
     @Override
-    public Socket getSocket() {
-        return null;
-    }
-
-    @Override
     public void addPoints(int points) {
         this.points += points;
     }
@@ -42,17 +37,5 @@ public class Bot implements Player {
     @Override
     public int getPoints() {
         return this.points;
-    }
-
-    @Override
-    public ObjectInputStream getObjectInputStream() {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    @Override
-    public ObjectOutputStream getObjectOutputStream() {
-        // TODO Auto-generated method stub
-        return null;
     }
 }

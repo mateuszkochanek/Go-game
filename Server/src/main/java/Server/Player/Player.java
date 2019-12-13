@@ -10,9 +10,6 @@ import Server.ServerMessage.ServerMessage;
 public interface Player extends Runnable {
     
     public void sendMessage(ServerMessage message) throws IOException;
-    public Socket getSocket();
-    public ObjectInputStream getObjectInputStream();
-    public ObjectOutputStream getObjectOutputStream();
     public void addPoints(int points);
     public int getPoints();
 }
