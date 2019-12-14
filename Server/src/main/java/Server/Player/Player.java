@@ -12,4 +12,5 @@ public interface Player extends Runnable {
     public void sendMessage(ServerMessage message) throws IOException;
     public void addPoints(int points);
     public int getPoints();
+    public int getNumber();
 }

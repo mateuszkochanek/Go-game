@@ -2,6 +2,7 @@ package Server.Commands;
 
 import java.io.IOException;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
 import ClientApplication.GoGame.Entities.ClientMessages.SetGameOptions;
@@ -24,11 +25,11 @@ public class SetGameOptionsCommand extends Command {
     	this.game.setBoard(message.getSize());
     	
     	if (message.getMode().contentEquals("hotseat")) {
+    	    this.game.setHotseat(true);
     	    
     	    Human player2;
     	    var pool = Executors.newFixedThreadPool(20);
-            pool.execute(player2 = new Human(this.game.getPlayer1().getSocket(), this.game, 
-                    this.game.getPlayer1().getObjectInputStream(), this.game.getPlayer1().getObjectOutputStream()));
+            pool.execute(player2 = new Human(this.game, this.game.getPlayer1().getConnection(), 2));
             
     	    this.game.setPlayer2(player2);
     	    this.game.setActualPlayer(this.game.getPlayer1());
@@ -42,7 +43,7 @@ public class SetGameOptionsCommand extends Command {
     	    
     	    Player bot;
     	    var pool = Executors.newFixedThreadPool(20);
-            pool.execute(bot = new Bot(this.game));
+            pool.execute(bot = new Bot(this.game, 2));
     	    
             this.game.setPlayer2(bot);
             this.game.setActualPlayer(this.game.getPlayer1());
@@ -53,7 +54,8 @@ public class SetGameOptionsCommand extends Command {
             }
             
     	} else if (message.getMode().contentEquals("multiplayer")) {
-    	    Player player2 = game.getNewHuman();
+    	    Player player2 = game.getNewHuman(2);
+    	    
     	    this.game.setPlayer2(player2);
     	    
     	    try {

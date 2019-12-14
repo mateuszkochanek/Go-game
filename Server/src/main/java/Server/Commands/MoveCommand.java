@@ -17,23 +17,15 @@ public class MoveCommand extends Command {
 	@Override
 	public void executeCommand() {
 		Move message = (Move) this.clientMessage;
-		
-		if (!this.game.getActualPlayer().equals(this.player)) {
+		    
+		if (!this.game.getActualPlayer().equals(player) && !this.game.isHotseat())
 		    return;
-		}
-		
-		int playerNumber;
-		if (this.game.getActualPlayer().equals(this.game.getPlayer1())) {
-		    playerNumber = 1;
-		} else {
-		    playerNumber = 2;
-		}
-		
-		if (this.game.getGameLogic().move(message.getX(), message.getY(), playerNumber)) {
+
+		if (this.game.getGameLogic().move(message.getX(), message.getY(), this.game.getActualPlayer().getNumber())) {
 		    try {
 		        int[][] emptyPlaces = this.game.getGameLogic().removeDeathStones(message.getX(), message.getY());
 		        this.game.getActualPlayer().addPoints(emptyPlaces.length);
-		        MoveInfo moveInfo = new MoveInfo(playerNumber, true, message.getX(), message.getY(), emptyPlaces);
+		        MoveInfo moveInfo = new MoveInfo(this.game.getActualPlayer().getNumber(), true, message.getX(), message.getY(), emptyPlaces);
                 this.game.getActualPlayer().sendMessage(moveInfo);
                 this.game.changeActualPlayer();
                 this.game.getActualPlayer().sendMessage(moveInfo);
