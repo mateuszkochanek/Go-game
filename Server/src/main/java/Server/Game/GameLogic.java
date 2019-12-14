@@ -37,7 +37,7 @@ public class GameLogic {
         this.cleanBoardAfterChecking(x, y, 0, player);
         
         if (!answer) {
-            int opponent = ((this.board[x][y] == 1) ? 2 : 1);
+            int opponent = ((this.board[x][y] == 1) ? 2 : 1); // player == 1 ?
             answer = this.checkRemoveOtherStones(x, y, player);
             this.cleanBoardAfterChecking(x, y, 0, opponent);
         }

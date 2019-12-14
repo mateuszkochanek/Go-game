@@ -1,6 +1,7 @@
 package ClientApplication.GoGame.Entities.Commands;
 
 import ClientApplication.GoGame.Gui.GameGui;
+import Server.ServerMessage.SentGameOptions;
 import Server.ServerMessage.ServerMessage;
 
 public class SetGameSettingsCommand extends Command {
@@ -11,7 +12,7 @@ public class SetGameSettingsCommand extends Command {
 
     @Override
     public void executeCommand() {
-    	gameGui.CreateGameBoard9Frame();
+    	gameGui.CreateGameBoardFrame(((SentGameOptions)serverMessage).getSize());
 	}
 
 

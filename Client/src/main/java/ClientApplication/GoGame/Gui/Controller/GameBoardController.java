@@ -1,5 +1,6 @@
 package ClientApplication.GoGame.Gui.Controller;
 
+import java.io.File;
 import java.io.IOException;
 
 import ClientApplication.GoGame.Connection.Client;
@@ -8,12 +9,17 @@ import ClientApplication.GoGame.Entities.ClientMessages.Move;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Circle;
 
-public class GameBoard9Controller {
+public class GameBoardController {
 	Client client;
+	
+    @FXML
+    private ImageView boardBackground;
 	
     @FXML
     private GridPane gridPane;
@@ -21,8 +27,8 @@ public class GameBoard9Controller {
     @FXML
     void MakeMove(MouseEvent event) {
     	Node node = (Node) event.getSource();
-    	int x = GridPane.getRowIndex(node);
-    	int y = GridPane.getColumnIndex(node);
+    	int y = GridPane.getRowIndex(node);
+    	int x = GridPane.getColumnIndex(node);
     	ClientMessage clientMessage = new Move(x,y);
     	System.out.println(x + " " + y);
     	try {
@@ -67,5 +73,34 @@ public class GameBoard9Controller {
     
 	public void setConnection(Client client) {
 		this.client=client;
+	}
+
+    @FXML
+    void OnPassAction(MouseEvent event) {
+
+    }
+
+    @FXML
+    void OnSurrenderAction(MouseEvent event) {
+
+    }
+	public void setBoardSize(int size) {
+		if(size == 9) {
+			
+		} else if (size == 13) {
+			File file = new File("src/main/resources/board13.png");
+	        Image image = new Image(file.toURI().toString());
+			boardBackground.setImage(image);
+		} else {
+			File file = new File("src/main/resources/board19.png");
+	        Image image = new Image(file.toURI().toString());
+			boardBackground.setImage(image);
+		}
+		for(int i = 0; i < size ; i++) {
+			for(int j = 0; j < size ; j++) {
+				
+			}
+		}
+		
 	}
 }

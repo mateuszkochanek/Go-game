@@ -4,22 +4,24 @@ import java.io.IOException;
 
 import ClientApplication.GoGame.Connection.Client;
 import ClientApplication.GoGame.Gui.Controller.GameBoard9Controller;
+import ClientApplication.GoGame.Gui.Controller.GameBoardController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Control;
 import javafx.stage.Stage;
 
-public class GameBoard9Frame implements Frame {
+public class GameBoardFrame implements Frame {
 	Stage stage;
-	GameBoard9Controller controller;
-	public GameBoard9Frame(Client client) {
+	GameBoardController controller;
+	public GameBoardFrame(Client client, int size) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("/FXMLGameBoard9.fxml"));
+			loader.setLocation(getClass().getResource("/FXMLGameBoard.fxml"));
 			Parent root = loader.load();
-			this.controller = loader.<GameBoard9Controller>getController();
+			this.controller = loader.<GameBoardController>getController();
 			this.controller.setConnection(client);
+			this.controller.setBoardSize(size);
 			Stage stage = new Stage();
 			stage.setTitle("GoGame NewGame");
 	        stage.setScene(new Scene(root,500,500));
