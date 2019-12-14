@@ -12,7 +12,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Circle;
 
-public class GameBoard9Controller {
+public class GameBoardController {
 	Client client;
 	
     @FXML
