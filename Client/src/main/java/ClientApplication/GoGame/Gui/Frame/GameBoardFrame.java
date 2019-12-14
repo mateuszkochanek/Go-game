@@ -10,13 +10,18 @@ import javafx.scene.Scene;
 import javafx.scene.control.Control;
 import javafx.stage.Stage;
 
-public class GameBoard9Frame implements Frame {
+public class GameBoardFrame implements Frame {
 	Stage stage;
 	GameBoardController controller;
-	public GameBoard9Frame(Client client) {
+	public GameBoardFrame(Client client, int size) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(getClass().getResource("/FXMLGameBoard9.fxml"));
+			if(size == 9)
+				loader.setLocation(getClass().getResource("/FXMLGameBoard9.fxml"));
+			else if(size == 13)
+				loader.setLocation(getClass().getResource("/FXMLGameBoard13.fxml"));
+			else
+				loader.setLocation(getClass().getResource("/FXMLGameBoard19.fxml"));
 			Parent root = loader.load();
 			this.controller = loader.<GameBoardController>getController();
 			this.controller.setConnection(client);
