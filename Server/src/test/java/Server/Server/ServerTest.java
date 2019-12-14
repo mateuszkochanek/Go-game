@@ -16,8 +16,6 @@ public class ServerTest {
         
         Server server = new Server();
         
-        //verify(server).createServer;
-        
         String ip = "localhost";
         try (var socket = new Socket(ip, 59898)) {
             
