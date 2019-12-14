@@ -42,6 +42,15 @@ public class GameGui {//ogarnia framy i controllery
 		this.frame = boardFrame;
 		this.stage = frame.getStage();	
 	}
+
+	public void showOponentPass() {
+		frame.showOponentPass();
+	}
+
+	public void createEndGameFrame() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 }

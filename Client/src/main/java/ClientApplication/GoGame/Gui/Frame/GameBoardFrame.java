@@ -27,7 +27,7 @@ public class GameBoardFrame implements Frame {
 			this.controller.setConnection(client);
 			Stage stage = new Stage();
 			stage.setTitle("GoGame NewGame");
-	        stage.setScene(new Scene(root,500,500));
+	        stage.setScene(new Scene(root,800,600));
 	        this.stage = stage;
 	        stage.show();
 		} catch (IOException e) {
@@ -44,5 +44,11 @@ public class GameBoardFrame implements Frame {
 	public void doMove(int x, int y, int[][] empty, int color) {
 		controller.showMove(x, y, color);
 		controller.emptyPlaces(empty);
+	}
+
+	@Override
+	public void showOponentPass() {
+		controller.showOpponentPass();
+		
 	}
 }

@@ -7,4 +7,6 @@ public interface Frame {
 	Stage getStage();
 
 	void doMove(int x, int y, int[][] empty, int color);
+
+	void showOponentPass();
 }

@@ -5,21 +5,21 @@ import java.io.IOException;
 import ClientApplication.GoGame.Connection.Client;
 import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
 import ClientApplication.GoGame.Entities.ClientMessages.Move;
+import ClientApplication.GoGame.Entities.ClientMessages.Pass;
 import ClientApplication.GoGame.Gui.GameGui;
+import Server.ServerMessage.MoveInfo;
 import Server.ServerMessage.ServerMessage;
 
-public class OpponentMoveCommand extends Command {
+public class OpponentPassCommand extends Command {
     
-    public OpponentMoveCommand(GameGui gameGui, ServerMessage message) {
+    public OpponentPassCommand(GameGui gameGui, ServerMessage message) {
         super(gameGui, message);
     }
 
 	@Override
 	public void executeCommand() {
-
-		
+		gameGui.showOponentPass();
 	}
-
 
 
 }

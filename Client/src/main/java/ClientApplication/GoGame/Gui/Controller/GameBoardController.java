@@ -5,6 +5,8 @@ import java.io.IOException;
 import ClientApplication.GoGame.Connection.Client;
 import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
 import ClientApplication.GoGame.Entities.ClientMessages.Move;
+import ClientApplication.GoGame.Entities.ClientMessages.Pass;
+import ClientApplication.GoGame.Entities.ClientMessages.Surrender;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -12,18 +14,23 @@ import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Text;
 
 public class GameBoardController {
 	Client client;
 	
     @FXML
     private GridPane gridPane;
+    
+    @FXML
+    private Text pass;
 	
     @FXML
     void MakeMove(MouseEvent event) {
+    	hideOpponentPass();
     	Node node = (Node) event.getSource();
-    	int y = GridPane.getRowIndex(node);
-    	int x = GridPane.getColumnIndex(node);
+    	int x = GridPane.getRowIndex(node);
+    	int y = GridPane.getColumnIndex(node);
     	ClientMessage clientMessage = new Move(x,y);
     	System.out.println(x + " " + y);
     	try {
@@ -36,12 +43,26 @@ public class GameBoardController {
 
     @FXML
     void OnPassAction(ActionEvent event) {
-
+    	hideOpponentPass();
+    	ClientMessage clientMessage = new Pass();
+    	try {
+			client.sendMessage(clientMessage);
+		} catch (IOException e) {
+			System.out.println("W Make Move send message nie zadzialalo jak powinno.");
+			e.printStackTrace();
+		}   
     }
 
     @FXML
     void OnSurrenderAction(ActionEvent event) {
-
+    	hideOpponentPass();
+    	ClientMessage clientMessage = new Surrender();
+    	try {
+			client.sendMessage(clientMessage);
+		} catch (IOException e) {
+			System.out.println("W Make Move send message nie zadzialalo jak powinno.");
+			e.printStackTrace();
+		}   
     }
     
     public void showMove(int x, int y, int color) {
@@ -69,7 +90,7 @@ public class GameBoardController {
     	Node nodeFound = null;
     	ObservableList<Node> children = gridPane.getChildren();
     	for (Node node : children) {
-            if(GridPane.getRowIndex(node) == y && GridPane.getColumnIndex(node) == x) {
+            if(GridPane.getRowIndex(node) == x && GridPane.getColumnIndex(node) == y) {
             	nodeFound = node;
         		return nodeFound;
             }
@@ -79,5 +100,13 @@ public class GameBoardController {
     
 	public void setConnection(Client client) {
 		this.client=client;
+	}
+
+	public void showOpponentPass() {
+		pass.setText("Your opponent passed.");
+	}
+	
+	public void hideOpponentPass() {
+		pass.setText("");
 	}
 }

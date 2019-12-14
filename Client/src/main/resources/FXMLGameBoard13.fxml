@@ -8,6 +8,8 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <GridPane alignment="CENTER" gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="746.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClientApplication.GoGame.Gui.Controller.GameBoardController">
   <columnConstraints>
@@ -248,6 +250,11 @@
          <children>
             <Button layoutX="7.0" layoutY="315.0" mnemonicParsing="false" onAction="#OnSurrenderAction" prefHeight="60.0" prefWidth="138.0" text="Surrender" />
             <Button layoutX="7.0" layoutY="223.0" mnemonicParsing="false" onAction="#OnPassAction" prefHeight="60.0" prefWidth="138.0" text="Pass" />
+            <Text fx:id="pass" layoutX="9.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="138.39999999999986">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Text>
          </children>
       </AnchorPane>
    </children>
