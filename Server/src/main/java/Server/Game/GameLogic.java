@@ -37,11 +37,11 @@ public class GameLogic {
         this.cleanBoardAfterChecking(x, y, 0, player);
         
         if (!answer) {
-            int opponent = ((this.board[x][y] == 1) ? 2 : 1);
+            int opponent = ((player == 1) ? 2 : 1);
             answer = this.checkRemoveOtherStones(x, y, player);
             this.cleanBoardAfterChecking(x, y, 0, opponent);
         }
-        
+
         if (answer) {
             this.board[x][y] = player;
             return true;
@@ -166,7 +166,6 @@ public class GameLogic {
     
     private int[][] getEmptyPlaces() {
         int amount = this.numberOfEmptyPlaces();
-        
         if (amount == 0)
             return new int[0][0];
         
