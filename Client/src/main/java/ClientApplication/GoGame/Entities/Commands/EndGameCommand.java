@@ -2,6 +2,7 @@ package ClientApplication.GoGame.Entities.Commands;
 
 import ClientApplication.GoGame.Connection.Client;
 import ClientApplication.GoGame.Gui.GameGui;
+import Server.ServerMessage.EndGame;
 import Server.ServerMessage.ServerMessage;
 
 public class EndGameCommand extends Command {
@@ -12,10 +13,11 @@ public class EndGameCommand extends Command {
 
 	@Override
 	public void executeCommand() {
-		// TODO Surrender i EndGame do implementacji!
-		//Surrender też tutaj?
-		//zamykanie gry, wyswietlenie wyniku, pytanie o ponowną gre
-		
+		int blackPoint = ((EndGame)serverMessage).getPlayer1points();
+		int whitePoint = ((EndGame)serverMessage).getPlayer2points();
+		int surrenderPlayer = ((EndGame)serverMessage).getPlayerSurrender();
+		boolean isSurrender = ((EndGame)serverMessage).isSurrender();
+		gameGui.createEndGameFrame(isSurrender,blackPoint,whitePoint,surrenderPlayer);
 	}
 
 

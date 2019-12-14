@@ -1,6 +1,7 @@
 package ClientApplication.GoGame.Gui;
 
 import ClientApplication.GoGame.Connection.Client;
+import ClientApplication.GoGame.Gui.Frame.EndGameFrame;
 import ClientApplication.GoGame.Gui.Frame.Frame;
 import ClientApplication.GoGame.Gui.Frame.GameBoardFrame;
 import ClientApplication.GoGame.Gui.Frame.NewGameFrame;
@@ -47,9 +48,10 @@ public class GameGui {//ogarnia framy i controllery
 		frame.showOponentPass();
 	}
 
-	public void createEndGameFrame() {
-		// TODO Auto-generated method stub
-		
+	public void createEndGameFrame(boolean isSurrender, int blackPoint, int whitePoint, int surrenderPlayer) {
+		this.stage.close();
+		EndGameFrame boardFrame = new EndGameFrame(client ,isSurrender, blackPoint, whitePoint, surrenderPlayer);
+		this.stage = frame.getStage();
 	}
 	
 	
