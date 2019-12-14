@@ -49,5 +49,9 @@ public class Client { // zamykanie i otwieranie połączenia
 	public void setGameGui(GameGui gameGui) {
 		this.gameGui = gameGui;
 	}
+
+	public void closeConnection() {
+		clientConnection.closeConnection();
+	}
 	
 }
