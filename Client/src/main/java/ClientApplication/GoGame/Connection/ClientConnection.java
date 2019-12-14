@@ -8,6 +8,7 @@ import java.net.UnknownHostException;
 import java.util.concurrent.TimeUnit;
 
 import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
+import Server.ServerMessage.EndGame;
 import Server.ServerMessage.ServerMessage;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
@@ -24,6 +25,11 @@ public class ClientConnection {
 	public void startConnection() {
 		connectionThread.start();
 	}
+	
+
+	public void closeConnection() {
+		connectionThread.closeConnection();
+	}
 
 	public void sendMessageToServer(ClientMessage message) throws IOException {
 		connectionThread.outputStream.writeObject(message);
@@ -39,12 +45,18 @@ public class ClientConnection {
 		private ObjectOutputStream outputStream;
 		private int port;
 		private String ipAdress;
+		private boolean keepRunning;
 		
 		
 		
 		public ConnectionThread(String ipAdress, int port) {
 			this.ipAdress = ipAdress;
 			this.port = port;
+			keepRunning = true;
+		}
+
+		public void closeConnection() {
+			keepRunning = false;
 		}
 
 		@Override
@@ -97,6 +109,11 @@ public class ClientConnection {
 
 		private void processCommands() throws ClassNotFoundException, IOException {
 			while (inputStream != null) {
+				if(!keepRunning) {
+					socket.close();
+					break;
+				}
+
 				ServerMessage serverMessage;
 				serverMessage = (ServerMessage) this.inputStream.readObject();
 				if (client != null) { //TODO co jeżeli client null?
@@ -107,8 +124,10 @@ public class ClientConnection {
 						}
 					});
 				}
+				if(serverMessage instanceof EndGame)
+					keepRunning = false;
 			}
-		}
 
+		}
 	}
 }
