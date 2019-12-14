@@ -26,7 +26,22 @@ public class GameLogic {
      * @return true, if player has moved to (x,y), false otherwise
      */
     public boolean move(int x, int y, int player) {
+        if (this.checkMove(x, y, player)) {
+            this.board[x][y] = player; 
+            return true;
+        }
         
+        return false;
+    }
+    
+    /**
+     * Return true, if move is possible, false otherwise
+     * @param x
+     * @param y
+     * @param player
+     * @return
+     */
+    public boolean checkMove(int x, int y, int player) {
         if (this.board[x][y] != 0)
             return false;
         
@@ -43,7 +58,6 @@ public class GameLogic {
         }
 
         if (answer) {
-            this.board[x][y] = player;
             return true;
         }
         
@@ -89,6 +103,12 @@ public class GameLogic {
         this.removeAllDeathStones();
         
         return emptyPlaces;
+    }
+    
+    public int checkPlayer(int x, int y) {
+        if (x < 0 || y < 0 || x >= this.size || y >= this.size)
+            return -1;
+        return this.board[x][y];
     }
     
     private boolean checkKo(int x, int y) {
@@ -151,13 +171,13 @@ public class GameLogic {
         this.board[x][y] = player;
         boolean answer = false;
         
-        if (x + 1 < this.size && !this.checkBreath(x + 1, y, opponent)) {
+        if (x + 1 < this.size && this.board[x + 1][y] == opponent && !this.checkBreath(x + 1, y, opponent)) {
             answer = true;
-        } else if (x - 1 >= 0 && !this.checkBreath(x - 1, y, opponent)) {
+        } else if (x - 1 >= 0 && this.board[x -1][y] == opponent && !this.checkBreath(x - 1, y, opponent)) {
             answer = true;
-        } else if (y + 1 < this.size && !this.checkBreath(x, y + 1, opponent)) {
+        } else if (y + 1 < this.size && this.board[x][y + 1] == opponent && !this.checkBreath(x, y + 1, opponent)) {
             answer = true;
-        } else if (y - 1 >= 0 && !this.checkBreath(x, y - 1, opponent)) {
+        } else if (y - 1 >= 0 && this.board[x][y - 1] == opponent && !this.checkBreath(x, y - 1, opponent)) {
             answer = true;
         }
         

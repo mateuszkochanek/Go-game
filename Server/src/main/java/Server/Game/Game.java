@@ -34,11 +34,6 @@ public class Game {
     	
     	try {
             listener = new ServerSocket(59898);
-            /*ClientConnection connection = new ClientConnection(this.listener);
-            
-            Human human;
-            var pool = Executors.newFixedThreadPool(20);
-            pool.execute(human = new Human(this, connection));*/
             
             this.player1 = this.getNewHuman(1);
             

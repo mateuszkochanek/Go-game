@@ -28,8 +28,8 @@ public class PassCommand extends Command {
 	        int player2Points = this.game.getGameEnd().countPoints(2);
 	        
 	        try {
-                this.game.getPlayer1().sendMessage(new EndGame(false, player1Points, player2Points));
-                this.game.getPlayer2().sendMessage(new EndGame(false, player2Points, player1Points));
+                this.game.getPlayer1().sendMessage(new EndGame(false, 0, player1Points, player2Points));
+                this.game.getPlayer2().sendMessage(new EndGame(false, 0, player1Points, player2Points));
             } catch (IOException e) {
                 e.printStackTrace();
             }

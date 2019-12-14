@@ -6,7 +6,6 @@ import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
 import Server.Game.Game;
 import Server.Player.Player;
 import Server.ServerMessage.EndGame;
-import Server.ServerMessage.SurrenderInfo;
 
 public class SurrenderCommand extends Command {
     
@@ -23,16 +22,17 @@ public class SurrenderCommand extends Command {
         
         try {
             if (this.game.getPlayer1().equals(this.player)) {
-                this.game.getPlayer1().sendMessage(new SurrenderInfo(true, player1Points, player2Points));
-                this.game.getPlayer2().sendMessage(new SurrenderInfo(false, player2Points, player1Points));
+                EndGame endGame = new EndGame(true, 1, player1Points, player2Points);
+                this.game.getPlayer1().sendMessage(endGame);
+                this.game.getPlayer2().sendMessage(endGame);
             } else {
-                this.game.getPlayer1().sendMessage(new SurrenderInfo(false, player1Points, player2Points));
-                this.game.getPlayer2().sendMessage(new SurrenderInfo(true, player2Points, player1Points));
+                EndGame endGame = new EndGame(true, 2, player1Points, player2Points);
+                this.game.getPlayer1().sendMessage(endGame);
+                this.game.getPlayer2().sendMessage(endGame);
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //TODO: play again (?)
 	}
 
 }
