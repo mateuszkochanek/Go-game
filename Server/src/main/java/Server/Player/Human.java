@@ -40,35 +40,12 @@ public class Human implements Player {
             this.game.getMessage(clientMessage, this);
             
         } while (clientMessage != null);
-        
-        
-        /*try {
-            if (this.inputStream == null) {
-                outputStream = new ObjectOutputStream(socket.getOutputStream());
-                inputStream = new ObjectInputStream(socket.getInputStream());
-            }
-            
-            while(inputStream != null) {
-                ClientMessage clientMessage = (ClientMessage) inputStream.readObject();
-                this.game.getMessage(clientMessage, this);
-            }
-        } catch (Exception e) {
-            e.getStackTrace();
-        } finally {
-            try { 
-                socket.close();
-            } catch (IOException e) {
-                e.getStackTrace();
-            }
-        }*/
       
     }
     
     @Override
     public void sendMessage(ServerMessage message) throws IOException {
         this.connection.sendMessage(message);
-        /*outputStream.writeObject(message);
-        outputStream.flush();*/
     }
 
     @Override

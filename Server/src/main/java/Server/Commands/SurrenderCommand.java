@@ -15,10 +15,10 @@ public class SurrenderCommand extends Command {
 
 	@Override
 	public void executeCommand() {
-	    this.game.getGameEnd().removeDeathStones();
+	    this.game.getGameLogic().removeDeathStonesEndGame();
         
-        int player1Points = this.game.getGameEnd().countPoints(1);
-        int player2Points = this.game.getGameEnd().countPoints(2);
+        int player1Points = this.game.getGameLogic().countPoints(1);
+        int player2Points = this.game.getGameLogic().countPoints(2);
         
         try {
             if (this.game.getPlayer1().equals(this.player)) {
