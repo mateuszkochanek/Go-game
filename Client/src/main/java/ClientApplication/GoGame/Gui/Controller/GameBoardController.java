@@ -6,13 +6,14 @@ import ClientApplication.GoGame.Connection.Client;
 import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
 import ClientApplication.GoGame.Entities.ClientMessages.Move;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Circle;
 
-public class GameBoard9Controller {
+public class GameBoardController {
 	Client client;
 	
     @FXML
@@ -32,6 +33,17 @@ public class GameBoard9Controller {
 			e.printStackTrace();
 		}   	
     }
+
+    @FXML
+    void OnPassAction(ActionEvent event) {
+
+    }
+
+    @FXML
+    void OnSurrenderAction(ActionEvent event) {
+
+    }
+    
     public void showMove(int x, int y, int color) {
     	Node node = findNode(x,y);
 		if(node != null) {
