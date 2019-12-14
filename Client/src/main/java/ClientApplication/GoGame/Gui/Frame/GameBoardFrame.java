@@ -27,7 +27,7 @@ public class GameBoardFrame implements Frame {
 			this.controller.setConnection(client);
 			Stage stage = new Stage();
 			stage.setTitle("GoGame NewGame");
-	        stage.setScene(new Scene(root,500,500));
+	        stage.setScene(new Scene(root,700,600));
 	        this.stage = stage;
 	        stage.show();
 		} catch (IOException e) {
