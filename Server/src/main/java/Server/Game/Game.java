@@ -20,11 +20,10 @@ public class Game {
     private Player player2;
     private Player actualPlayer;
     private CommandFactory commandFactory;
-    private int[][] board; // 0 nothing, 1 first player, 2 second player TODO: ko(?)
+    private int[][] board; // 0 nothing, 1 first player, 2 second player
     private int size;
     private boolean previousPass;
     private GameLogic gameLogic;
-    private GameEnd gameEnd;
     private boolean hotseat;
 
     public Game() {
@@ -39,14 +38,14 @@ public class Game {
             
             TimeUnit.SECONDS.sleep(1);
             player1.sendMessage(new NewGame());
-            this.setActualPlayer(this.player1);
+            this.actualPlayer = this.player1;
             
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
 	}
 
-	public void getMessage(ClientMessage clientMessage, Player player) { //TODO synchronized?
+	public synchronized void getMessage(ClientMessage clientMessage, Player player) {
     	Command command = this.commandFactory.getCommand(this, clientMessage, player);
     	command.executeCommand();
     }
@@ -56,7 +55,6 @@ public class Game {
 	    this.board = new int[size][size];
 	    
 	    this.gameLogic = new GameLogic(this.board);
-        this.gameEnd = new GameEnd(this.board);
 	}
 	
 	public void changeActualPlayer() {
@@ -93,10 +91,6 @@ public class Game {
 		return actualPlayer;
 	}
 
-	public void setActualPlayer(Player actualPlayer) {
-		this.actualPlayer = actualPlayer;
-	}
-
 	public int getSize() {
 		return size;
 	}
@@ -115,10 +109,6 @@ public class Game {
     
     public GameLogic getGameLogic() {
         return this.gameLogic;
-    }
-    
-    public GameEnd getGameEnd() {
-        return this.gameEnd;
     }
 
     public boolean isHotseat() {

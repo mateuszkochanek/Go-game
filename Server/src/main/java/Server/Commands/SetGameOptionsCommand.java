@@ -32,7 +32,6 @@ public class SetGameOptionsCommand extends Command {
             pool.execute(player2 = new Human(this.game, this.game.getPlayer1().getConnection(), 2));
             
     	    this.game.setPlayer2(player2);
-    	    this.game.setActualPlayer(this.game.getPlayer1());
     	    try {
                 this.game.getPlayer1().sendMessage(new SentGameOptions(1, message.getSize(), message.getMode()));
             } catch (IOException e) {
@@ -46,7 +45,6 @@ public class SetGameOptionsCommand extends Command {
             pool.execute(bot = new Bot(this.game, 2));
     	    
             this.game.setPlayer2(bot);
-            this.game.setActualPlayer(this.game.getPlayer1());
             try {
                 this.game.getPlayer1().sendMessage(new SentGameOptions(1, message.getSize(), message.getMode()));
             } catch (IOException e) {
@@ -61,7 +59,6 @@ public class SetGameOptionsCommand extends Command {
     	    try {
     	        this.game.getPlayer1().sendMessage(new SentGameOptions(1, message.getSize(), message.getMode()));
     	        this.game.getPlayer2().sendMessage(new SentGameOptions(2, message.getSize(), message.getMode()));
-    	        this.game.setActualPlayer(this.game.getPlayer1());
             } catch (IOException e) {
                 e.printStackTrace();
             }

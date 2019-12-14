@@ -22,10 +22,10 @@ public class PassCommand extends Command {
         }
 		
 	    if (this.game.isPreviousPass()) {
-	        this.game.getGameEnd().removeDeathStones();
+	        this.game.getGameLogic().removeDeathStonesEndGame();
 	        
-	        int player1Points = this.game.getGameEnd().countPoints(1);
-	        int player2Points = this.game.getGameEnd().countPoints(2);
+	        int player1Points = this.game.getGameLogic().countPoints(1);
+	        int player2Points = this.game.getGameLogic().countPoints(2);
 	        
 	        try {
                 this.game.getPlayer1().sendMessage(new EndGame(false, 0, player1Points, player2Points));
