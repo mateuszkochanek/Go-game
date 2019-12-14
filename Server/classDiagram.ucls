@@ -53,7 +53,7 @@
   </class>  
   <class id="6" language="java" name="Server.Commands.Command" project="Server" 
     file="/Server/src/main/java/Server/Commands/Command.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="896" y="453"/>    
+    <position height="-1" width="-1" x="689" y="438"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -98,7 +98,7 @@
   </class>  
   <interface id="11" language="java" name="Server.Commands.Factory.CommandFactory" project="Server" 
     file="/Server/src/main/java/Server/Commands/Factory/CommandFactory.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="620" y="275"/>    
+    <position height="-1" width="-1" x="613" y="270"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -126,7 +126,7 @@
   </class>  
   <class id="14" language="java" name="Server.Player.Bot" project="Server" 
     file="/Server/src/main/java/Server/Player/Bot.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1626" y="285"/>    
+    <position height="-1" width="-1" x="1610" y="302"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -135,7 +135,7 @@
   </class>  
   <class id="15" language="java" name="Server.Player.Human" project="Server" 
     file="/Server/src/main/java/Server/Player/Human.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1383" y="279"/>    
+    <position height="-1" width="-1" x="1375" y="305"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -144,7 +144,7 @@
   </class>  
   <interface id="16" language="java" name="Server.Player.Player" project="Server" 
     file="/Server/src/main/java/Server/Player/Player.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1459" y="91"/>    
+    <position height="-1" width="-1" x="1398" y="28"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -162,7 +162,7 @@
   </class>  
   <class id="18" language="java" name="Server.ServerMessage.EndGame" project="Server" 
     file="/Server/src/main/java/Server/ServerMessage/EndGame.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1330" y="774"/>    
+    <position height="-1" width="-1" x="1319" y="771"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -171,7 +171,7 @@
   </class>  
   <class id="19" language="java" name="Server.ServerMessage.SentGameOptions" project="Server" 
     file="/Server/src/main/java/Server/ServerMessage/SentGameOptions.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1499" y="780"/>    
+    <position height="-1" width="-1" x="1501" y="765"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -180,7 +180,7 @@
   </class>  
   <class id="20" language="java" name="Server.ServerMessage.MoveInfo" project="Server" 
     file="/Server/src/main/java/Server/ServerMessage/MoveInfo.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1684" y="727"/>    
+    <position height="-1" width="-1" x="1685" y="724"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -198,7 +198,7 @@
   </interface>  
   <class id="22" language="java" name="Server.ServerMessage.NewGame" project="Server" 
     file="/Server/src/main/java/Server/ServerMessage/NewGame.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1048" y="828"/>    
+    <position height="-1" width="-1" x="1018" y="769"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -207,7 +207,7 @@
   </class>  
   <class id="23" language="java" name="Server.ServerMessage.OpponentPass" project="Server" 
     file="/Server/src/main/java/Server/ServerMessage/OpponentPass.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1183" y="824"/>    
+    <position height="-1" width="-1" x="1149" y="812"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -225,7 +225,7 @@
   </class>  
   <class id="25" language="java" name="Server.Game.GameLogic" project="Server" 
     file="/Server/src/main/java/Server/Game/GameLogic.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="318" y="125"/>    
+    <position height="-1" width="-1" x="292" y="126"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -234,7 +234,7 @@
   </class>  
   <class id="26" language="java" name="Server.Connection.Connection" project="Server" 
     file="/Server/src/main/java/Server/Connection/Connection.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1138" y="407"/>    
+    <position height="-1" width="-1" x="1144" y="430"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -260,10 +260,10 @@
   <association id="31">    
     <end type="SOURCE" refId="13" navigable="false">      
       <attribute id="32" name="commandFactory">        
-        <position height="0" width="0" x="-15" y="64"/>      
+        <position height="0" width="0" x="-22" y="59"/>      
       </attribute>      
       <multiplicity id="33" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-15" y="64"/>      
+        <position height="0" width="0" x="-22" y="59"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="11" navigable="true"/>    
@@ -332,10 +332,10 @@
   <association id="50">    
     <end type="SOURCE" refId="13" navigable="false">      
       <attribute id="51" name="player2">        
-        <position height="0" width="0" x="-66" y="-107"/>      
+        <position height="0" width="0" x="-127" y="-170"/>      
       </attribute>      
       <multiplicity id="52" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-66" y="-107"/>      
+        <position height="0" width="0" x="-127" y="-170"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="16" navigable="true"/>    
@@ -348,10 +348,10 @@
   <association id="54">    
     <end type="SOURCE" refId="13" navigable="false">      
       <attribute id="55" name="gameLogic">        
-        <position height="0" width="0" x="0" y="6"/>      
+        <position height="0" width="0" x="-26" y="7"/>      
       </attribute>      
       <multiplicity id="56" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="6"/>      
+        <position height="0" width="0" x="-26" y="7"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="25" navigable="true"/>    
@@ -368,10 +368,10 @@
   <association id="59">    
     <end type="SOURCE" refId="13" navigable="false">      
       <attribute id="60" name="actualPlayer">        
-        <position height="0" width="0" x="-66" y="-107"/>      
+        <position height="0" width="0" x="-127" y="-170"/>      
       </attribute>      
       <multiplicity id="61" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-66" y="-107"/>      
+        <position height="0" width="0" x="-127" y="-170"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="16" navigable="true"/>    

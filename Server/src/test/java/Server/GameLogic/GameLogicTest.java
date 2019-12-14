@@ -145,7 +145,7 @@ public class GameLogicTest {
         assertFalse(gameLogic.move(1, 2, 1));
         assertTrue(gameLogic.move(18, 2, 1));
         points = gameLogic.removeDeathStones(18, 2);
-        assertNull(points);
+        assertEquals(points.length, 0);
         assertTrue(gameLogic.move(1, 2, 1));
         assertFalse(gameLogic.move(1, 1, 2));
         
@@ -165,7 +165,7 @@ public class GameLogicTest {
         assertFalse(gameLogic.move(11, 12, 1));
         assertTrue(gameLogic.move(17, 17, 1));
         points = gameLogic.removeDeathStones(17, 17);
-        assertNull(points);
+        assertEquals(points.length, 0);
         assertTrue(gameLogic.move(11, 12, 2));
         
         assertTrue(this.checkClean(board));

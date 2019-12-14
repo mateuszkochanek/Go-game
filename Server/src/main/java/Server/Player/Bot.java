@@ -2,7 +2,11 @@ package Server.Player;
 
 import java.io.IOException;
 
+import ClientApplication.GoGame.Entities.ClientMessages.Move;
+import ClientApplication.GoGame.Entities.ClientMessages.Pass;
 import Server.Game.Game;
+import Server.ServerMessage.MoveInfo;
+import Server.ServerMessage.OpponentPass;
 import Server.ServerMessage.ServerMessage;
 
 public class Bot implements Player {
@@ -18,14 +22,20 @@ public class Bot implements Player {
 
     @Override
     public void sendMessage(ServerMessage message) throws IOException {
-        // TODO Auto-generated method stub
-        
+        if (message instanceof OpponentPass) {
+            this.game.getMessage(new Pass(), this);
+        } else if (message instanceof MoveInfo) {
+            MoveInfo moveInfo = (MoveInfo) message;
+            
+            if (moveInfo.getPlayer() == 1 && moveInfo.isCorrectMove()) {
+                this.doMove();
+            }
+        }
     }
 
     @Override
     public void run() {
         // TODO Auto-generated method stub
-        
     }
 
     @Override
@@ -41,5 +51,36 @@ public class Bot implements Player {
     @Override
     public int getNumber() {
         return this.number;
+    }
+    
+    private void doMove() {
+        for (int i = 0; i < this.game.getSize(); i++)
+            for (int j = 0;  j< this.game.getSize(); j++) {
+                if (this.checkOpponentNearby(i, j) && this.game.getGameLogic().checkMove(i, j, 2)) {
+                    this.game.getMessage(new Move(i, j), this);
+                    return;
+                }
+            }
+        
+        for (int i = 0; i < this.game.getSize(); i++)
+            for (int j = 0;  j< this.game.getSize(); j++) {
+                if (this.game.getGameLogic().checkMove(i, j, 2)) {
+                    this.game.getMessage(new Move(i, j), this);
+                    return;
+                }
+            }
+    }
+    
+    private boolean checkOpponentNearby(int x, int y) {
+        if (this.game.getGameLogic().checkPlayer(x + 1, y) == 1)
+            return true;
+        if (this.game.getGameLogic().checkPlayer(x - 1, y) == 1)
+            return true;
+        if (this.game.getGameLogic().checkPlayer(x, y + 1) == 1)
+            return true;
+        if (this.game.getGameLogic().checkPlayer(x, y - 1) == 1)
+            return true;
+        
+        return false;
     }
 }
