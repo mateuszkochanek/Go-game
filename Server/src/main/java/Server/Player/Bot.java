@@ -1,9 +1,6 @@
 package Server.Player;
 
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.net.Socket;
 
 import Server.Game.Game;
 import Server.ServerMessage.ServerMessage;
@@ -11,10 +8,12 @@ import Server.ServerMessage.ServerMessage;
 public class Bot implements Player {
     private Game game;
     private int points;
+    private int number;
 
-    public Bot(Game game) {
+    public Bot(Game game, int number) {
         this.game = game;
         this.points = 0;
+        this.number = number;
     }
 
     @Override
@@ -37,5 +36,10 @@ public class Bot implements Player {
     @Override
     public int getPoints() {
         return this.points;
+    }
+
+    @Override
+    public int getNumber() {
+        return this.number;
     }
 }

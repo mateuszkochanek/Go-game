@@ -4,30 +4,45 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.concurrent.TimeUnit;
 
 import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
+import Server.Connection.Connection;
 import Server.Game.Game;
 import Server.ServerMessage.ServerMessage;
 
 public class Human implements Player {
-    private Socket socket;
-    private ObjectInputStream inputStream;
-    private ObjectOutputStream outputStream;
+    private Connection connection;
     private Game game;
     private int points;
+    private int number;
 
-    public Human(Socket socket,Game game, ObjectInputStream ois, ObjectOutputStream ous) {
-        this.inputStream = ois;
-        this.outputStream = ous;
-        this.socket = socket;
+    public Human(Game game, Connection connection, int number) {
+        this.connection = connection;
         this.game = game;
         this.points = 0;
+        this.number = number;
         System.out.println("Create human");
     }
 
     @Override
     public void run() {
+        
         try {
+            TimeUnit.MILLISECONDS.sleep(300);
+        } catch (InterruptedException e1) {
+            e1.printStackTrace();
+        }
+        
+        ClientMessage clientMessage = null;
+        do {
+            clientMessage = this.connection.getMessage();
+            this.game.getMessage(clientMessage, this);
+            
+        } while (clientMessage != null);
+        
+        
+        /*try {
             if (this.inputStream == null) {
                 outputStream = new ObjectOutputStream(socket.getOutputStream());
                 inputStream = new ObjectInputStream(socket.getInputStream());
@@ -45,18 +60,15 @@ public class Human implements Player {
             } catch (IOException e) {
                 e.getStackTrace();
             }
-        }
+        }*/
       
     }
     
     @Override
     public void sendMessage(ServerMessage message) throws IOException {
-        outputStream.writeObject(message);
-        outputStream.flush();
-    }
-    
-    public Socket getSocket() {
-        return this.socket;
+        this.connection.sendMessage(message);
+        /*outputStream.writeObject(message);
+        outputStream.flush();*/
     }
 
     @Override
@@ -68,12 +80,13 @@ public class Human implements Player {
     public int getPoints() {
         return this.points;
     }
-
-    public ObjectInputStream getObjectInputStream() {
-        return this.inputStream;
+    
+    public Connection getConnection() {
+        return this.connection;
     }
 
-    public ObjectOutputStream getObjectOutputStream() {
-        return this.outputStream;
+    @Override
+    public int getNumber() {
+        return this.number;
     }
 }
