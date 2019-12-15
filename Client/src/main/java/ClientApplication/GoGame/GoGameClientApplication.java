@@ -40,7 +40,7 @@ public class GoGameClientApplication extends Application {
 		GameGui gameGui = new GameGui(primaryStage,client);
 		gameGui.ShowWaitFrame();
 		client.setGameGui(gameGui);
-		client.getClientConnection().startConnection();
+		client.startConnection();
 	}
 
 	}
