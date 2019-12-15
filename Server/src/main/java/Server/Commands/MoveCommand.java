@@ -10,32 +10,32 @@ import Server.ServerMessage.MoveInfo;
 
 public class MoveCommand extends Command {
     
-    public MoveCommand(Game game, ClientMessage message, Player player) {
-        super(game, message, player);
+    public MoveCommand(ClientMessage message) {
+        super(message);
     }
 
 	@Override
-	public void executeCommand() {
+	public void executeCommand(Game game, Player player) {
 		Move message = (Move) this.clientMessage;
 		    
-		if (!this.game.getActualPlayer().equals(player) && !this.game.isHotseat())
+		if (!game.getActualPlayer().equals(player) && !game.isHotseat())
 		    return;
 
-		if (this.game.getGameLogic().move(message.getX(), message.getY(), this.game.getActualPlayer().getNumber())) {
+		if (game.getGameLogic().move(message.getX(), message.getY(), game.getActualPlayer().getNumber())) {
 		    try {
-		        int[][] emptyPlaces = this.game.getGameLogic().removeDeathStones(message.getX(), message.getY());
-		        this.game.getActualPlayer().addPoints(emptyPlaces.length);
-		        MoveInfo moveInfo = new MoveInfo(this.game.getActualPlayer().getNumber(), true, message.getX(), message.getY(), emptyPlaces);
-                this.game.getActualPlayer().sendMessage(moveInfo);
-                this.game.changeActualPlayer();
-                this.game.getActualPlayer().sendMessage(moveInfo);
-                this.game.setPreviousPass(false);
+		        int[][] emptyPlaces = game.getGameLogic().removeDeathStones(message.getX(), message.getY());
+		        game.getActualPlayer().addPoints(emptyPlaces.length);
+		        MoveInfo moveInfo = new MoveInfo(game.getActualPlayer().getNumber(), true, message.getX(), message.getY(), emptyPlaces);
+                game.getActualPlayer().sendMessage(moveInfo);
+                game.changeActualPlayer();
+                game.getActualPlayer().sendMessage(moveInfo);
+                game.setPreviousPass(false);
             } catch (IOException e) {
                 e.printStackTrace();
             }
 		} else {
 		    try {
-                this.game.getActualPlayer().sendMessage(new MoveInfo(0, false, 0, 0, null));
+                game.getActualPlayer().sendMessage(new MoveInfo(0, false, 0, 0, null));
             } catch (IOException e) {
                 e.printStackTrace();
             }

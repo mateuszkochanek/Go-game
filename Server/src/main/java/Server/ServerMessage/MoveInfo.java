@@ -6,8 +6,8 @@ public class MoveInfo implements ServerMessage {
     private int player;
     private int x;
     private int y;
-    int[][] emptyPlaces;
-	boolean correctMove;
+    private int[][] emptyPlaces;
+	private boolean correctMove;
     
 
 	public MoveInfo(int player, boolean correctMove, int x, int y, int[][] emptyPlaces) {

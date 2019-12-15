@@ -1,4 +1,4 @@
-package Server.Connection;
+package Server.Server;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -29,9 +29,7 @@ public class Connection {
         ClientMessage clientMessage = null;
         try {
             clientMessage = (ClientMessage) inputStream.readObject();
-        } catch (ClassNotFoundException | IOException e) {
-            e.printStackTrace();
-        }
+        } catch (ClassNotFoundException | IOException e) {}
         
         return clientMessage;
     }

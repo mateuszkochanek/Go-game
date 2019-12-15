@@ -1,18 +1,18 @@
 package Server.Game;
 
 public class GameLogic {
-    private int[][] board;
+    private int[][] board; // 0 - empty, 1 - first player, 2 - second player
     private int size;
     private int koX;
     private int koY;
     
     /**
      * Class constructor
-     * @param board
+     * @param size of board
      */
-    public GameLogic(int[][] board) {
-        this.board = board;
-        this.size = board.length;
+    public GameLogic(int size) {
+        this.board = new int[size][size];
+        this.size = size;
         this.koX = -1;
         this.koY = -1;
     }
