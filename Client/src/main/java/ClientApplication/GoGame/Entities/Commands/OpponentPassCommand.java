@@ -7,6 +7,7 @@ import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
 import ClientApplication.GoGame.Entities.ClientMessages.Move;
 import ClientApplication.GoGame.Entities.ClientMessages.Pass;
 import ClientApplication.GoGame.Gui.GameGui;
+import ClientApplication.GoGame.Gui.Controller.GameBoardController;
 import Server.ServerMessage.MoveInfo;
 import Server.ServerMessage.ServerMessage;
 
@@ -18,7 +19,7 @@ public class OpponentPassCommand extends Command {
 
 	@Override
 	public void executeCommand() {
-		gameGui.showOponentPass();
+		((GameBoardController)gameGui.getFrame().getController()).showOpponentPass();
 	}
 
 

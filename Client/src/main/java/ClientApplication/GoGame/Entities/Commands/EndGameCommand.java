@@ -2,6 +2,8 @@ package ClientApplication.GoGame.Entities.Commands;
 
 import ClientApplication.GoGame.Connection.Client;
 import ClientApplication.GoGame.Gui.GameGui;
+import ClientApplication.GoGame.Gui.Frame.EndGameFrame;
+import ClientApplication.GoGame.Gui.Frame.GameBoardFrame;
 import Server.ServerMessage.ServerMessage;
 import Server.ServerMessage.EndGame;
 
@@ -17,8 +19,11 @@ public class EndGameCommand extends Command {
 		int whitePoint = ((EndGame)serverMessage).getplayer2Points();
 		int surrenderPlayer = ((EndGame)serverMessage).getPlayerSurrender();
 		boolean isSurrender = ((EndGame)serverMessage).isSurrender();
-		System.out.println("blackpoints: " + blackPoint + " whitePoint: " + whitePoint + "surr: " + surrenderPlayer);
-		gameGui.createEndGameFrame(isSurrender,blackPoint,whitePoint,surrenderPlayer);
+		
+		gameGui.setFrame(new EndGameFrame(gameGui, isSurrender, surrenderPlayer, blackPoint, whitePoint));
+        gameGui.getStage().close();
+        gameGui.setStage(gameGui.getFrame().getStage());
+        gameGui.getStage().show();
 	}
 
 

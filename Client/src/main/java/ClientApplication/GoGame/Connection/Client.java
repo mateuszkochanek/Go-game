@@ -12,34 +12,19 @@ import ClientApplication.GoGame.Entities.Commands.Command;
 import ClientApplication.GoGame.Gui.GameGui;
 import Server.ServerMessage.ServerMessage;
 
-public class Client { // zamykanie i otwieranie połączenia
-	ClientConnection clientConnection;
-    CommandFactory commandFactory;
+public class Client extends ClientConnection{ // zamykanie i otwieranie połączenia
     GameGui gameGui;
-    ExecutorService threads = Executors.newFixedThreadPool(20);
-	//ExecutorService threads;
-	
+
 	public Client(String ipAdress,int port) throws UnknownHostException, IOException {
-	    this.commandFactory = new ConcreteCommandFactory();
-	    this.clientConnection = new ClientConnection(ipAdress,port,this);
+		super(ipAdress, port);
 	}
 	
 	public void getServerMessage(ServerMessage serverMessage) {
-	    Command command = this.commandFactory.getCommand(gameGui, serverMessage);
-	    command.executeCommand();
-	    
+	    gameGui.getServerMessage(serverMessage);
 	}
 	
 	public void sendMessage(ClientMessage clientMessage) throws IOException {
-	    this.clientConnection.sendMessageToServer(clientMessage);
-	}
-
-	public ClientConnection getClientConnection() {
-		return clientConnection;
-	}
-
-	public void setClientConnection(ClientConnection clientConnection) {
-		this.clientConnection = clientConnection;
+	    this.sendMessageToServer(clientMessage);
 	}
 
 	public GameGui getGameGui() {
@@ -48,10 +33,6 @@ public class Client { // zamykanie i otwieranie połączenia
 
 	public void setGameGui(GameGui gameGui) {
 		this.gameGui = gameGui;
-	}
-
-	public void closeConnection() {
-		clientConnection.closeConnection();
 	}
 	
 }

@@ -13,12 +13,10 @@ import Server.ServerMessage.ServerMessage;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 
-public class ClientConnection {
-	protected Client client;
+public abstract class ClientConnection {
 	protected ConnectionThread connectionThread;
 
-	public ClientConnection(String ipAdress, int port, Client client) throws UnknownHostException, IOException {
-		this.client = client;
+	public ClientConnection(String ipAdress, int port) throws UnknownHostException, IOException {
 		connectionThread = new ConnectionThread(ipAdress, port);
 	}
 	
@@ -34,10 +32,8 @@ public class ClientConnection {
 	public void sendMessageToServer(ClientMessage message) throws IOException {
 		connectionThread.outputStream.writeObject(message);
 	}
-
-	public void setClient(Client client) {
-		this.client = client;
-	}
+	
+	protected abstract void getServerMessage(ServerMessage serverMessage);
 
 	private class ConnectionThread extends Thread {
 		private Socket socket;
@@ -116,18 +112,17 @@ public class ClientConnection {
 
 				ServerMessage serverMessage;
 				serverMessage = (ServerMessage) this.inputStream.readObject();
-				if (client != null) { //TODO co jeżeli client null?
 					Platform.runLater(new Runnable() {
 						@Override
 						public void run() {
-							client.getServerMessage(serverMessage);
+							getServerMessage(serverMessage);
 						}
 					});
-				}
 				if(serverMessage instanceof EndGame)
 					keepRunning = false;
 			}
 
 		}
 	}
+
 }
