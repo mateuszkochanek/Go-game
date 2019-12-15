@@ -14,20 +14,16 @@ import Server.ServerMessage.ServerMessage;
 
 public class Client { // zamykanie i otwieranie połączenia
 	ClientConnection clientConnection;
-    CommandFactory commandFactory;
     GameGui gameGui;
     ExecutorService threads = Executors.newFixedThreadPool(20);
 	//ExecutorService threads;
 	
 	public Client(String ipAdress,int port) throws UnknownHostException, IOException {
-	    this.commandFactory = new ConcreteCommandFactory();
 	    this.clientConnection = new ClientConnection(ipAdress,port,this);
 	}
 	
 	public void getServerMessage(ServerMessage serverMessage) {
-	    Command command = this.commandFactory.getCommand(gameGui, serverMessage);
-	    command.executeCommand();
-	    
+	    gameGui.getServerMessage(serverMessage);
 	}
 	
 	public void sendMessage(ClientMessage clientMessage) throws IOException {

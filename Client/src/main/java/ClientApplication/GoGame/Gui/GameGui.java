@@ -1,21 +1,31 @@
 package ClientApplication.GoGame.Gui;
 
+import java.io.IOException;
+
+import ClientApplication.GoGame.Command.Factory.CommandFactory;
+import ClientApplication.GoGame.Command.Factory.ConcreteCommandFactory;
 import ClientApplication.GoGame.Connection.Client;
+import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
+import ClientApplication.GoGame.Entities.Commands.Command;
+import ClientApplication.GoGame.Gui.Controller.Controller;
 import ClientApplication.GoGame.Gui.Frame.EndGameFrame;
 import ClientApplication.GoGame.Gui.Frame.Frame;
 import ClientApplication.GoGame.Gui.Frame.GameBoardFrame;
 import ClientApplication.GoGame.Gui.Frame.NewGameFrame;
+import Server.ServerMessage.ServerMessage;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class GameGui {//ogarnia framy i controllery
-	Stage stage;
-	Client client;
-	Frame frame;
+	private Stage stage;
+	private Client client;
+	private Frame frame;
+	private CommandFactory commandFactory;
 	
 	public GameGui(Stage stage, Client client) {
+	    this.commandFactory = new ConcreteCommandFactory();
 		this.stage = stage;
 		this.client = client;
 		VBox vBox = new VBox(new Label("Waiting for server"));
@@ -23,36 +33,51 @@ public class GameGui {//ogarnia framy i controllery
 		this.stage.setScene(scene);
 	}
 	
-	public void ShowWaitFrame() {
+	public void getServerMessage(ServerMessage serverMessage) {
+		Command command = this.commandFactory.getCommand(this, serverMessage);
+	    command.executeCommand();
+	}
+	
+	public void ShowWaitFrame() { // wywolywane w GoGameClientApplication
 		this.stage.show();
 	}
-	
-	public void CreateNewGameFrame() {
-		this.stage.close();
-		NewGameFrame newGameFrame = new NewGameFrame(client);
-		this.stage = newGameFrame.getStage();
+	public Stage getStage() {
+		return stage;
 	}
 
-	public void doMove(int x, int y, int[][] empty, int color) {
-		frame.doMove(x, y, empty, color);
+	public void setStage(Stage stage) {
+		this.stage = stage;
 	}
 
-	public void CreateGameBoardFrame(int size) {
-		this.stage.close();
-		GameBoardFrame boardFrame = new GameBoardFrame(client,size);
-		this.frame = boardFrame;
-		this.stage = frame.getStage();	
+	public Client getClient() {
+		return client;
 	}
 
-	public void showOponentPass() {
-		frame.showOponentPass();
+	public void setClient(Client client) {
+		this.client = client;
 	}
 
-	public void createEndGameFrame(boolean isSurrender, int blackPoint, int whitePoint, int surrenderPlayer) {
-		this.stage.close();
-		EndGameFrame boardFrame = new EndGameFrame(client ,isSurrender, blackPoint, whitePoint, surrenderPlayer);
-		this.stage = frame.getStage();
+	public Frame getFrame() {
+		return frame;
+	}
+
+	public void setFrame(Frame frame) {
+		this.frame = frame;
 	}
 	
-	
+	public void sendMessage(ClientMessage clientMessage) {
+		try {
+			client.sendMessage(clientMessage);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+
+	public void closeConnection() {
+		client.closeConnection();
+		
+	}
+
+
 }
