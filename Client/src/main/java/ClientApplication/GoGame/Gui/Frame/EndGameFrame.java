@@ -15,13 +15,13 @@ import javafx.stage.Stage;
 public class EndGameFrame extends Frame {
 	private Stage stage;
 
-	public EndGameFrame(GameGui gameGui,boolean isSurrender, int blackPoint, int whitePoint, int surrenderPlayer) {
+	public EndGameFrame(GameGui gameGui,boolean isSurrender, int surrenderPlayer, int blackPoint, int whitePoint) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(getClass().getResource("/FXMLEndGameFrame.fxml"));
 			Parent root = loader.load();
 			EndGameFrameController controller = loader.<EndGameFrameController>getController();
-			controller.showEndGameInfo(isSurrender, blackPoint, whitePoint, surrenderPlayer);
+			controller.showEndGameInfo(isSurrender,surrenderPlayer, blackPoint, whitePoint);
 			controller.setGameGui(gameGui);
 			Stage stage = new Stage();
 			stage.setTitle("GoGame EndGame");

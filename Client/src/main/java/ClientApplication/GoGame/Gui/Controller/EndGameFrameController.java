@@ -29,7 +29,7 @@ public class EndGameFrameController extends Controller {
         stage.close();
     }
 
-	public void showEndGameInfo(boolean isSurrender, int blackPoint, int whitePoint, int surrenderPlayer) {
+	public void showEndGameInfo(boolean isSurrender, int surrenderPlayer, int blackPoint, int whitePoint) {
 		if(isSurrender) {
 			if(surrenderPlayer == 1) {
 				gameStatus.setText("Gracz czarny się poddał.");
