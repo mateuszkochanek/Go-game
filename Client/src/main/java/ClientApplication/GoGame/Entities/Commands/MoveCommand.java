@@ -27,7 +27,7 @@ public class MoveCommand extends Command {
 		
 		if(doMove) {
 			((GameBoardController)gameGui.getFrame().getController()).showMove(x, y, color);
-			((GameBoardController)gameGui.getFrame().getController()).emptyPlaces(empty);;
+			((GameBoardController)gameGui.getFrame().getController()).emptyPlaces(empty);
 		} else {
 			//TODO what to do when move is not correct?
 		}
