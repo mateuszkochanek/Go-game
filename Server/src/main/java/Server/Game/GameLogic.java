@@ -58,7 +58,20 @@ public class GameLogic {
         }
 
         if (answer) {
+            
+            for (int i = 0; i < this.size; i++) {
+                for (int j = 0; j < this.size; j++)
+                    System.out.print(this.board[i][j]);
+                System.out.println();
+            }
+            
             return true;
+        }
+        
+        for (int i = 0; i < this.size; i++) {
+            for (int j = 0; j < this.size; j++)
+                System.out.print(this.board[i][j]);
+            System.out.println();
         }
         
         return false;
@@ -215,19 +228,36 @@ public class GameLogic {
     private boolean checkRemoveOtherStones(int x, int y, int player) {
         int opponent = ((player == 1) ? 2 : 1);
         this.board[x][y] = player;
-        boolean answer = false;
         
-        if (x + 1 < this.size && this.board[x + 1][y] == opponent && !this.checkBreath(x + 1, y, opponent)) {
-            answer = true;
-        } else if (x - 1 >= 0 && this.board[x -1][y] == opponent && !this.checkBreath(x - 1, y, opponent)) {
-            answer = true;
-        } else if (y + 1 < this.size && this.board[x][y + 1] == opponent && !this.checkBreath(x, y + 1, opponent)) {
-            answer = true;
-        } else if (y - 1 >= 0 && this.board[x][y - 1] == opponent && !this.checkBreath(x, y - 1, opponent)) {
-            answer = true;
+        if (x + 1 < this.size && this.board[x + 1][y] == opponent) {
+            if (!this.checkBreath(x + 1, y, opponent))
+                return true;
+
+            this.cleanBoardAfterChecking(x + 1, y, -1, opponent, opponent);
         }
         
-        return answer;
+        if (x - 1 >= 0 && this.board[x - 1][y] == opponent) {
+            if (!this.checkBreath(x - 1, y, opponent))
+                return true;
+
+            this.cleanBoardAfterChecking(x - 1, y, -1, opponent, opponent);
+        }
+        
+        if (y + 1 < this.size && this.board[x][y + 1] == opponent) {
+            if (!this.checkBreath(x, y + 1, opponent))
+                return true;
+
+            this.cleanBoardAfterChecking(x, y + 1, -1, opponent, opponent);
+        }
+        
+        if (y - 1 >= 0 && this.board[x][y - 1] == opponent) {
+            if (!this.checkBreath(x, y - 1, opponent))
+                return true;
+
+            this.cleanBoardAfterChecking(x, y - 1, -1, opponent, opponent);
+        }
+        
+        return false;
     }
     
     private int[][] getEmptyPlaces() {
