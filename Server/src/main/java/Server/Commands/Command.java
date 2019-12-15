@@ -5,17 +5,11 @@ import Server.Game.Game;
 import Server.Player.Player;
 
 public abstract class Command {
-	Game game;
-	ClientMessage clientMessage;
-	Player player;
+	protected ClientMessage clientMessage;
 	
-	protected Command(Game game, ClientMessage message, Player player) {
-	    this.game = game;
+	protected Command(ClientMessage message) {
 	    this.clientMessage = message;
-	    this.player = player;
 	}
 	
-	public abstract void executeCommand();
-
-
+	public abstract void executeCommand(Game game, Player player);
 }

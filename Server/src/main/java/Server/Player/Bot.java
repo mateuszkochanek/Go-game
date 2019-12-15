@@ -9,15 +9,13 @@ import Server.ServerMessage.MoveInfo;
 import Server.ServerMessage.OpponentPass;
 import Server.ServerMessage.ServerMessage;
 
-public class Bot implements Player {
-    private Game game;
-    private int points;
-    private int number;
-
-    public Bot(Game game, int number) {
-        this.game = game;
+public class Bot extends Player {
+    private int boardSize;
+    
+    public Bot(int number, int boardSize) {
         this.points = 0;
         this.number = number;
+        this.boardSize = boardSize;
     }
 
     @Override
@@ -32,43 +30,26 @@ public class Bot implements Player {
             }
         }
     }
-
-    @Override
-    public void run() {
-        // TODO Auto-generated method stub
-    }
-
-    @Override
-    public void addPoints(int points) {
-        this.points += points;
-    }
-
-    @Override
-    public int getPoints() {
-        return this.points;
-    }
-
-    @Override
-    public int getNumber() {
-        return this.number;
-    }
     
     private void doMove() {
-        for (int i = 0; i < this.game.getSize(); i++)
-            for (int j = 0;  j< this.game.getSize(); j++) {
+        
+        for (int i = 0; i < this.boardSize; i++)
+            for (int j = 0;  j< this.boardSize; j++) {
                 if (this.checkOpponentNearby(i, j) && this.game.getGameLogic().checkMove(i, j, 2)) {
                     this.game.getMessage(new Move(i, j), this);
                     return;
                 }
             }
         
-        for (int i = 0; i < this.game.getSize(); i++)
-            for (int j = 0;  j< this.game.getSize(); j++) {
+        for (int i = 0; i < this.boardSize; i++)
+            for (int j = 0;  j< this.boardSize; j++) {
                 if (this.game.getGameLogic().checkMove(i, j, 2)) {
                     this.game.getMessage(new Move(i, j), this);
                     return;
                 }
             }
+        
+        this.game.getMessage(new Pass(), this);
     }
     
     private boolean checkOpponentNearby(int x, int y) {
@@ -83,4 +64,7 @@ public class Bot implements Player {
         
         return false;
     }
+
+    @Override
+    public void run() {}
 }

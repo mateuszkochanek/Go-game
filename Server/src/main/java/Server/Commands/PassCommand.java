@@ -10,36 +10,35 @@ import Server.ServerMessage.OpponentPass;
 
 public class PassCommand extends Command {
     
-    public PassCommand(Game game, ClientMessage message, Player player) {
-        super(game, message, player);
+    public PassCommand(ClientMessage message) {
+        super(message);
     }
 
 	@Override
-	public void executeCommand() {
+	public void executeCommand(Game game, Player player) {
 	    
-	    if (!this.game.getActualPlayer().equals(this.player)) {
+	    if (!game.getActualPlayer().equals(player)) {
             return;
         }
 		
-	    if (this.game.isPreviousPass()) {
-	        this.game.getGameLogic().removeDeathStonesEndGame();
+	    if (game.isPreviousPass()) {
+	        game.getGameLogic().removeDeathStonesEndGame();
 	        
-	        int player1Points = this.game.getGameLogic().countPoints(1) + this.game.getPlayer1().getPoints();
-	        int player2Points = this.game.getGameLogic().countPoints(2) + this.game.getPlayer2().getPoints();
+	        int player1Points = game.getGameLogic().countPoints(1) + game.getPlayer1().getPoints();
+	        int player2Points = game.getGameLogic().countPoints(2) + game.getPlayer2().getPoints();
 	        
 	        try {
-                this.game.getPlayer1().sendMessage(new EndGame(false, 0, player1Points, player2Points));
-                this.game.getPlayer2().sendMessage(new EndGame(false, 0, player1Points, player2Points));
+                game.getPlayer1().sendMessage(new EndGame(false, 0, player1Points, player2Points));
+                game.getPlayer2().sendMessage(new EndGame(false, 0, player1Points, player2Points));
             } catch (IOException e) {
                 e.printStackTrace();
             }
 	        
-	        //TODO: new game?
 	    } else {
-	        this.game.setPreviousPass(true);
-	        this.game.changeActualPlayer();
+	        game.setPreviousPass(true);
+	        game.changeActualPlayer();
 	        try {
-                this.game.getActualPlayer().sendMessage(new OpponentPass());
+                game.getActualPlayer().sendMessage(new OpponentPass());
             } catch (IOException e) {
                 e.printStackTrace();
             }
