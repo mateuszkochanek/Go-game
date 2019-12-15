@@ -4,15 +4,11 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
-import Server.Game.Game;
 import Server.Server.Connection;
 import Server.ServerMessage.ServerMessage;
 
-public class Human implements Player {
+public class Human extends Player {
     private Connection connection;
-    private Game game;
-    private int points;
-    private int number;
     
     public Human(Connection connection, int number) {
         this.connection = connection;
@@ -34,38 +30,16 @@ public class Human implements Player {
             clientMessage = this.connection.getMessage();
             this.game.getMessage(clientMessage, this);
             
-        } while (true);
+        } while (clientMessage != null);
       
     }
     
     @Override
     public void sendMessage(ServerMessage message) throws IOException {
-        System.out.println("Human, Before send message");
         this.connection.sendMessage(message);
-        System.out.println("Human, after send message");
-    }
-
-    @Override
-    public void addPoints(int points) {
-        this.points += points;
-    }
-
-    @Override
-    public int getPoints() {
-        return this.points;
     }
     
     public Connection getConnection() {
         return this.connection;
-    }
-
-    @Override
-    public int getNumber() {
-        return this.number;
-    }
-
-    @Override
-    public void setGame(Game game) {
-        this.game = game;
     }
 }

@@ -16,20 +16,21 @@ public class Game {
     private GameLogic gameLogic;
     private boolean hotseat;
 
-    public Game(Player player1, Player player2, int boardSize) {
+    public Game(Player player1, Player player2, int boardSize, boolean hotseat) {
         this.player1 = player1;
         this.player2 = player2;
         this.actualPlayer = player1;
         
         this.commandFactory = new ConcreteCommandFactory();
-        this.hotseat = ((player2 instanceof Bot) ? true : false);
+        this.hotseat = hotseat;
         this.gameLogic = new GameLogic(boardSize);
         this.previousPass = false;
     }
 
 	public synchronized void getMessage(ClientMessage clientMessage, Player player) {
     	Command command = this.commandFactory.getCommand(clientMessage);
-    	command.executeCommand(this, player);
+    	if (command != null)
+    	    command.executeCommand(this, player);
     }
 	
 	public void changeActualPlayer() {

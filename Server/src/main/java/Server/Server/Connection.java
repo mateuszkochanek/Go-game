@@ -29,9 +29,7 @@ public class Connection {
         ClientMessage clientMessage = null;
         try {
             clientMessage = (ClientMessage) inputStream.readObject();
-        } catch (ClassNotFoundException | IOException e) {
-            e.printStackTrace();
-        }
+        } catch (ClassNotFoundException | IOException e) {}
         
         return clientMessage;
     }

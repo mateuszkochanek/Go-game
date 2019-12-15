@@ -2,6 +2,7 @@ package Server.Server;
 
 import java.io.IOException;
 import java.net.ServerSocket;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
@@ -18,7 +19,10 @@ public class Server  {
     private void prepareGame() {
         ServerSocket listener = null;
         Connection connection = null;
+        Player player1 = null;
+        Player player2 = null;
         int boardSize;
+        boolean ifHotseat = false;
         
         try {
             listener = new ServerSocket(59898);
@@ -31,16 +35,15 @@ public class Server  {
             e.printStackTrace();
         }
         
-        Player player1 = new Human(connection, 1);
-        Player player2 = null;
+        player1 = new Human(connection, 1);
 
         SetGameOptions message = (SetGameOptions) connection.getMessage();
-        
         boardSize = message.getSize();
         
         if (message.getMode().contentEquals("hotseat")) {
             
-           player2 = new Human(connection, 2);
+            ifHotseat = true;
+            player2 = new Human(connection, 2);
             
             try {
                 player1.sendMessage(new SentGameOptions(1, message.getSize(), message.getMode()));
@@ -50,8 +53,7 @@ public class Server  {
             
         } else if (message.getMode().contentEquals("singleplayer")) {
             
-            var pool = Executors.newFixedThreadPool(20);
-            pool.execute(player2 = new Bot(2, boardSize));
+            player2 = new Bot(2, boardSize);
             
             try {
                 player1.sendMessage(new SentGameOptions(1, message.getSize(), message.getMode()));
@@ -73,10 +75,17 @@ public class Server  {
             
         }
         
-        var pool = Executors.newFixedThreadPool(20);
+        ExecutorService pool = Executors.newFixedThreadPool(20);
         pool.execute(player1);
+        
+        try {
+            TimeUnit.MILLISECONDS.sleep(300);
+        } catch (InterruptedException e1) {
+            e1.printStackTrace();
+        }
+        
         pool.execute(player2);
-        Game game = new Game(player1, player2, boardSize);
+        Game game = new Game(player1, player2, boardSize, ifHotseat);
         player1.setGame(game);
         player2.setGame(game);
     }

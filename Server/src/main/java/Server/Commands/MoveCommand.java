@@ -18,7 +18,7 @@ public class MoveCommand extends Command {
 	public void executeCommand(Game game, Player player) {
 		Move message = (Move) this.clientMessage;
 		    
-		if (game.getActualPlayer().equals(player) && !game.isHotseat())
+		if (!game.getActualPlayer().equals(player) && !game.isHotseat())
 		    return;
 
 		if (game.getGameLogic().move(message.getX(), message.getY(), game.getActualPlayer().getNumber())) {

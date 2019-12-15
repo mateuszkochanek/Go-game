@@ -20,8 +20,6 @@ public class SurrenderCommand extends Command {
         int player1Points = game.getGameLogic().countPoints(1) + game.getPlayer1().getPoints();
         int player2Points = game.getGameLogic().countPoints(2) + game.getPlayer2().getPoints();
         
-        System.out.println(player1Points + " " + player2Points);
-        
         try {
             if (game.getPlayer1().equals(player)) {
                 EndGame endGame = new EndGame(true, 1, player1Points, player2Points);

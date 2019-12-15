@@ -9,17 +9,8 @@ import Server.ServerMessage.MoveInfo;
 import Server.ServerMessage.OpponentPass;
 import Server.ServerMessage.ServerMessage;
 
-public class Bot implements Player {
-    private Game game;
-    private int points;
-    private int number;
+public class Bot extends Player {
     private int boardSize;
-
-    public Bot(Game game, int number) {
-        this.game = game;
-        this.points = 0;
-        this.number = number;
-    }
     
     public Bot(int number, int boardSize) {
         this.points = 0;
@@ -39,26 +30,6 @@ public class Bot implements Player {
             }
         }
     }
-
-    @Override
-    public void run() {
-        // TODO Auto-generated method stub
-    }
-
-    @Override
-    public void addPoints(int points) {
-        this.points += points;
-    }
-
-    @Override
-    public int getPoints() {
-        return this.points;
-    }
-
-    @Override
-    public int getNumber() {
-        return this.number;
-    }
     
     private void doMove() {
         
@@ -77,6 +48,8 @@ public class Bot implements Player {
                     return;
                 }
             }
+        
+        this.game.getMessage(new Pass(), this);
     }
     
     private boolean checkOpponentNearby(int x, int y) {
@@ -93,7 +66,5 @@ public class Bot implements Player {
     }
 
     @Override
-    public void setGame(Game game) {
-        this.game = game;
-    }
+    public void run() {}
 }
