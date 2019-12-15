@@ -13,11 +13,18 @@ public class Bot implements Player {
     private Game game;
     private int points;
     private int number;
+    private int boardSize;
 
     public Bot(Game game, int number) {
         this.game = game;
         this.points = 0;
         this.number = number;
+    }
+    
+    public Bot(int number, int boardSize) {
+        this.points = 0;
+        this.number = number;
+        this.boardSize = boardSize;
     }
 
     @Override
@@ -54,16 +61,17 @@ public class Bot implements Player {
     }
     
     private void doMove() {
-        for (int i = 0; i < this.game.getSize(); i++)
-            for (int j = 0;  j< this.game.getSize(); j++) {
+        
+        for (int i = 0; i < this.boardSize; i++)
+            for (int j = 0;  j< this.boardSize; j++) {
                 if (this.checkOpponentNearby(i, j) && this.game.getGameLogic().checkMove(i, j, 2)) {
                     this.game.getMessage(new Move(i, j), this);
                     return;
                 }
             }
         
-        for (int i = 0; i < this.game.getSize(); i++)
-            for (int j = 0;  j< this.game.getSize(); j++) {
+        for (int i = 0; i < this.boardSize; i++)
+            for (int j = 0;  j< this.boardSize; j++) {
                 if (this.game.getGameLogic().checkMove(i, j, 2)) {
                     this.game.getMessage(new Move(i, j), this);
                     return;
@@ -82,5 +90,10 @@ public class Bot implements Player {
             return true;
         
         return false;
+    }
+
+    @Override
+    public void setGame(Game game) {
+        this.game = game;
     }
 }

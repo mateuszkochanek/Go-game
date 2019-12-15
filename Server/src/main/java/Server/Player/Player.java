@@ -1,10 +1,8 @@
 package Server.Player;
 
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.net.Socket;
 
+import Server.Game.Game;
 import Server.ServerMessage.ServerMessage;
 
 public interface Player extends Runnable {
@@ -13,4 +11,5 @@ public interface Player extends Runnable {
     public void addPoints(int points);
     public int getPoints();
     public int getNumber();
+    public void setGame(Game game);
 }

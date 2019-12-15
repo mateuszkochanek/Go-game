@@ -1,61 +1,36 @@
 package Server.Game;
 
-import java.io.IOException;
-import java.net.ServerSocket;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
-
 import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
 import Server.Commands.Command;
 import Server.Commands.Factory.CommandFactory;
 import Server.Commands.Factory.ConcreteCommandFactory;
-import Server.Connection.Connection;
-import Server.Player.Human;
 import Server.Player.Player;
-import Server.ServerMessage.NewGame;
+import Server.Player.Bot;
 
 public class Game {
-    private ServerSocket listener;
-    private Human player1;
+    private Player player1;
     private Player player2;
     private Player actualPlayer;
     private CommandFactory commandFactory;
-    private int[][] board; // 0 nothing, 1 first player, 2 second player
-    private int size;
     private boolean previousPass;
     private GameLogic gameLogic;
     private boolean hotseat;
 
-    public Game() {
-    	this.commandFactory = new ConcreteCommandFactory();
-    	this.previousPass = false;
-    	this.hotseat = false;
-    	
-    	try {
-            listener = new ServerSocket(59898);
-            
-            this.player1 = this.getNewHuman(1);
-            
-            TimeUnit.SECONDS.sleep(1);
-            player1.sendMessage(new NewGame());
-            this.actualPlayer = this.player1;
-            
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
-        }
-	}
+    public Game(Player player1, Player player2, int boardSize) {
+        this.player1 = player1;
+        this.player2 = player2;
+        this.actualPlayer = player1;
+        
+        this.commandFactory = new ConcreteCommandFactory();
+        this.hotseat = ((player2 instanceof Bot) ? true : false);
+        this.gameLogic = new GameLogic(boardSize);
+        this.previousPass = false;
+    }
 
 	public synchronized void getMessage(ClientMessage clientMessage, Player player) {
-    	Command command = this.commandFactory.getCommand(this, clientMessage, player);
-    	command.executeCommand();
+    	Command command = this.commandFactory.getCommand(clientMessage);
+    	command.executeCommand(this, player);
     }
-	
-	public void setBoard(int size) {
-	    this.size = size;
-	    this.board = new int[size][size];
-	    
-	    this.gameLogic = new GameLogic(this.board);
-	}
 	
 	public void changeActualPlayer() {
 	    if (this.actualPlayer.equals(this.player1)) {
@@ -65,17 +40,7 @@ public class Game {
 	    }
 	}
 	
-	public Human getNewHuman(int number) {
-	    Connection connection = new Connection(listener);
-	    
-	    Human human;
-        var pool = Executors.newFixedThreadPool(20);
-        pool.execute(human = new Human(this, connection, number));
-        
-        return human;
-	}
-	
-	public Human getPlayer1() {
+	public Player getPlayer1() {
 		return player1;
 	}
 
@@ -83,20 +48,8 @@ public class Game {
 		return player2;
 	}
 
-	public void setPlayer2(Player player2) {
-		this.player2 = player2;
-	}
-
 	public Player getActualPlayer() {
 		return actualPlayer;
-	}
-
-	public int getSize() {
-		return size;
-	}
-
-	public void setSize(int size) {
-		this.size = size;
 	}
 	
 	public boolean isPreviousPass() {
