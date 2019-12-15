@@ -5,6 +5,7 @@ import java.io.IOException;
 import ClientApplication.GoGame.Connection.Client;
 import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
 import ClientApplication.GoGame.Entities.ClientMessages.SetGameOptions;
+import ClientApplication.GoGame.Gui.GameGui;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -15,9 +16,7 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class NewGameFrameController {
-	Client client;
-	
+public class NewGameFrameController extends Controller{
     @FXML
     private Text textLabel;
     
@@ -49,18 +48,13 @@ public class NewGameFrameController {
     			size=0;
     		}
     		ClientMessage clientMessage = new SetGameOptions(size,type);
-    		try {
-				client.sendMessage(clientMessage);
-			} catch (IOException e) {
-				System.out.println("W SendGameOptions send message nie zadzialalo jak powinno.");
-				e.printStackTrace();
-			}
+    		gameGui.sendMessage(clientMessage);
     	} else {
     		textLabel.setText("Nie wybrales opcji!");
     	}
     }
-
-	public void setConnection(Client client) {
-		this.client=client;
+	public void setGameGui(GameGui gameGui) {
+		this.gameGui = gameGui;
 	}
+
 }

@@ -6,7 +6,6 @@ import javafx.stage.Stage;
 
 public abstract class Frame {
 	
-	protected GameGui gameGui;
 	protected Controller controller;
 	protected Stage stage;
 	

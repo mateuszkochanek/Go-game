@@ -7,6 +7,7 @@ import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
 import ClientApplication.GoGame.Entities.ClientMessages.Move;
 import ClientApplication.GoGame.Entities.ClientMessages.Pass;
 import ClientApplication.GoGame.Entities.ClientMessages.Surrender;
+import ClientApplication.GoGame.Gui.GameGui;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,9 +17,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 
-public class GameBoardController {
-	Client client;
-	
+public class GameBoardController extends Controller {
     @FXML
     private GridPane gridPane;
     
@@ -33,36 +32,21 @@ public class GameBoardController {
     	int y = GridPane.getColumnIndex(node);
     	ClientMessage clientMessage = new Move(x,y);
     	System.out.println(x + " " + y);
-    	try {
-			client.sendMessage(clientMessage);
-		} catch (IOException e) {
-			System.out.println("W Make Move send message nie zadzialalo jak powinno.");
-			e.printStackTrace();
-		}   	
+    	gameGui.sendMessage(clientMessage); 	
     }
 
     @FXML
     void OnPassAction(ActionEvent event) {
     	hideOpponentPass();
     	ClientMessage clientMessage = new Pass();
-    	try {
-			client.sendMessage(clientMessage);
-		} catch (IOException e) {
-			System.out.println("W Make Move send message nie zadzialalo jak powinno.");
-			e.printStackTrace();
-		}   
+    	gameGui.sendMessage(clientMessage); 
     }
 
     @FXML
     void OnSurrenderAction(ActionEvent event) {
     	hideOpponentPass();
     	ClientMessage clientMessage = new Surrender();
-    	try {
-			client.sendMessage(clientMessage);
-		} catch (IOException e) {
-			System.out.println("W Make Move send message nie zadzialalo jak powinno.");
-			e.printStackTrace();
-		}   
+    	gameGui.sendMessage(clientMessage);  
     }
     
     public void showMove(int x, int y, int color) {
@@ -97,10 +81,6 @@ public class GameBoardController {
         }
 		return nodeFound;
     }
-    
-	public void setConnection(Client client) {
-		this.client=client;
-	}
 
 	public void showOpponentPass() {
 		pass.setText("Your opponent passed.");
@@ -108,5 +88,9 @@ public class GameBoardController {
 	
 	public void hideOpponentPass() {
 		pass.setText("");
+	}
+	
+	public void setGameGui(GameGui gameGui) {
+		this.gameGui = gameGui;
 	}
 }

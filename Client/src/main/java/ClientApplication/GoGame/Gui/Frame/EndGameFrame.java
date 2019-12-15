@@ -3,6 +3,7 @@ package ClientApplication.GoGame.Gui.Frame;
 import java.io.IOException;
 
 import ClientApplication.GoGame.Connection.Client;
+import ClientApplication.GoGame.Gui.GameGui;
 import ClientApplication.GoGame.Gui.Controller.EndGameFrameController;
 import ClientApplication.GoGame.Gui.Controller.NewGameFrameController;
 import javafx.fxml.FXMLLoader;
@@ -21,7 +22,7 @@ public class EndGameFrame extends Frame {
 			Parent root = loader.load();
 			EndGameFrameController controller = loader.<EndGameFrameController>getController();
 			controller.showEndGameInfo(isSurrender, blackPoint, whitePoint, surrenderPlayer);
-			controller.setConnection(gameGui);
+			controller.setGameGui(gameGui);
 			Stage stage = new Stage();
 			stage.setTitle("GoGame EndGame");
 	        stage.setScene(new Scene(root,600,400));

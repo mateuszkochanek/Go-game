@@ -3,6 +3,7 @@ package ClientApplication.GoGame.Gui.Frame;
 import java.io.IOException;
 
 import ClientApplication.GoGame.Connection.Client;
+import ClientApplication.GoGame.Gui.GameGui;
 import ClientApplication.GoGame.Gui.Controller.GameBoardController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -36,7 +37,7 @@ public class GameBoardFrame extends Frame {
 	}
 
 	//TODO przerzuc do komendy dzialajacenj na kontrollerze
-	@Override
+	/*@Override
 	public void doMove(int x, int y, int[][] empty, int color) {
 		controller.showMove(x, y, color);
 		controller.emptyPlaces(empty);
@@ -46,5 +47,5 @@ public class GameBoardFrame extends Frame {
 	public void showOponentPass() {
 		controller.showOpponentPass();
 		
-	}
+	}*/
 }
