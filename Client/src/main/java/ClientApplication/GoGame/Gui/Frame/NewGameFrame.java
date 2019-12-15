@@ -3,6 +3,7 @@ package ClientApplication.GoGame.Gui.Frame;
 import java.io.IOException;
 
 import ClientApplication.GoGame.Connection.Client;
+import ClientApplication.GoGame.Gui.GameGui;
 import ClientApplication.GoGame.Gui.Controller.NewGameFrameController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,16 +11,15 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class NewGameFrame {
-	private Stage stage;
+public class NewGameFrame extends Frame {
 	
-	public NewGameFrame(Client client) {
+	public NewGameFrame(GameGui gameGui) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(getClass().getResource("/FXMLNewGameFrame.fxml"));
 			Parent root = loader.load();
 			NewGameFrameController controller = loader.<NewGameFrameController>getController();
-			controller.setConnection(client);
+			controller.setGameGui(gameGui);
 			Stage stage = new Stage();
 			stage.setTitle("GoGame NewGame");
 	        stage.setScene(new Scene(root,500,500));
@@ -30,10 +30,4 @@ public class NewGameFrame {
 			e.printStackTrace();
 		}
 	}
-
-	public Stage getStage() {
-		return stage;
-	}
-	
-	
 }
