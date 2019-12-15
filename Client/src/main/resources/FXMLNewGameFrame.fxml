@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="363.0" prefWidth="377.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClientApplication.GoGame.Gui.Controller.NewGameFrameController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="350.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClientApplication.GoGame.Gui.Controller.NewGameFrameController">
    <children>
-      <VBox layoutX="72.0" layoutY="155.0" prefHeight="32.0" prefWidth="100.0">
+      <VBox layoutX="59.0" layoutY="155.0" prefHeight="32.0" prefWidth="100.0">
          <children>
             <RadioButton mnemonicParsing="false" text="multiplayer">
                <toggleGroup>
@@ -20,7 +20,7 @@
             <RadioButton mnemonicParsing="false" text="hotseat" toggleGroup="$typeGroup" />
          </children>
       </VBox>
-      <VBox layoutX="248.0" layoutY="155.0" prefHeight="32.0" prefWidth="100.0">
+      <VBox layoutX="235.0" layoutY="155.0" prefHeight="32.0" prefWidth="100.0">
          <children>
             <RadioButton mnemonicParsing="false" text="9x9">
                <toggleGroup>
@@ -31,7 +31,7 @@
             <RadioButton mnemonicParsing="false" text="19x19" toggleGroup="$sizeGroup" />
          </children>
       </VBox>
-      <Button fx:id="startButton" layoutX="122.0" layoutY="75.0" mnemonicParsing="false" onAction="#SendGameOptions" prefHeight="53.0" prefWidth="126.0" text="Button" />
+      <Button fx:id="startButton" layoutX="109.0" layoutY="73.0" mnemonicParsing="false" onAction="#SendGameOptions" prefHeight="53.0" prefWidth="126.0" text="Start!" />
       <Text fx:id="textLabel" layoutX="125.0" layoutY="293.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="126.39999999999986" />
    </children>
 </AnchorPane>

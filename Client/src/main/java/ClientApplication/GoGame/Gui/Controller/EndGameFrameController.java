@@ -32,20 +32,20 @@ public class EndGameFrameController extends Controller {
 	public void showEndGameInfo(boolean isSurrender, int surrenderPlayer, int blackPoint, int whitePoint) {
 		if(isSurrender) {
 			if(surrenderPlayer == 1) {
-				gameStatus.setText("Gracz czarny się poddał.");
+				gameStatus.setText("Black player surrendered.");
 			} else {
-				gameStatus.setText("Gracz biały się poddał.");
+				gameStatus.setText("White player surrendered.");
 			}
 		} else {
 			if(blackPoint > whitePoint)
-				gameStatus.setText("Gracz czarny wygrał.");
+				gameStatus.setText("Black player won.");
 			else if(blackPoint < whitePoint)
-				gameStatus.setText("Gracz biały wygrał.");
+				gameStatus.setText("White player won.");
 			else
-				gameStatus.setText("Remis");
+				gameStatus.setText("It's a Draw.");
 		}
-		blackPoints.setText("Gracz czarny miał:" + blackPoint + " punktów.");
-		whitePoints.setText("Gracz biały miał:" + whitePoint + " punktów.");	
+		blackPoints.setText("Black player has: " + blackPoint + " points.");
+		whitePoints.setText("White player has: " + whitePoint + " points.");	
 	}
 
 	public void setGameGui(GameGui gameGui) {

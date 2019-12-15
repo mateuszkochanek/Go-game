@@ -22,7 +22,7 @@ public class NewGameFrame extends Frame {
 			controller.setGameGui(gameGui);
 			Stage stage = new Stage();
 			stage.setTitle("GoGame NewGame");
-	        stage.setScene(new Scene(root,500,500));
+	        stage.setScene(new Scene(root,350,350));
 	        this.stage = stage;
 	        stage.show();
 		} catch (IOException e) {

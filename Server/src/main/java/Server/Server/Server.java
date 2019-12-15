@@ -27,9 +27,8 @@ public class Server  {
         try {
             listener = new ServerSocket(59898);
             connection = new Connection(listener);
-            connection.sendMessage(new NewGame());
-                 
             TimeUnit.SECONDS.sleep(1);
+            connection.sendMessage(new NewGame());
             
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();

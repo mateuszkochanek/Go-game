@@ -78,13 +78,14 @@ public abstract class ClientConnection {
 		}
 		
 		private void setup(){
+			int i = 0;
 			while(true) {
 			    try {
 			    	this.socket = new Socket(ipAdress, port);
 			        break; // We connected! Exit the loop.
 			    } catch(IOException e) {
-			        System.out.println("Nie udalo się połączyc, proboje jeszcze raz.");
-			        e.printStackTrace();
+			        System.out.println("Nie udalo się połączyc, proboje jeszcze raz: " + i);
+			        i++;
 			        try {
 			            TimeUnit.SECONDS.sleep(3);
 			        } catch(InterruptedException ie) {

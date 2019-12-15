@@ -5,21 +5,20 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ClientApplication.GoGame.Gui.Controller.EndGameFrameController">
    <children>
-      <Text fill="#ba0202" layoutX="172.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Koniec Gry" textAlignment="CENTER" wrappingWidth="256.53668212890625">
+      <Text fill="#ba0202" layoutX="172.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game Ended" textAlignment="CENTER" wrappingWidth="256.53668212890625">
          <font>
             <Font size="36.0" />
          </font>
       </Text>
-      <Text fx:id="gameStatus" layoutX="156.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="288.53668212890625" />
-      <Button fx:id="closeButton" layoutX="206.0" layoutY="200.0" mnemonicParsing="false" onAction="#endGame" prefHeight="104.0" prefWidth="187.0" text="Zakończ Grę">
+      <Text fx:id="gameStatus" layoutX="103.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="393.336669921875" />
+      <Button fx:id="closeButton" layoutX="206.0" layoutY="200.0" mnemonicParsing="false" onAction="#endGame" prefHeight="104.0" prefWidth="187.0" text="Exit">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Text fx:id="blackPoints" layoutX="214.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="170.13671875" />
-      <Text fx:id="whitePoints" layoutX="215.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="170.13671875" />
+      <Text fx:id="blackPoints" layoutX="158.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="282.936767578125" />
+      <Text fx:id="whitePoints" layoutX="158.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="282.936767578125" />
    </children>
 </AnchorPane>
