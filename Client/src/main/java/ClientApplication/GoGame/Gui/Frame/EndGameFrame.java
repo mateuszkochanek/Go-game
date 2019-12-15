@@ -13,8 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class EndGameFrame extends Frame {
-	private Stage stage;
-
+	
 	public EndGameFrame(GameGui gameGui,boolean isSurrender, int surrenderPlayer, int blackPoint, int whitePoint) {
 		try {
 			FXMLLoader loader = new FXMLLoader();

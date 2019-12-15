@@ -23,7 +23,7 @@ public class EndGameCommand extends Command {
 		gameGui.setFrame(new EndGameFrame(gameGui, isSurrender, surrenderPlayer, blackPoint, whitePoint));
         gameGui.getStage().close();
         gameGui.setStage(gameGui.getFrame().getStage());
-        gameGui.getStage().show();
+        gameGui.getFrame().getStage().show();
 	}
 
 

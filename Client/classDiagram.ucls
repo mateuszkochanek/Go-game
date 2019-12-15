@@ -147,27 +147,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="16" language="java" name="ClientApplication.GoGame.Command.Factory.CommandFactory" project="Client" 
-    file="/Client/src/main/java/ClientApplication/GoGame/Command/Factory/CommandFactory.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1206" y="893"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </interface>  
-  <class id="17" language="java" name="ClientApplication.GoGame.Command.Factory.ConcreteCommandFactory" project="Client" 
-    file="/Client/src/main/java/ClientApplication/GoGame/Command/Factory/ConcreteCommandFactory.java" binary="false" 
-    corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="1199" y="1050"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="18" language="java" name="ClientApplication.GoGame.Gui.Controller.Controller" project="Client" 
+  <class id="16" language="java" name="ClientApplication.GoGame.Gui.Controller.Controller" project="Client" 
     file="/Client/src/main/java/ClientApplication/GoGame/Gui/Controller/Controller.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="505" y="736"/>    
@@ -177,7 +157,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="19" language="java" name="ClientApplication.GoGame.Gui.Controller.EndGameFrameController" project="Client" 
+  <class id="17" language="java" name="ClientApplication.GoGame.Gui.Controller.EndGameFrameController" project="Client" 
     file="/Client/src/main/java/ClientApplication/GoGame/Gui/Controller/EndGameFrameController.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="486" y="1036"/>    
@@ -187,7 +167,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="20" language="java" name="ClientApplication.GoGame.Gui.Controller.GameBoardController" project="Client" 
+  <class id="18" language="java" name="ClientApplication.GoGame.Gui.Controller.GameBoardController" project="Client" 
     file="/Client/src/main/java/ClientApplication/GoGame/Gui/Controller/GameBoardController.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="772" y="1016"/>    
@@ -197,7 +177,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="21" language="java" name="ClientApplication.GoGame.Gui.Controller.NewGameFrameController" project="Client" 
+  <class id="19" language="java" name="ClientApplication.GoGame.Gui.Controller.NewGameFrameController" project="Client" 
     file="/Client/src/main/java/ClientApplication/GoGame/Gui/Controller/NewGameFrameController.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="215" y="1035"/>    
@@ -207,7 +187,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="22" language="java" name="ClientApplication.GoGame.Connection.ClientConnection" project="Client" 
+  <class id="20" language="java" name="ClientApplication.GoGame.Connection.ClientConnection" project="Client" 
     file="/Client/src/main/java/ClientApplication/GoGame/Connection/ClientConnection.java" binary="false" 
     corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1583" y="276"/>    
@@ -217,7 +197,7 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="23" language="java" name="ClientApplication.GoGame.Connection.ClientConnection.ConnectionThread" 
+  <class id="21" language="java" name="ClientApplication.GoGame.Connection.ClientConnection.ConnectionThread" 
     project="Client" file="/Client/src/main/java/ClientApplication/GoGame/Connection/ClientConnection.java" 
     binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="1976" y="223"/>    
@@ -227,177 +207,197 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
+  <class id="22" language="java" name="ClientApplication.GoGame.Command.Factory.ConcreteCommandFactory" project="Client" 
+    file="/Client/src/main/java/ClientApplication/GoGame/Command/Factory/ConcreteCommandFactory.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1209" y="1040"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="23" language="java" name="ClientApplication.GoGame.Command.Factory.CommandFactory" project="Client" 
+    file="/Client/src/main/java/ClientApplication/GoGame/Command/Factory/CommandFactory.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1216" y="891"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
   <generalization id="24">    
-    <end type="SOURCE" refId="8"/>    
+    <end type="SOURCE" refId="5"/>    
     <end type="TARGET" refId="4"/>  
   </generalization>  
-  <association id="25">    
-    <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="26" name="gameGui">        
-        <position height="0" width="0" x="-166" y="-18"/>      
-      </attribute>      
-      <multiplicity id="27" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-166" y="-18"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <generalization id="28">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="4"/>  
-  </generalization>  
-  <generalization id="29">    
+  <generalization id="25">    
     <end type="SOURCE" refId="6"/>    
     <end type="TARGET" refId="4"/>  
   </generalization>  
-  <generalization id="30">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="22"/>  
-  </generalization>  
-  <association id="31">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="32" name="client">        
-        <position height="0" width="0" x="-142" y="-11"/>      
-      </attribute>      
-      <multiplicity id="33" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-142" y="-11"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="34">    
-    <end type="SOURCE" refId="1" navigable="false">      
-      <attribute id="35" name="client">        
-        <position height="0" width="0" x="-142" y="-11"/>      
-      </attribute>      
-      <multiplicity id="36" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-142" y="-11"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="2" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="37">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="38" name="frame">        
-        <position height="0" width="0" x="35" y="142"/>      
-      </attribute>      
-      <multiplicity id="39" minimum="0" maximum="1">        
-        <position height="0" width="0" x="35" y="142"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="12" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="40">    
-    <end type="SOURCE" refId="12" navigable="false">      
-      <attribute id="41" name="controller">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="42" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="18" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="43">    
+  <association id="26">    
     <end type="SOURCE" refId="4" navigable="false">      
-      <attribute id="44" name="serverMessage">        
+      <attribute id="27" name="serverMessage">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="45" minimum="0" maximum="1">        
+      <multiplicity id="28" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="15" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <generalization id="46">    
-    <end type="SOURCE" refId="9"/>    
+  <generalization id="29">    
+    <end type="SOURCE" refId="7"/>    
     <end type="TARGET" refId="4"/>  
   </generalization>  
-  <generalization id="47">    
-    <end type="SOURCE" refId="13"/>    
-    <end type="TARGET" refId="12"/>  
-  </generalization>  
-  <association id="48">    
-    <end type="SOURCE" refId="18" navigable="false">      
-      <attribute id="49" name="gameGui">        
+  <association id="30">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="31" name="gameGui">        
         <position height="0" width="0" x="-166" y="-18"/>      
       </attribute>      
-      <multiplicity id="50" minimum="0" maximum="1">        
+      <multiplicity id="32" minimum="0" maximum="1">        
         <position height="0" width="0" x="-166" y="-18"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="10" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="51">    
+  <nesting id="33">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="21"/>  
+  </nesting>  
+  <generalization id="34">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <generalization id="35">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <generalization id="36">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="16"/>  
+  </generalization>  
+  <association id="37">    
     <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="52" name="commandFactory">        
-        <position height="0" width="0" x="-169" y="7"/>      
+      <attribute id="38" name="commandFactory"/>      
+      <multiplicity id="39" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="23" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="40">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="41" name="client">        
+        <position height="0" width="0" x="-142" y="-11"/>      
       </attribute>      
-      <multiplicity id="53" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-169" y="7"/>      
+      <multiplicity id="42" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-142" y="-11"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="43">    
+    <end type="SOURCE" refId="16" navigable="false">      
+      <attribute id="44" name="gameGui">        
+        <position height="0" width="0" x="-166" y="-18"/>      
+      </attribute>      
+      <multiplicity id="45" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-166" y="-18"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="46">    
+    <end type="SOURCE" refId="10" navigable="false">      
+      <attribute id="47" name="frame">        
+        <position height="0" width="0" x="35" y="142"/>      
+      </attribute>      
+      <multiplicity id="48" minimum="0" maximum="1">        
+        <position height="0" width="0" x="35" y="142"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="12" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="49">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <association id="50">    
+    <end type="SOURCE" refId="20" navigable="false">      
+      <attribute id="51" name="connectionThread">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="52" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="21" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="53">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="12"/>  
+  </generalization>  
+  <association id="54">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="55" name="gameGui">        
+        <position height="0" width="0" x="-166" y="-18"/>      
+      </attribute>      
+      <multiplicity id="56" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-166" y="-18"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="57">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="58" name="client">        
+        <position height="0" width="0" x="-142" y="-11"/>      
+      </attribute>      
+      <multiplicity id="59" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-142" y="-11"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <generalization id="60">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="20"/>  
+  </generalization>  
+  <generalization id="61">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="16"/>  
+  </generalization>  
+  <association id="62">    
+    <end type="SOURCE" refId="12" navigable="false">      
+      <attribute id="63" name="controller">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="64" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="16" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="54">    
-    <end type="SOURCE" refId="22" navigable="false">      
-      <attribute id="55" name="connectionThread"/>      
-      <multiplicity id="56" minimum="0" maximum="1"/>    
-    </end>    
-    <end type="TARGET" refId="23" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <nesting id="57">    
+  <realization id="65">    
     <end type="SOURCE" refId="22"/>    
     <end type="TARGET" refId="23"/>  
-  </nesting>  
-  <generalization id="58">    
-    <end type="SOURCE" refId="5"/>    
-    <end type="TARGET" refId="4"/>  
-  </generalization>  
-  <generalization id="59">    
-    <end type="SOURCE" refId="14"/>    
-    <end type="TARGET" refId="12"/>  
-  </generalization>  
-  <generalization id="60">    
-    <end type="SOURCE" refId="21"/>    
-    <end type="TARGET" refId="18"/>  
-  </generalization>  
-  <realization id="61">    
-    <end type="SOURCE" refId="17"/>    
-    <end type="TARGET" refId="16"/>  
   </realization>  
-  <generalization id="62">    
-    <end type="SOURCE" refId="19"/>    
-    <end type="TARGET" refId="18"/>  
-  </generalization>  
-  <association id="63">    
-    <end type="SOURCE" refId="2" navigable="false">      
-      <attribute id="64" name="gameGui">        
-        <position height="0" width="0" x="-166" y="-18"/>      
-      </attribute>      
-      <multiplicity id="65" minimum="0" maximum="1">        
-        <position height="0" width="0" x="-166" y="-18"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="10" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
   <generalization id="66">    
-    <end type="SOURCE" refId="11"/>    
-    <end type="TARGET" refId="12"/>  
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="16"/>  
   </generalization>  
   <generalization id="67">    
-    <end type="SOURCE" refId="20"/>    
-    <end type="TARGET" refId="18"/>  
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="4"/>  
   </generalization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    

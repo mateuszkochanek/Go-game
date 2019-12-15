@@ -35,7 +35,7 @@ public class NewGameFrameController extends Controller{
     	String type;
     	RadioButton selectedTypeButton = (RadioButton) typeGroup.getSelectedToggle();
     	RadioButton selectedSizeButton = (RadioButton) sizeGroup.getSelectedToggle();
-    	if(selectedTypeButton.getText() != null && selectedSizeButton.getText() != null) {
+    	if(selectedTypeButton != null && selectedSizeButton != null) {
     		type = selectedTypeButton.getText();
     		if(selectedSizeButton.getText().equals("9x9")) {
     			size = 9;			
