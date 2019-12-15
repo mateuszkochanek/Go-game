@@ -28,9 +28,6 @@ public class GameGui {//ogarnia framy i controllery
 	    this.commandFactory = new ConcreteCommandFactory();
 		this.stage = stage;
 		this.client = client;
-		VBox vBox = new VBox(new Label("Waiting for server"));
-		Scene scene = new Scene(vBox);
-		this.stage.setScene(scene);
 	}
 	
 	public void getServerMessage(ServerMessage serverMessage) {
@@ -39,6 +36,9 @@ public class GameGui {//ogarnia framy i controllery
 	}
 	
 	public void ShowWaitFrame() { // wywolywane w GoGameClientApplication
+		VBox vBox = new VBox(new Label("Waiting for server"));
+		Scene scene = new Scene(vBox);
+		this.stage.setScene(scene);
 		this.stage.show();
 	}
 	public Stage getStage() {
