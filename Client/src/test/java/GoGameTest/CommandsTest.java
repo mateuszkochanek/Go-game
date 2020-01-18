@@ -2,30 +2,26 @@ package GoGameTest;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.mockito.Mock;
 import org.mockito.Mockito;
 
-import ClientApplication.GoGame.Connection.Client;
 import ClientApplication.GoGame.Entities.Commands.Command;
 import ClientApplication.GoGame.Entities.Commands.MoveCommand;
-import ClientApplication.GoGame.Entities.Commands.NewGameCommand;
 import ClientApplication.GoGame.Entities.Commands.OpponentPassCommand;
-import ClientApplication.GoGame.Entities.Commands.SetGameSettingsCommand;
 import ClientApplication.GoGame.Gui.GameGui;
-import ClientApplication.GoGame.Gui.Controller.Controller;
 import ClientApplication.GoGame.Gui.Controller.GameBoardController;
 import ClientApplication.GoGame.Gui.Frame.Frame;
-import ClientApplication.GoGame.Gui.Frame.NewGameFrame;
 import Server.ServerMessage.MoveInfo;
 import Server.ServerMessage.OpponentPass;
-import Server.ServerMessage.SentGameOptions;
 import Server.ServerMessage.ServerMessage;
 import javafx.stage.Stage;
 
+//@RunWith( JfxTestRunner.class )
 public class CommandsTest {
 	Frame frameMock;
 	GameGui gameGuiMock;
 	Stage stageMock;
+	
+	//@Rule public JavaFXThreadingRule javafxRule = new JavaFXThreadingRule();
 		
 	@Before
 	public void beforeCommandTest() {
