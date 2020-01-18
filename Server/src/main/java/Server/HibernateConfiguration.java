@@ -29,7 +29,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
       public LocalSessionFactoryBean sessionFactory() {
           LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
           sessionFactory.setDataSource(dataSource());
-          sessionFactory.setPackagesToScan(new String[] { "Server.Entity" }); //dndhelper.entity
+          sessionFactory.setPackagesToScan(new String[] { "Server.Database.Entities" }); //dndhelper.entity
           sessionFactory.setHibernateProperties(hibernateProperties());
           return sessionFactory;
        }

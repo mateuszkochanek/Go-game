@@ -2,24 +2,35 @@ package Server.Commands;
 
 import java.io.IOException;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
+import Server.Database.Entities.GoGame;
+import Server.Database.Entities.Movement;
+import Server.Database.Service.Interfaces.MovementService;
 import Server.Game.Game;
 import Server.Player.Player;
 import Server.ServerMessage.EndGame;
 import Server.ServerMessage.OpponentPass;
 
 public class PassCommand extends Command {
+  
+  @Autowired
+  protected MovementService movementService;
     
     public PassCommand(ClientMessage message) {
         super(message);
     }
 
 	@Override
-	public void executeCommand(Game game, Player player) {
+	public void executeCommand(Game game, Player player, GoGame goGame) {
 	    
 	    if (!game.getActualPlayer().equals(player)) {
             return;
         }
+	    
+	    Movement movement = new Movement("pass", -1, -1, game.getActualPlayer().getNumber(), goGame);
+      this.movementService.saveMovement(movement);
 		
 	    if (game.isPreviousPass()) {
 	        game.getGameLogic().removeDeathStonesEndGame();

@@ -2,6 +2,7 @@ package Server.Server;
 
 import java.io.IOException;
 import java.net.ServerSocket;
+import java.sql.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
@@ -17,6 +18,7 @@ import org.springframework.stereotype.Component;
 import ClientApplication.GoGame.Entities.ClientMessages.SetGameOptions;
 import Server.Database.Entities.GoGame;
 import Server.Database.Entities.Movement;
+import Server.Database.Service.Interfaces.GoGameService;
 import Server.Game.Game;
 import Server.Player.Bot;
 import Server.Player.Human;
@@ -26,6 +28,10 @@ import Server.ServerMessage.SentGameOptions;
 
 @Component
 public class Server   {
+  
+  @Autowired
+  GoGameService goGameService;
+  
     public Server() {
     }
     
@@ -98,8 +104,21 @@ public class Server   {
         }
         
         pool.execute(player2);
-        Game game = new Game(player1, player2, boardSize, ifHotseat);
+        GoGame goGame = this.saveGame(message);
+        Game game = new Game(player1, player2, boardSize, ifHotseat, goGame);
         player1.setGame(game);
         player2.setGame(game);
+    }
+    
+    private GoGame saveGame(SetGameOptions message) {
+      
+      GoGame goGame = new GoGame();
+      goGame.setDate(new Date(System.currentTimeMillis()));
+      goGame.setType(message.getMode());
+      goGame.setSize(message.getSize());
+      
+      goGameService.saveGame(goGame);
+      
+      return goGame;
     }
 }

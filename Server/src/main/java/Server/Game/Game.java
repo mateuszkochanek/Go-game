@@ -4,6 +4,7 @@ import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
 import Server.Commands.Command;
 import Server.Commands.Factory.CommandFactory;
 import Server.Commands.Factory.ConcreteCommandFactory;
+import Server.Database.Entities.GoGame;
 import Server.Player.Player;
 import Server.Player.Bot;
 
@@ -15,22 +16,24 @@ public class Game {
     private boolean previousPass;
     private GameLogic gameLogic;
     private boolean hotseat;
+    private GoGame goGame;
 
-    public Game(Player player1, Player player2, int boardSize, boolean hotseat) {
+    public Game(Player player1, Player player2, int boardSize, boolean hotseat, GoGame goGame) {
         this.player1 = player1;
         this.player2 = player2;
         this.actualPlayer = player1;
+        this.goGame = goGame;
         
         this.commandFactory = new ConcreteCommandFactory();
         this.hotseat = hotseat;
         this.gameLogic = new GameLogic(boardSize);
-        this.previousPass = false;
+        this.previousPass = false; 
     }
 
 	public synchronized void getMessage(ClientMessage clientMessage, Player player) {
     	Command command = this.commandFactory.getCommand(clientMessage);
     	if (command != null)
-    	    command.executeCommand(this, player);
+    	    command.executeCommand(this, player, goGame);
     }
 	
 	public void changeActualPlayer() {

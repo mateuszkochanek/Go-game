@@ -19,5 +19,4 @@ public class MovementDAOImpl implements MovementDAO {
     Session session = this.sessionFactory.getCurrentSession();
     session.saveOrUpdate(movement);
   }
-
 }
