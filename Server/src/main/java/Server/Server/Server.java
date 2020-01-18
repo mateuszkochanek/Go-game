@@ -6,7 +6,17 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.context.event.EventListener;
+import org.springframework.stereotype.Component;
+
 import ClientApplication.GoGame.Entities.ClientMessages.SetGameOptions;
+import Server.Database.Entities.GoGame;
+import Server.Database.Entities.Movement;
 import Server.Game.Game;
 import Server.Player.Bot;
 import Server.Player.Human;
@@ -14,9 +24,13 @@ import Server.Player.Player;
 import Server.ServerMessage.NewGame;
 import Server.ServerMessage.SentGameOptions;
 
-public class Server  {
+@Component
+public class Server   {
+    public Server() {
+    }
     
-    private void prepareGame() {
+    @EventListener
+    private void prepareGame(ContextRefreshedEvent event) {
         ServerSocket listener = null;
         Connection connection = null;
         Player player1 = null;
@@ -87,10 +101,5 @@ public class Server  {
         Game game = new Game(player1, player2, boardSize, ifHotseat);
         player1.setGame(game);
         player2.setGame(game);
-    }
-    
-	public static void main(String[] args) {  
-	    Server server = new Server();
-	    server.prepareGame();
     }
 }
