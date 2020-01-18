@@ -57,22 +57,8 @@ public class GameLogic {
             this.cleanBoardAfterChecking(x, y, -1, 0, opponent);
         }
 
-        if (answer) {
-            
-            for (int i = 0; i < this.size; i++) {
-                for (int j = 0; j < this.size; j++)
-                    System.out.print(this.board[i][j]);
-                System.out.println();
-            }
-            
+        if (answer)       
             return true;
-        }
-        
-        for (int i = 0; i < this.size; i++) {
-            for (int j = 0; j < this.size; j++)
-                System.out.print(this.board[i][j]);
-            System.out.println();
-        }
         
         return false;
     }
