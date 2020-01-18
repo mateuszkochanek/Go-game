@@ -30,7 +30,7 @@ public class Server   {
     }
     
     @EventListener
-    private void prepareGame(ContextRefreshedEvent event) {
+    public void prepareGame(ContextRefreshedEvent event) {
         ServerSocket listener = null;
         Connection connection = null;
         Player player1 = null;
