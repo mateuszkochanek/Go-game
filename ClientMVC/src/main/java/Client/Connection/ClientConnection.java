@@ -115,7 +115,8 @@ public abstract class ClientConnection {
 
 				ServerMessage serverMessage;
 				serverMessage = (ServerMessage) this.inputStream.readObject();
-				appController.connected();
+				appController.connected();//TODO Jak dac znac kontrolerowi?
+				
 				System.out.println(serverMessage.getClass());
 				if(serverMessage instanceof EndGame)
 					keepRunning = false;

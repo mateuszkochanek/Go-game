@@ -1,12 +1,15 @@
 package Client;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import Client.Connection.Client;
 import Client.Connection.ClientImpl;
+import Client.GoGame.Entities.ClientMessages.SetGameOptions;
 
 @RestController
 public class AppController {
@@ -16,7 +19,6 @@ public class AppController {
 
 	@RequestMapping("/")
 	public String showPage() {
-		client.startConnection();
 		return "redirect:/waiting";
 	}
 	
@@ -32,6 +34,12 @@ public class AppController {
 	
 	public String connected() {
 		return "redirect:/connected";
+	}
+	
+	@MessageMapping("/chat")
+	@SendTo("/topic/messages")
+	public SetGameOptions send(SetGameOptions message) throws Exception {
+	    return new SetGameOptions(1, "singleplayer");
 	}
 
 }

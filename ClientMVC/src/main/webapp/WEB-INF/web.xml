@@ -5,4 +5,5 @@
 	xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 <display-name>ClientMVC</display-name>
+<absolute-ordering/>
 </web-app>
