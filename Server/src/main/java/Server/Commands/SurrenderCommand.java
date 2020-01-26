@@ -3,6 +3,7 @@ package Server.Commands;
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
 import Server.Database.Entities.GoGame;
@@ -12,10 +13,13 @@ import Server.Game.Game;
 import Server.Player.Player;
 import Server.ServerMessage.EndGame;
 
+@Component
 public class SurrenderCommand extends Command {
   
   @Autowired
   protected MovementService movementService;
+  
+  public SurrenderCommand() {}
     
     public SurrenderCommand(ClientMessage message) {
         super(message);

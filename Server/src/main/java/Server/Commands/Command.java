@@ -9,6 +9,8 @@ public abstract class Command {
   
 	protected ClientMessage clientMessage;
 	
+	protected Command() {}
+	
 	protected Command(ClientMessage message) {
 	    this.clientMessage = message;
 	}

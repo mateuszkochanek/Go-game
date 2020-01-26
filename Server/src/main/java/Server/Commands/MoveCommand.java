@@ -3,6 +3,7 @@ package Server.Commands;
 import java.io.IOException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
 import ClientApplication.GoGame.Entities.ClientMessages.Move;
@@ -14,10 +15,13 @@ import Server.Game.Game;
 import Server.Player.Player;
 import Server.ServerMessage.MoveInfo;
 
+@Component
 public class MoveCommand extends Command {
     
   @Autowired
   protected MovementService movementService;
+  
+  public MoveCommand() {}
   
     public MoveCommand(ClientMessage message) {
         super(message);

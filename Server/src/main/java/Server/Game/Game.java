@@ -8,6 +8,7 @@ import Server.Database.Entities.GoGame;
 import Server.Player.Player;
 import Server.Player.Bot;
 
+@Component
 public class Game {
     private Player player1;
     private Player player2;

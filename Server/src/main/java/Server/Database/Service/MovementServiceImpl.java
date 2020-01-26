@@ -17,6 +17,7 @@ public class MovementServiceImpl implements MovementService {
   @Override
   @Transactional
   public void saveMovement(Movement movement) {
+    System.out.println(movementDAO + "   ");
     this.movementDAO.saveMovement(movement);
   }
 
