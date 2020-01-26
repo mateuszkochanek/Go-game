@@ -11,14 +11,26 @@ import Server.Database.Service.Interfaces.MovementService;
 @Service
 public class MovementServiceImpl implements MovementService {
 
-  @Autowired
   private MovementDAO movementDAO;
+  
+  @Autowired
+  public MovementServiceImpl(MovementDAO movementDAO){
+    this.movementDAO = movementDAO;
+  } 
   
   @Override
   @Transactional
   public void saveMovement(Movement movement) {
-    System.out.println(movementDAO + "   ");
     this.movementDAO.saveMovement(movement);
   }
 
+  public MovementDAO getMovementDAO() {
+    return movementDAO;
+  }
+
+  public void setMovementDAO(MovementDAO movementDAO) {
+    this.movementDAO = movementDAO;
+  }
+
+  
 }

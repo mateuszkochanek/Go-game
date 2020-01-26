@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
-@EnableAutoConfiguration
 @Configuration
 @ComponentScan(basePackages="Server")
 public class AppStartConfig{

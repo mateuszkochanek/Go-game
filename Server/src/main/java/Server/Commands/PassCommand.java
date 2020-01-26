@@ -21,10 +21,6 @@ public class PassCommand extends Command {
   protected MovementService movementService;
   
   public PassCommand() {}
-    
-    public PassCommand(ClientMessage message) {
-        super(message);
-    }
 
 	@Override
 	public void executeCommand(Game game, Player player, GoGame goGame) {

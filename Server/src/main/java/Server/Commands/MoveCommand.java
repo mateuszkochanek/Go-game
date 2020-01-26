@@ -22,10 +22,6 @@ public class MoveCommand extends Command {
   protected MovementService movementService;
   
   public MoveCommand() {}
-  
-    public MoveCommand(ClientMessage message) {
-        super(message);
-    }
 
 	@Override
 	public void executeCommand(Game game, Player player, GoGame goGame) {
@@ -36,7 +32,6 @@ public class MoveCommand extends Command {
 
 		if (game.getGameLogic().move(message.getX(), message.getY(), game.getActualPlayer().getNumber())) {
 		    try {
-		      this.movementService = new MovementServiceImpl();
 		        Movement movement = new Movement("move", message.getX(), message.getY(), game.getActualPlayer().getNumber(), goGame);
 		        this.movementService.saveMovement(movement);
 		      

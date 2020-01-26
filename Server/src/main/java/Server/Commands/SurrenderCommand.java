@@ -20,10 +20,6 @@ public class SurrenderCommand extends Command {
   protected MovementService movementService;
   
   public SurrenderCommand() {}
-    
-    public SurrenderCommand(ClientMessage message) {
-        super(message);
-    }
 
 	@Override
 	public void executeCommand(Game game, Player player, GoGame goGame) {

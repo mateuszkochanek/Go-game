@@ -20,4 +20,10 @@ public class GoGameServiceImpl implements GoGameService {
     this.goGameDAO.saveGame(goGame);
   }
 
+  @Override
+  @Transactional
+  public GoGame getGame() {
+    return this.goGameDAO.getGame();
+  }
+
 }

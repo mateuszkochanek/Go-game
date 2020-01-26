@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import Server.Database.Dao.Interfaces.MovementDAO;
 import Server.Database.Entities.Movement;
 
-@Repository
+@Repository("movementDAO")
 public class MovementDAOImpl implements MovementDAO {
 
   @Autowired

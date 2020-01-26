@@ -20,6 +20,7 @@ import Server.Database.Entities.GoGame;
 import Server.Database.Entities.Movement;
 import Server.Database.Service.Interfaces.GoGameService;
 import Server.Game.Game;
+import Server.Game.GameLogic;
 import Server.Player.Bot;
 import Server.Player.Human;
 import Server.Player.Player;
@@ -32,6 +33,9 @@ public class Server   {
   @Autowired
   GoGameService goGameService;
   
+  @Autowired
+  Game game;
+  
     public Server() {
     }
     
@@ -41,7 +45,7 @@ public class Server   {
         Connection connection = null;
         Player player1 = null;
         Player player2 = null;
-        int boardSize;
+        int boardSize = 0;
         boolean ifHotseat = false;
         
         try {
@@ -105,7 +109,13 @@ public class Server   {
         
         pool.execute(player2);
         GoGame goGame = this.saveGame(message);
-        Game game = new Game(player1, player2, boardSize, ifHotseat, goGame);
+        goGame = this.goGameService.getGame();
+        game.setPlayer1(player1);
+        game.setPlayer2(player2);
+        game.setActualPlayer(player1);
+        game.setGameLogic(new GameLogic(boardSize));
+        game.setHotseat(ifHotseat);
+        game.setGoGame(goGame);
         player1.setGame(game);
         player2.setGame(game);
     }
