@@ -21,7 +21,7 @@
     		<version>0.0.3</version>
     		<configuration>
         		<mainClass>ClientApplication.GoGame.GoGameClientApplication</mainClass>
-        		<executable>C:\Program Files\Java\jdk-13.0.1\bin\java</executable>
+        		<executable>/../usr/lib/jvm/java-11-openjdk-amd64/bin/java</executable>
         		<!-- <executable>/../usr/lib/jvm/java-11-openjdk-amd64/bin/java</executable>  -->
     		</configuration>
 		</plugin>
