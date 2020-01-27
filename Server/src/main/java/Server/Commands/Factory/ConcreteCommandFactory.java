@@ -20,7 +20,7 @@ public class ConcreteCommandFactory implements CommandFactory {
   
   @Autowired
   ApplicationContext applicationContext;
-
+	
     public Command getCommand(ClientMessage message) {
         
         if (message instanceof Move) {
