@@ -47,12 +47,13 @@ public class Server   {
         Player player2 = null;
         int boardSize = 0;
         boolean ifHotseat = false;
+        int gameId = 0;
         
         try {
             listener = new ServerSocket(59898);
             connection = new Connection(listener);
             TimeUnit.SECONDS.sleep(1);
-            connection.sendMessage(new NewGame());
+            connection.sendMessage(new NewGame(this.goGameService.getIdList()));
             
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
@@ -96,6 +97,16 @@ public class Server   {
                 e.printStackTrace();
             }
             
+        } else if (message.getMode().contentEquals("load")) {
+          
+          ifHotseat = true;
+          player2 = new Human(connection, 2);
+          
+          try {
+              player1.sendMessage(new SentGameOptions(1, message.getSize(), message.getMode()));
+          } catch (IOException e) {
+              e.printStackTrace();
+          }
         }
         
         ExecutorService pool = Executors.newFixedThreadPool(20);
@@ -107,17 +118,31 @@ public class Server   {
             e1.printStackTrace();
         }
         
-        pool.execute(player2);
-        GoGame goGame = this.saveGame(message);
-        goGame = this.goGameService.getGame();
-        game.setPlayer1(player1);
-        game.setPlayer2(player2);
-        game.setActualPlayer(player1);
-        game.setGameLogic(new GameLogic(boardSize));
-        game.setHotseat(ifHotseat);
-        game.setGoGame(goGame);
-        player1.setGame(game);
-        player2.setGame(game);
+        if (message.getMode().contentEquals("load")) {
+          pool.execute(player2);
+          GoGame goGame = this.saveGame(message);
+          goGame = this.goGameService.getGame();
+          game.setPlayer1(player1);
+          game.setPlayer2(player2);
+          game.setActualPlayer(player1);
+          game.setGameLogic(new GameLogic(boardSize));
+          game.setHotseat(ifHotseat);
+          game.setGoGame(goGame);
+          player1.setGame(game);
+          player2.setGame(game);
+        } else {
+          pool.execute(player2);
+          GoGame goGame = this.saveGame(message);
+          goGame = this.goGameService.getGame();
+          game.setPlayer1(player1);
+          game.setPlayer2(player2);
+          game.setActualPlayer(player1);
+          game.setGameLogic(new GameLogic(boardSize));
+          game.setHotseat(ifHotseat);
+          game.setGoGame(goGame);
+          player1.setGame(game);
+          player2.setGame(game);
+        }
     }
     
     private GoGame saveGame(SetGameOptions message) {
