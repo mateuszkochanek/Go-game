@@ -35,9 +35,6 @@ public class Server   {
   @Autowired
   Game game;
   
-  @Autowired
-  Game game;
-  
     public Server() {
     }
     
@@ -54,7 +51,7 @@ public class Server   {
             listener = new ServerSocket(59898);
             connection = new Connection(listener);
             TimeUnit.SECONDS.sleep(1);
-            connection.sendMessage(new NewGame());
+            connection.sendMessage(new NewGame(null));
             
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
