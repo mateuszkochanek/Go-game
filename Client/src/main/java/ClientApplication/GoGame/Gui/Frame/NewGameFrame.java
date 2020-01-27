@@ -13,13 +13,14 @@ import javafx.stage.Stage;
 
 public class NewGameFrame extends Frame {
 	
-	public NewGameFrame(GameGui gameGui) {
+	public NewGameFrame(GameGui gameGui, int[] gameIds) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(getClass().getResource("/FXMLNewGameFrame.fxml"));
 			Parent root = loader.load();
 			NewGameFrameController controller = loader.<NewGameFrameController>getController();
 			controller.setGameGui(gameGui);
+			controller.setGameIds(gameIds);
 			Stage stage = new Stage();
 			stage.setTitle("GoGame NewGame");
 	        stage.setScene(new Scene(root,350,350));
