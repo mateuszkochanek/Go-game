@@ -26,4 +26,10 @@ public class GoGameServiceImpl implements GoGameService {
     return this.goGameDAO.getGame();
   }
 
+  @Override
+  @Transactional
+  public int[] getIdList() {
+    return this.goGameDAO.getIdList();
+  }
+
 }

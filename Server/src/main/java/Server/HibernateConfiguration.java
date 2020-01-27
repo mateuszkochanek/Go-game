@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
    
   @Configuration
   @EnableTransactionManagement
-  @ComponentScan({ "Server" }) //dndhelper
+  @ComponentScan({ "Server" })
   @PropertySource(value = { "classpath:application.properties" })
   public class HibernateConfiguration {
    
@@ -29,7 +29,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
       public LocalSessionFactoryBean sessionFactory() {
           LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
           sessionFactory.setDataSource(dataSource());
-          sessionFactory.setPackagesToScan(new String[] { "Server.Database.Entities" }); //dndhelper.entity
+          sessionFactory.setPackagesToScan(new String[] { "Server.Database.Entities" });
           sessionFactory.setHibernateProperties(hibernateProperties());
           return sessionFactory;
        }
