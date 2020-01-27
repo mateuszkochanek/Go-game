@@ -1,22 +1,32 @@
 package ClientApplication.GoGame.Gui.Controller;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.LinkedList;
+import java.util.ResourceBundle;
 
 import ClientApplication.GoGame.Connection.Client;
 import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
 import ClientApplication.GoGame.Entities.ClientMessages.SetGameOptions;
 import ClientApplication.GoGame.Gui.GameGui;
+import javafx.beans.property.SimpleListProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.collections.transformation.SortedList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.ListView;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-public class NewGameFrameController extends Controller{
+public class NewGameFrameController extends Controller implements Initializable{
     @FXML
     private Text textLabel;
     
@@ -28,9 +38,39 @@ public class NewGameFrameController extends Controller{
 
     @FXML
     private Button startButton;
+    
+    @FXML
+    private Button load;
 
     @FXML
+    private ComboBox<Integer> comboBox;
+
+
+    private int[] gameIds;
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+    	int[] intArray = new int[3];
+    	intArray[0] = 1;
+    	intArray[1] = 2;
+    	intArray[2] = 3;
+    	LinkedList<Integer> oList = new LinkedList<>();
+    	for(int i = 0; i<3;i++) {
+    		oList.add(new Integer(intArray[i]));
+    		
+    	}
+    	comboBox.getItems().addAll(oList);
+    }    
+    
+    @FXML
+    void loadChosenGame(ActionEvent event) {
+    	int gameId = comboBox.getValue();
+    	System.out.println(gameId + " NOOOOOOOOOOOO");
+    }
+    
+    @FXML
     void SendGameOptions(ActionEvent event) {//TODO handle exceptions better!
+    	System.out.println(event.toString());
     	int size;
     	String type;
     	RadioButton selectedTypeButton = (RadioButton) typeGroup.getSelectedToggle();
@@ -56,5 +96,14 @@ public class NewGameFrameController extends Controller{
 	public void setGameGui(GameGui gameGui) {
 		this.gameGui = gameGui;
 	}
+
+	public int[] getGameIds() {
+		return gameIds;
+	}
+
+	public void setGameIds(int[] gameIds) {
+		this.gameIds = gameIds;
+	}
+	
 
 }
