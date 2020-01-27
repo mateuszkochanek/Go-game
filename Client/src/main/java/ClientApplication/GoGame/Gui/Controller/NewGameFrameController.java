@@ -50,13 +50,9 @@ public class NewGameFrameController extends Controller implements Initializable{
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-    	int[] intArray = new int[3];
-    	intArray[0] = 1;
-    	intArray[1] = 2;
-    	intArray[2] = 3;
     	LinkedList<Integer> oList = new LinkedList<>();
-    	for(int i = 0; i<3;i++) {
-    		oList.add(new Integer(intArray[i]));
+    	for(int i = 0; i<gameIds.length;i++) {
+    		oList.add(new Integer(gameIds[i]));
     		
     	}
     	comboBox.getItems().addAll(oList);
@@ -65,7 +61,13 @@ public class NewGameFrameController extends Controller implements Initializable{
     @FXML
     void loadChosenGame(ActionEvent event) {
     	int gameId = comboBox.getValue();
-    	System.out.println(gameId + " NOOOOOOOOOOOO");
+    	if(gameId != -1) {
+    		System.out.println("Dziala" + gameId);
+    		ClientMessage clientMessage = new SetGameOptions(0,"Load",gameId);
+    		gameGui.sendMessage(clientMessage);
+    	} else {
+    		textLabel.setText("Nie wybrales opcji!");
+    	}
     }
     
     @FXML

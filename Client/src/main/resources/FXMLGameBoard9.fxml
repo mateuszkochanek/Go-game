@@ -146,13 +146,14 @@
       </AnchorPane>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
          <children>
-            <Button layoutX="11.0" layoutY="318.0" mnemonicParsing="false" onAction="#OnSurrenderAction" prefHeight="60.0" prefWidth="138.0" text="Surrender" />
-            <Button layoutX="11.0" layoutY="222.0" mnemonicParsing="false" onAction="#OnPassAction" prefHeight="60.0" prefWidth="138.0" text="Pass" />
+            <Button layoutX="11.0" layoutY="160.0" mnemonicParsing="false" onAction="#OnSurrenderAction" prefHeight="60.0" prefWidth="138.0" text="Surrender" />
+            <Button layoutX="11.0" layoutY="78.0" mnemonicParsing="false" onAction="#OnPassAction" prefHeight="60.0" prefWidth="138.0" text="Pass" />
             <Text fx:id="pass" layoutX="17.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="126.13671875">
                <font>
                   <Font size="18.0" />
                </font>
             </Text>
+            <Button layoutX="17.0" layoutY="469.0" mnemonicParsing="false" onAction="#OnNextAction" prefHeight="60.0" prefWidth="126.0" text="Next Step" />
          </children>
       </AnchorPane>
    </children>

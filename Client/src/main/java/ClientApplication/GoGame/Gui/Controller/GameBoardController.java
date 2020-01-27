@@ -5,6 +5,7 @@ import java.io.IOException;
 import ClientApplication.GoGame.Connection.Client;
 import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
 import ClientApplication.GoGame.Entities.ClientMessages.Move;
+import ClientApplication.GoGame.Entities.ClientMessages.Next;
 import ClientApplication.GoGame.Entities.ClientMessages.Pass;
 import ClientApplication.GoGame.Entities.ClientMessages.Surrender;
 import ClientApplication.GoGame.Gui.GameGui;
@@ -24,6 +25,13 @@ public class GameBoardController extends Controller {
     @FXML
     private Text pass;
 	
+    @FXML
+    void OnNextAction(ActionEvent event) {
+    	hideOpponentPass();
+    	ClientMessage clientMessage = new Next();
+    	gameGui.sendMessage(clientMessage);
+    }
+    
     @FXML
     void MakeMove(MouseEvent event) {
     	hideOpponentPass();
