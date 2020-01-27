@@ -35,6 +35,9 @@ public class Server   {
   @Autowired
   Game game;
   
+  @Autowired
+  Game game;
+  
     public Server() {
     }
     
@@ -44,7 +47,7 @@ public class Server   {
         Connection connection = null;
         Player player1 = null;
         Player player2 = null;
-        int boardSize;
+        int boardSize = 0;
         boolean ifHotseat = false;
         
         try {
@@ -108,12 +111,13 @@ public class Server   {
         
         pool.execute(player2);
         GoGame goGame = this.saveGame(message);
+        goGame = this.goGameService.getGame();
         game.setPlayer1(player1);
         game.setPlayer2(player2);
+        game.setActualPlayer(player1);
         game.setGameLogic(new GameLogic(boardSize));
         game.setHotseat(ifHotseat);
         game.setGoGame(goGame);
-        //Game game = new Game(player1, player2, boardSize, ifHotseat, goGame);
         player1.setGame(game);
         player2.setGame(game);
     }

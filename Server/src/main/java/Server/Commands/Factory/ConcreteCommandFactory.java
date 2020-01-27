@@ -15,6 +15,9 @@ import Server.Commands.SurrenderCommand;
 
 @Component
 public class ConcreteCommandFactory implements CommandFactory {
+  
+  @Autowired
+  ApplicationContext applicationContext;
 
 	@Autowired
 	ApplicationContext applicationContext;
@@ -22,17 +25,17 @@ public class ConcreteCommandFactory implements CommandFactory {
     public Command getCommand(ClientMessage message) {
         
         if (message instanceof Move) {
-        	MoveCommand moveCommand = applicationContext.getBean(MoveCommand.class);
-        	moveCommand.setClientMessage(message);
-            return moveCommand;
+          MoveCommand moveCommand = applicationContext.getBean(MoveCommand.class);
+          moveCommand.setClientMessage(message);
+          return moveCommand;
         } else if (message instanceof Surrender) {
-        	SurrenderCommand surrenderCommand = applicationContext.getBean(SurrenderCommand.class);
-        	surrenderCommand.setClientMessage(message);
-            return surrenderCommand;
+          SurrenderCommand surrenderCommand = applicationContext.getBean(SurrenderCommand.class);
+          surrenderCommand.setClientMessage(message);
+          return surrenderCommand;
         } else if (message instanceof Pass) {
-        	PassCommand passCommand = applicationContext.getBean(PassCommand.class);
-        	passCommand.setClientMessage(message);
-            return passCommand;
+          PassCommand passCommand = applicationContext.getBean(PassCommand.class);
+          passCommand.setClientMessage(message);
+          return passCommand;
         }
         
         return null;
