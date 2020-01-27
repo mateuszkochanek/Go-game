@@ -19,19 +19,20 @@ public class Movement {
 	@Column(name = "player") private int player;
 	
 	@ManyToOne(cascade= {CascadeType.PERSIST,CascadeType.DETACH,CascadeType.REFRESH,CascadeType.MERGE,})
-    @JoinColumn(name="id_campaign")
+    @JoinColumn(name="id_game")
 	private GoGame game;
 
 	public Movement() {
 		super();
 	}
 
-	public Movement(int id, String type, int x, int y, int player, GoGame game) {
+	public Movement(String type, int x, int y, int player, GoGame game) {
 		super();
-		this.id = id;
 		this.type = type;
-		this.x = x;
-		this.y = y;
+		if (x >= 0)
+		  this.x = x;
+		if (y >=0 )
+		  this.y = y;
 		this.player = player;
 		this.game = game;
 	}

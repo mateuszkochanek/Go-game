@@ -22,6 +22,7 @@
     		<configuration>
         		<mainClass>ClientApplication.GoGame.GoGameClientApplication</mainClass>
         		<executable>/../usr/lib/jvm/java-11-openjdk-amd64/bin/java</executable>
+        		<!-- <executable>/../usr/lib/jvm/java-11-openjdk-amd64/bin/java</executable>  -->
     		</configuration>
 		</plugin>
 	</plugins>

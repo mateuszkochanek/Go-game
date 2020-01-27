@@ -16,6 +16,8 @@ public class GoGame {
 	@Id
     @Column(name = "id") private int id;
 	@Column(name = "date") private Date date;//?????????temporalValues.setSqlDate(java.sql.Date.valueOf("2017-11-15"));
+	@Column(name = "type") private String type;
+	@Column(name = "size") private int size;
 	@OneToMany(fetch=FetchType.EAGER, cascade=CascadeType.ALL,mappedBy = "game")
 	List <Movement> movements;
 
@@ -52,5 +54,20 @@ public class GoGame {
 	public void setMovements(List<Movement> movements) {
 		this.movements = movements;
 	}
-	
+
+  public String getType() {
+    return type;
+  }
+
+  public void setType(String type) {
+    this.type = type;
+  }
+
+  public int getSize() {
+    return size;
+  }
+
+  public void setSize(int size) {
+    this.size = size;
+  }
 }
