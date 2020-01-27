@@ -19,6 +19,9 @@ public class ConcreteCommandFactory implements CommandFactory {
   @Autowired
   ApplicationContext applicationContext;
 
+	@Autowired
+	ApplicationContext applicationContext;
+	
     public Command getCommand(ClientMessage message) {
         
         if (message instanceof Move) {

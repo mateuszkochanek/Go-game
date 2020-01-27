@@ -32,6 +32,8 @@ public class Server   {
   
   @Autowired
   GoGameService goGameService;
+  @Autowired
+  Game game;
   
   @Autowired
   Game game;
