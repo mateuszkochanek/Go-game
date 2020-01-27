@@ -34,14 +34,23 @@ public class GoGameDAOImpl implements GoGameDAO {
   @Override
   public int[] getIdList() {
     Session session = this.sessionFactory.getCurrentSession();
-    Query query = session.createQuery("SELECT id FROM GoGame");
-    List idList = query.list();
+    Query query = session.createQuery("FROM GoGame");
+    List<GoGame> goGames = query.list();
     
-    int[] games = new int[idList.size()];
+    int[] gamesId = new int[goGames.size()];
     
-    for (int i = 0; i < idList.size(); i++)
-      games[i] = (int) idList.get(i);
+    for (int i = 0; i < goGames.size(); i++)
+      gamesId[i] = goGames.get(i).getId();
     
-    return null;
+    return gamesId;
+  }
+
+  @Override
+  public GoGame getGameById(int id) {
+    Session session = this.sessionFactory.getCurrentSession();
+    Query query = session.createQuery("FROM GoGame WHERE id = :id");
+    query.setParameter("id", id);
+    List<GoGame> goGame = query.list();
+    return goGame.get(0);
   }
 }

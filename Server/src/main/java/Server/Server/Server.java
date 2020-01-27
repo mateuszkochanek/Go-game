@@ -109,7 +109,8 @@ public class Server   {
           gameId = message.getGameId();
           
           try {
-              player1.sendMessage(new SentGameOptions(1, message.getSize(), message.getMode()));
+              player1.sendMessage(new SentGameOptions(1, 
+                  this.goGameService.getGameById(gameId).getSize(), message.getMode()));
           } catch (IOException e) {
               e.printStackTrace();
           }

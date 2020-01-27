@@ -5,5 +5,6 @@ import Server.Database.Entities.GoGame;
 public interface GoGameDAO {
   public void saveGame(GoGame goGame);
   public GoGame getGame();
+  public GoGame getGameById(int id);
   public int[] getIdList();
 }

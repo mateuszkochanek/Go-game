@@ -32,4 +32,9 @@ public class GoGameServiceImpl implements GoGameService {
     return this.goGameDAO.getIdList();
   }
 
+  @Override
+  public GoGame getGameById(int id) {
+    return this.goGameDAO.getGameById(id);
+  }
+
 }

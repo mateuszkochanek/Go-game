@@ -30,7 +30,7 @@ public class Game {
     
     public Game() {
       this.previousPass = false;
-      movementsIndex = 0;
+      this.movementsIndex = 0;
     }
 
 	public synchronized void getMessage(ClientMessage clientMessage, Player player) {
