@@ -6,6 +6,6 @@ import Server.Database.Entities.Movement;
 public interface MovementService {
   public void saveMovement(Movement movement);
   public MovementDAO getMovementDAO();
-
   public void setMovementDAO(MovementDAO movementDAO);
+  public Movement[] getMovementsById(int id);
 }

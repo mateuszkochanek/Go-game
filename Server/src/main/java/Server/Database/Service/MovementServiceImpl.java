@@ -32,5 +32,10 @@ public class MovementServiceImpl implements MovementService {
     this.movementDAO = movementDAO;
   }
 
+  @Override
+  public Movement[] getMovementsById(int id) {
+    return this.movementDAO.getMovementsById(id);
+  }
+
   
 }

@@ -8,6 +8,7 @@ import Server.Commands.Command;
 import Server.Commands.Factory.CommandFactory;
 import Server.Commands.Factory.ConcreteCommandFactory;
 import Server.Database.Entities.GoGame;
+import Server.Database.Entities.Movement;
 import Server.Player.Player;
 import Server.Player.Bot;
 
@@ -24,9 +25,12 @@ public class Game {
     private GameLogic gameLogic;
     private boolean hotseat;
     private GoGame goGame;
+    private Movement[] movements;
+    private int movementsIndex;
     
     public Game() {
       this.previousPass = false;
+      movementsIndex = 0;
     }
 
 	public synchronized void getMessage(ClientMessage clientMessage, Player player) {
@@ -105,6 +109,22 @@ public class Game {
 
     public void setGameLogic(GameLogic gameLogic) {
       this.gameLogic = gameLogic;
+    }
+
+    public Movement[] getMovements() {
+      return movements;
+    }
+
+    public void setMovements(Movement[] movements) {
+      this.movements = movements;
+    }
+
+    public int getMovementsIndex() {
+      return movementsIndex;
+    }
+
+    public void setMovementsIndex(int movementsIndex) {
+      this.movementsIndex = movementsIndex;
     }
 }
     

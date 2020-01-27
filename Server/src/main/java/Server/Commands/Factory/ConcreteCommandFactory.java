@@ -6,10 +6,12 @@ import org.springframework.stereotype.Component;
 
 import ClientApplication.GoGame.Entities.ClientMessages.ClientMessage;
 import ClientApplication.GoGame.Entities.ClientMessages.Move;
+import ClientApplication.GoGame.Entities.ClientMessages.Next;
 import ClientApplication.GoGame.Entities.ClientMessages.Pass;
 import ClientApplication.GoGame.Entities.ClientMessages.Surrender;
 import Server.Commands.Command;
 import Server.Commands.MoveCommand;
+import Server.Commands.NextCommand;
 import Server.Commands.PassCommand;
 import Server.Commands.SurrenderCommand;
 
@@ -33,6 +35,8 @@ public class ConcreteCommandFactory implements CommandFactory {
           PassCommand passCommand = applicationContext.getBean(PassCommand.class);
           passCommand.setClientMessage(message);
           return passCommand;
+        } else if (message instanceof Next) {
+          return new NextCommand();
         }
         
         return null;

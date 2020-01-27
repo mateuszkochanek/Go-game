@@ -19,6 +19,7 @@ import ClientApplication.GoGame.Entities.ClientMessages.SetGameOptions;
 import Server.Database.Entities.GoGame;
 import Server.Database.Entities.Movement;
 import Server.Database.Service.Interfaces.GoGameService;
+import Server.Database.Service.Interfaces.MovementService;
 import Server.Game.Game;
 import Server.Game.GameLogic;
 import Server.Player.Bot;
@@ -32,6 +33,9 @@ public class Server   {
   
   @Autowired
   GoGameService goGameService;
+  
+  @Autowired
+  MovementService movementService;
   
   @Autowired
   Game game;
@@ -48,6 +52,7 @@ public class Server   {
         int boardSize = 0;
         boolean ifHotseat = false;
         int gameId = 0;
+        Movement[] movements = null;
         
         try {
             listener = new ServerSocket(59898);
@@ -101,6 +106,7 @@ public class Server   {
           
           ifHotseat = true;
           player2 = new Human(connection, 2);
+          gameId = message.getGameId();
           
           try {
               player1.sendMessage(new SentGameOptions(1, message.getSize(), message.getMode()));
@@ -120,14 +126,15 @@ public class Server   {
         
         if (message.getMode().contentEquals("load")) {
           pool.execute(player2);
-          GoGame goGame = this.saveGame(message);
-          goGame = this.goGameService.getGame();
+          //GoGame goGame = this.saveGame(message);
+          //goGame = this.goGameService.getGame();
           game.setPlayer1(player1);
           game.setPlayer2(player2);
           game.setActualPlayer(player1);
           game.setGameLogic(new GameLogic(boardSize));
           game.setHotseat(ifHotseat);
-          game.setGoGame(goGame);
+          //game.setGoGame(goGame);
+          game.setMovements(this.movementService.getMovementsById(gameId));
           player1.setGame(game);
           player2.setGame(game);
         } else {
